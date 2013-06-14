@@ -16,18 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 
+
 #include <gtk/gtk.h>
-#include <gconf/gconf-client.h>
+#include <gnome.h>              // _()
+#include <gconf/gconf-client.h> // GConfClient
 #include <stdlib.h>
 #include <stdio.h>
 
+
+/***** Global macro definitons ************************************************/
 #ifdef SHASH
 #undef SHASH
 #endif
@@ -53,6 +55,8 @@
 			g_strdup_printf("%d", value)); \
 	}
 
+
+/***** Global constants *******************************************************/
 /* This value is not translated by itself. So keep it eqaul to the _Name in
    *.desktop.in file! */
 #define PROGRAMNAME "Remote Desktop Client"
@@ -75,6 +79,10 @@
 #endif
 
 #define GCONF_BASE "/apps/grdesktop/options"
+
+
+/***** Global variables *******************************************************/
+pid_t child_pid;	/* infos about child processes */
 
 GList *hostnames;
 GList *rdp_protocols;
@@ -123,14 +131,6 @@ GtkWidget *btn_sshopts;
 /* - Widgets on Redirect tab - */
 GtkWidget *entryOutput;
 
-
-/* Functions used globally */
-
-/* - Functions from srvsel.c - */
-void fill_combo_with_list(GtkWidget *combo, GList *textlist);  /* used in run.c, optbox.c */
-
-/* - Functions from sshbox.c - */
-void ssh_showbox(GtkWidget *widget, int status);    /* used in optbox.c */
 
 #endif /* __CONFIG_H__ */
 

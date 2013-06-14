@@ -16,22 +16,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __SRVSEL_H__
 #define __SRVSEL_H__
 
-#include <gtk/gtk.h>
-#include <stdlib.h>
-#include <stdio.h>
+
 #include "config.h"
 #include "global.h"
-#include "options.h"
+#include "options.h"        // loadServers()
+
 
 GtkWidget *server_box();
 void sig_selchange(GtkWidget *widget, gpointer data);
+void fill_combo_with_list(GtkWidget *combo, GList *textlist);
+
 
 #endif /* __SRVSEL_H__ */
 

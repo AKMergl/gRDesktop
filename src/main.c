@@ -16,12 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #include "main.h"
 
+/***** Local function prototypes **********************************************/
+int make_gui(gchar *rdpfile);
+gint delete_event(GtkWidget *widget, GdkEvent *event, gpointer data);
+void destroy(GtkWidget *widget, gpointer data);
+int main(int argc, char *argv[]);
+void version();
+void usage();
+
+
+/***** Function definitions ***************************************************/
 gint delete_event(GtkWidget *widget, GdkEvent *event, gpointer data) {
 	return(FALSE);
 }

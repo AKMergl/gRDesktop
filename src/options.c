@@ -20,6 +20,15 @@
 
 #include "options.h"
 
+/***** Local function prototypes **********************************************/
+gint checkScreen(const gchar *geo, gint width, gint height);
+void loadRdpProtocols(GtkWidget *widget);
+void loadScreens(GtkAdjustment *widget);
+void loadColors(GtkWidget *widget);
+void loadSoundOptions(GtkWidget *widget);
+
+
+/***** Function definitions ***************************************************/
 void fillRdpProtocols() {
 	rdp_protocols = g_list_append(rdp_protocols, g_strdup(_("Windows NT/2000")));
 	rdp_protocols = g_list_append(rdp_protocols, g_strdup(_("Windows XP/2003")));

@@ -16,12 +16,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #include "sshbox.h"
 
+/***** Local variable definitions *********************************************/
+GtkWidget *check_enablessh;
+GtkWidget *input_user;
+GtkWidget *input_host;
+
+
+/***** Local function prototypes **********************************************/
+void ssh_createdialog(GtkWidget *widget);
+void ssh_updatebox(int status);
+void sig_enablessh(GtkWidget *widget, gpointer data);
+void sig_sshuser(GtkWidget *widget, gpointer data);
+void sig_sshhost(GtkWidget *widget, gpointer data);
+
+
+/***** Function definitions ***************************************************/
 void ssh_showbox(GtkWidget *widget, int status) {
 	GtkWidget *dlg;
 

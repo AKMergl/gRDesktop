@@ -16,32 +16,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __RDPPARSE_H__
 #define __RDPPARSE_H__
 
-#include <gtk/gtk.h>
-#include <string.h>
+
 #include "config.h"
 #include "global.h"
-#include "options.h"
+#include "optbox.h"         // sig_loadbtn(), sig_savebtn()
+
 
 #define MAX_LINE_BUF 4096
+
 
 void sig_file_open(GtkWidget *widget, gpointer data);
 void sig_file_save(GtkWidget *widget, gpointer data);
 gint parse_file(gchar *filename);
-void parse_line(const gchar *line);
-void insert_option(const gchar *key, const gchar *value);
-gchar *mod_color(const gchar *colorstr);
-gchar *mod_bitmapupd(const gchar *bitmapstr);
-gchar *mod_geometry(const gchar *value, const gchar *old, const char typ);
-gchar *mod_fullscreen(const gchar *value);
-gchar *ext_geometry(const gchar *value, const char typ);
-gchar *ext_colorsize(const gint value);
+
 
 #endif /* __RDPPARSE_H__ */
 

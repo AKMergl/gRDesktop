@@ -16,33 +16,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#include "config.h"
-#include <gtk/gtk.h>
-#include <gnome.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <libintl.h>
-#include <locale.h>
-#include <glib.h>
-#include "global.h"
-#include "srvsel.h"
-#include "btnbox.h"
-#include "optbox.h"
-#include "run.h"
 
-int main(int argc, char *argv[]);
-int make_gui(gchar *rdpfile);
-gint delete_event(GtkWidget *widget, GdkEvent *event, gpointer data);
-void destroy(GtkWidget *widget, gpointer data);
-void version();
-void usage();
+#include "config.h"
+#include "global.h"
+#include "srvsel.h"         // server_box()
+#include "btnbox.h"         // button_box(), sig_options()
+#include "optbox.h"         // option_box()
+#include "options.h"        /* fill_dialog(), fillRdpProtocols(), fillScreens(),
+                               fillColors(), fillSoundOptions(), loadOptions() */
+#include "rdpparse.h"       // parse_file()
+#include "run.h"            // run_rdesktop()
+
 
 #endif /* __MAIN_H__ */
 

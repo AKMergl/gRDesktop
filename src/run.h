@@ -16,24 +16,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __RUN_H__
 #define __RUN_H__
 
-#include <gtk/gtk.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <signal.h>
+
 #include "config.h"
 #include "global.h"
-#include "options.h"
+#include "options.h"        /* screenCommand(), colorCommand(), keymapCommand(),
+                               loadServers(), saveServers(), saveOptions() */
+#include "srvsel.h"         // fill_combo_with_list()
 
-pid_t child_pid;	/* infos about child processes */
 
 void run_rdesktop();
+
 
 #endif /* __RUN_H__ */
 

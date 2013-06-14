@@ -20,6 +20,14 @@
 
 #include "btnbox.h"
 
+/***** Local function prototypes **********************************************/
+void sig_connect(GtkWidget *widget, gpointer data);
+void sig_cancel(GtkWidget *widget, gpointer data);
+void sig_about(GtkWidget *widget, gpointer data);
+void sig_help(GtkWidget *widget, gpointer data);
+
+
+/***** Function definitions ***************************************************/
 GtkWidget *button_box() {
 	GtkWidget *box;
 	GtkWidget *btnHelp;

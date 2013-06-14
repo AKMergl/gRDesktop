@@ -16,25 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #ifndef __BTNBOX_H__
 #define __BTNBOX_H__
 
-#include <gtk/gtk.h>
+
 #include "config.h"
 #include "global.h"
-#include "srvsel.h"
 #include "run.h"
 
+
 GtkWidget *button_box();
-void sig_connect(GtkWidget *widget, gpointer data);
-void sig_about(GtkWidget *widget, gpointer data);
 void sig_options(GtkWidget *widget, gpointer data);
-void sig_cancel(GtkWidget *widget, gpointer data);
-void sig_help(GtkWidget *widget, gpointer data);
+
 
 #endif /* __BTNBOX_H__ */
 

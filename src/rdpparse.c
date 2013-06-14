@@ -16,12 +16,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #include "rdpparse.h"
 
+/***** Local function prototypes **********************************************/
+gchar *ext_geometry(const gchar *value, const char typ);
+gchar *ext_colorsize(const gint value);
+void parse_line(const gchar *line);
+void insert_option(const gchar *key, const gchar *value);
+gchar *mod_color(const gchar *colorstr);
+gchar *mod_bitmapupd(const gchar *bitmapstr);
+gchar *mod_geometry(const gchar *value, const gchar *old, const char typ);
+gchar *mod_fullscreen(const gchar *value);
+
+
+/***** Function definitions ***************************************************/
 
 /* - Callback function to load saved connection configuration --------------- */
 void sig_file_open(GtkWidget *widget, gpointer data) {
