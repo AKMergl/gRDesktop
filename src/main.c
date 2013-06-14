@@ -41,13 +41,12 @@ int make_gui(gchar *rdpfile) {
 	GtkWidget *btnBox;
 	GdkPixbufAnimation *animation;
 
-	window_main = gnome_app_new("grdesktop", _("Remotedesktop Client"));
+	window_main = gnome_app_new("grdesktop", _(PROGRAMNAME));
 	gtk_window_set_wmclass(GTK_WINDOW(window_main),
 		"grdesktop", "grdesktop");
 	gtk_container_set_border_width(GTK_CONTAINER(window_main), 0);
 	gtk_window_set_resizable(GTK_WINDOW(window_main), FALSE);
-	gtk_window_set_title(GTK_WINDOW(window_main),
-		_("Remote Desktop Client"));
+	gtk_window_set_title(GTK_WINDOW(window_main), _(PROGRAMNAME));
 
 	g_signal_connect(G_OBJECT(window_main), "delete_event",
 			G_CALLBACK(delete_event), NULL);
@@ -76,7 +75,8 @@ int make_gui(gchar *rdpfile) {
 			gtk_box_pack_start(GTK_BOX(winBox), image_process,
 				FALSE, FALSE, FALSE);
 
-			animation = gdk_pixbuf_animation_new_from_file(PIXDIR"/animation.gif", &err);
+			animation = gdk_pixbuf_animation_new_from_file(PIXDIR"/animation.gif",
+                &err);
 			gtk_image_set_from_animation(GTK_IMAGE(image_process), animation);
 			if(animation == NULL)
 				g_warning("Unable to load animation: %s", err->message);
@@ -143,8 +143,18 @@ int main(int argc, char *argv[]) {
 	gboolean opt_start = FALSE;
 
 #ifdef ENABLE_NLS
-	if(setlocale(LC_ALL, "") == NULL)
+    if(setlocale(LC_ALL, "") == NULL)
 		g_warning("locale not understood by C library, internationalization will not work\n");
+		
+#ifdef _DEBUG_
+    g_warning("NLS enabled. Default locale is %s", setlocale(LC_ALL, ""));
+    g_warning("Locale directory is: %s", LOCALEDIR);
+/*
+    setlocale(LC_ALL, "de_DE.UTF-8");
+    g_warning("Locale is set to %s", setlocale(LC_ALL, ""));
+*/
+#endif
+
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE, "UTF-8");
 	textdomain(PACKAGE);

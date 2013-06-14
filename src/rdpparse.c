@@ -23,22 +23,27 @@
 #include "rdpparse.h"
 
 
+/* - Callback function to load saved connection configuration --------------- */
 void sig_file_open(GtkWidget *widget, gpointer data) {
 	GtkFileSelection *filesel;
 	gchar *filename;
 
 	filesel = GTK_FILE_SELECTION(data);
 	filename = g_strdup(gtk_file_selection_get_filename(filesel));
+	
+	/* Check whether selection is not a folder */
 	if(filename[strlen(filename)-1] == '/') {
 		gnome_error_dialog(_("Please select a valid rdp file!"));
 		sig_loadbtn(widget, NULL);
 		return;
 	}
 
+    /* Get stored information from file */
 	parse_file(filename);
 	return;
 }
 
+/* - Callback function to save connection configuration --------------------- */
 void sig_file_save(GtkWidget *widget, gpointer data) {
 	GtkFileSelection *filesel;
 	FILE *file;
@@ -46,12 +51,15 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 
 	filesel = GTK_FILE_SELECTION(data);
 	filename = g_strdup(gtk_file_selection_get_filename(filesel));
+	
+	/* Check whether selection is not a folder */
 	if(filename[strlen(filename)-1] == '/') {
 		gnome_error_dialog(_("Please select a valid rdp file!"));
 		sig_savebtn(widget, NULL);
 		return;
 	}
 
+    /* Ask user whether he wants to replace an existing configuration */
 	if(g_file_test(filename, G_FILE_TEST_EXISTS)) {
 		GtkWidget *dlg;
 		gint result;
@@ -72,6 +80,7 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 		}
 	}
 
+    /* Create / replace configuration file */
 	file = fopen(filename, "w");
 	if(file == NULL) {
 		gnome_error_dialog(g_strdup_printf(_("Unable to save rdp-file: %s"),
@@ -90,9 +99,9 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 			fprintf(file, "desktopheight:i:%d\n", 480);
 		} else {
 			fprintf(file, "screen mode id:i:%d\n", 1);
-			fprintf(file, "desktopwidth:i:%s\n",
+			fprintf(file, "desktopwidth:s:%s\n",
 				ext_geometry(SHASH("geometry"), 'W'));
-			fprintf(file, "desktopheight:i:%s\n",
+			fprintf(file, "desktopheight:s:%s\n",
 				ext_geometry(SHASH("geometry"), 'H'));
 		}
 	}
@@ -120,13 +129,20 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 		fprintf(file, "shell working directory:s:%s\n", SHASH("ppath"));
 	}
 
-	if(iSHASH("bitmapupd") == TRUE)
+	if(iSHASH("bitmapupd") == TRUE) {
 		fprintf(file, "bitmapcachepersistentable:i:%d\n", 0);
+	}
+	
+	/* MKA Add redirect optins */
+	if(SHASH("redirect") != NULL) {
+		fprintf(file, "redirect:s:%s\n", SHASH("redirect"));
+	}
 
 	fclose(file);
 	return;
 }
 
+/* - Get stored information from the connection configuration file ---------- */
 gint parse_file(gchar *filename) {
 	FILE *file;
 	char line[MAX_LINE_BUF];
@@ -134,12 +150,14 @@ gint parse_file(gchar *filename) {
 	gboolean unicode;
 	gint i, ch;
 
+    /* Test the file fisrt */
 	if(!g_file_test(filename, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
 		gnome_error_dialog(g_strdup_printf(_("Unable to open rdp-file: %s"),
 			filename));
 		return(1);
 	}
 
+    /* Open file for read */
 	file = fopen(filename, "r");
 	if(file == NULL) {
 		gnome_error_dialog(g_strdup_printf(_("Unable to open rdp-file: %s"),
@@ -194,6 +212,7 @@ gint parse_file(gchar *filename) {
 	return(0);
 }
 
+/* - Get particular configuration element from the read input line ---------- */
 void parse_line(const gchar *line) {
 	gchar **items = NULL;
 
@@ -230,6 +249,9 @@ void parse_line(const gchar *line) {
 			mod_geometry(items[2], SHASH("geometry"), 'H'));
 	else if(!g_strcasecmp(items[0], "screen mode id"))
 		insert_option("fullscreen", mod_fullscreen(items[2]));
+	/* MKA Add redirect optins */
+	else if(!g_strcasecmp(items[0], "redirect"))
+	    insert_option("redirect", items[2]);
 
 	if(items != NULL)
 		g_strfreev(items);
@@ -237,6 +259,7 @@ void parse_line(const gchar *line) {
 	return;
 }
 
+/* - Insert particular option into the HASH table --------------------------- */
 void insert_option(const gchar *key, const gchar *value) {
 #ifdef _DEBUG_
 	g_warning("RDP: old value: %s -> %s", key, SHASH(key));

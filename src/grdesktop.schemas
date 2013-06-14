@@ -8,7 +8,27 @@
 			<default>0</default>
 			<locale name="C">
 				<short>Force bitmap updates</short>
-				<long>Force rdesktop to replaint bitmap updates.</long>
+				<long>Force rdesktop to repaint bitmap updates.</long>
+			</locale>
+
+			<locale name="de">
+				<short>Bitmap-Updates erzwingen</short>
+				<long>Bitmap-Updates erzwingen.</long>
+			</locale>
+
+			<locale name="es">
+				<short>Forzar actualizaciones de bitmap</short>
+				
+			</locale>
+
+			<locale name="fr">
+				<short>Forcer la mise à jour des images</short>
+				
+			</locale>
+
+			<locale name="hu">
+				<short>Képfrissítés bitmap-ként</short>
+				<long>A bitmap-frissítések kikényszerítése.</long>
 			</locale>
 		</schema>
 		<schema>
@@ -22,6 +42,16 @@
 				runs in user-mode.
 				</long>
 			</locale>
+
+			<locale name="de">
+				<short>Klientenname fälschen</short>
+				<long>Lokaler Klientenname fälschen. Es wird verwendet, wenn der Terminlaserver läuft in User Mode.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>Hamisított kliensnév</short>
+				<long>A lokális gép nevének megváltoztatása. Akkor kerül alkalmazásra, ha a terminálszerver felhasználó módban fut.</long>
+			</locale>
 		</schema>
 		<schema>
 			<key>/schemas/apps/grdesktop/options/colorsize</key>
@@ -30,10 +60,20 @@
 			<type>int</type>
 			<default>0</default>
 			<locale name="C">
-				<short>Colorsize for remote server.</short>
+				<short>Color size for remote server.</short>
 				<long>Define the available colors on the remote server. This
 				value is based on the selection box in grdesktop.
 				</long>
+			</locale>
+
+			<locale name="de">
+				<short>Farbtiefe am entfernten Rechner.</short>
+				<long>Definieren Sie die erreichbare Farben am entfernten Rechner. Dieser Wert kommt aus dem Selection-Box in grdesktop.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>Színmélység a távoli gépen.</short>
+				<long>Adja meg a távoli gépen rendelkezésre álló színeket! Ez a gRDeesktop választási mezőjében kiválasztott érték.</long>
 			</locale>
 		</schema>
 		<schema>
@@ -42,10 +82,20 @@
 			<owner>grdesktop</owner>
 			<type>string</type>
 			<locale name="C">
-				<short>Domainname to use.</short>
+				<short>Domain name to use.</short>
 				<long>Define the Windows-Domain on which rdesktop
 				should default login.
 				</long>
+			</locale>
+
+			<locale name="de">
+				<short>Zu verwendender Domain-Name.</short>
+				<long>Definieren Sie ein Windows-Domain, an dem rdesktop sich anmelden soll.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>Használandó domain.</short>
+				<long>Adja megi az alapértelmezett Windows Domain-t, amire az rdesktop bejelentkezzen!</long>
 			</locale>
 		</schema>
 		<schema>
@@ -55,10 +105,20 @@
 			<type>string</type>
 			<default>640x480</default>
 			<locale name="C">
-				<short>Windowssize of rdesktop</short>
-				<long>Rdesktop use this windowsize for connection to the
+				<short>Window size of rdesktop</short>
+				<long>Rdesktop uses this window size for connection to the
 				remote host.
 				</long>
+			</locale>
+
+			<locale name="de">
+				<short>Fenstergröße für den rdesktop</short>
+				<long>rdesktop verwendet diese Fenstergröße beim Anschluß am entfernten Rechner.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>rdesktop ablakmérete</short>
+				<long>Az rdesktop ezt az ablakméretet használja a távoli gépen.</long>
 			</locale>
 		</schema>
 		<schema>
@@ -73,6 +133,16 @@
 				current window manager.
 				</long>
 			</locale>
+
+			<locale name="de">
+				<short>Fenstermanager-Dekoration verbergen</short>
+				<long>Dekorationen (Rahmen, Ikone ...) des aktiven Fenstermanagers sollen nicht angezeigt werden.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>Az ablakdekorációk elrejtése</short>
+				<long>Az aktív ablakkezelő dekorációi (szegélyek, iconok, ...) ne jelenjenek meg.</long>
+			</locale>
 		</schema>
 		<schema>
 			<key>/schemas/apps/grdesktop/options/hostnames</key>
@@ -83,6 +153,16 @@
 			<locale name="C">
 				<short>Last used hostnames</short>
 				<long>Store the last ten hostnames for hostnames combobox.</long>
+			</locale>
+
+			<locale name="de">
+				<short>Letzt verwendete Rechnernamen</short>
+				<long>Die letzten 10 Rechnernamen für das Combobox speichern.</long>
+			</locale>
+
+			<locale name="hu">
+				<short>Utoljára használt szerverek</short>
+				<long>Az utolsó 10 távoli gép nevének megjegyzése a váalsztási mezőhöz.</long>
 			</locale>
 		</schema>
 	</schemalist>

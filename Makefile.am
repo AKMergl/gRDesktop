@@ -18,8 +18,11 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-
 SUBDIRS = po src pixmaps help doc
+
+ACLOCAL_AMFLAGS = -I m4
+
+EXTRA_DIST = intltool-extract.in intltool-merge.in intltool-update.in
 
 mimedir = $(datadir)/mime-info
 mime_DATA = grdesktop.mime grdesktop.keys
@@ -28,5 +31,6 @@ applicationsdir = $(datadir)/application-registry
 applications_DATA = grdesktop.applications
 
 desktopdir = $(datadir)/applications
-desktop_DATA = grdesktop.desktop
-
+desktop_in_files = grdesktop.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@

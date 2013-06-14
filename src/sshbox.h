@@ -31,7 +31,6 @@
 GtkWidget *check_enablessh;
 GtkWidget *input_user, *input_host;
 
-void ssh_showbox(GtkWidget *widget, int status);
 void ssh_createdialog(GtkWidget *widget);
 void ssh_updatebox(int status);
 void sig_enablessh(GtkWidget *widget, gpointer data);

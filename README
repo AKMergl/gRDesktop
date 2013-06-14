@@ -1,8 +1,7 @@
 grdesktop
 ===========
 
-This package provides a graphical frontend for the remote
-desktop client (rdesktop).
+This package provides a graphical frontend for the remote desktop client (rdesktop).
 
 You need the binary version of rdesktop (www.rdesktop.org) also.
 

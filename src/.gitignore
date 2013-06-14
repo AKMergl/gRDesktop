@@ -1,10 +1,12 @@
+*.rdp
+*.o
+*.orig
+.*.swp
 .deps
+.libs
 grdesktop
 grdesktop.core
 grdesktope
 grdesktope.core
-.libs
 Makefile
 Makefile.in
-.*.swp
-*.rdp

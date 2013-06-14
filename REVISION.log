@@ -1,0 +1,50 @@
+To generate new version use the following commands:
+
+    cd /mnt/datapart/gRDesktop
+    vi configure.ac             # edit version number in AM_INIT_AUTOMAKE()
+    
+    gnome-autogen.sh
+    [   aclocal
+        autoconf
+        autoheader
+        automake
+
+        ./configure ]
+
+    make
+    su
+    make install
+________________________________________________________________________________
+
+To generate new *.po (e.g. for locale hu) file use the following commands:
+
+    cd /mnt/datapart/gRDesktop/po
+
+    intltool-update --pot
+    msginit -l hu [-i grdesktop.pot]
+
+After changing sources regenerate the *.po files with:
+    intltool-update -r
+________________________________________________________________________________
+
+
+Revision log
+============
+0.24rc1     2012-09-27  Added new tab for redirection options.
+                        Extended command with redirect options (if any).
+
+0.24rc2     2012-10-01  Save and restore redirect options from connection
+                        configuration file.
+
+0.24rc3     2012-10-02  Internationalizing
+                        http://people.gnome.org/~malcolm/i18n/index.html
+
+0.24rc4     2012-10-08  Creating localization for [hu].
+
+0.24rc5     2012-10-11  Migrating from GtkCombo to GtkComboBoxEntry.
+
+0.24rc6     2012-10-12  Migrating from GnomeAbout to GtkAboutDialog
+                        http://sources.redhat.com/autobook/autobook/autobook_25.html
+
+0.24rc7     2012-10-13  Updating configure.ac
+

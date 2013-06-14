@@ -1,0 +1,481 @@
+# Hungarian translations for grdesktop package.
+# Copyright (C) 2012 THE grdesktop'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the grdesktop package.
+# Attila K. Mergl <mergl@astron.hu>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: grdesktop 0.24rc6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-13 20:32+0200\n"
+"PO-Revision-Date: 2012-10-13 15:17+0200\n"
+"Last-Translator: Attila K. Mergl <mergl@astron.hu>\n"
+"Language-Team: Hungarian <->\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: k\n"
+
+#: ../src/btnbox.c:71 ../src/btnbox.c:76
+msgid "Please select or insert a valid hostname/ip-address!"
+msgstr "Adjon meg egy érvényes gépnevet vagy IP címet!"
+
+#: ../src/btnbox.c:107 ../src/grdesktop.desktop.in.h:1
+msgid "Gnome frontend for rdesktop"
+msgstr "Gnome felület az rdesktop programhoz"
+
+#. "artists", artists,
+#. "documenters", documenters,
+#: ../src/btnbox.c:111
+msgid "translator-credits"
+msgstr "Mergl K. Attila <mergl@astron.hu>"
+
+#: ../src/btnbox.c:113
+msgid ""
+"This program is licensed under the\n"
+"GNU GENERAL PUBLIC LICENSE\n"
+"Version 2, June 1991"
+msgstr ""
+"Ez a program a\n"
+"GNU General Public License\n"
+"második változata (1991. június) alapján került kiadásra."
+
+#: ../src/btnbox.c:143
+#, c-format
+msgid ""
+"Could not display help for Remote Desktop.\n"
+"\n"
+"%s"
+msgstr ""
+"A távoliasztal-klienshez nem jeleníthető meg segítség.\n"
+"\n"
+"%s"
+
+#: ../src/main.c:202
+msgid "Unable to create hash to store elements!"
+msgstr "Az elemek tárolásához nem sikerült a HASH-táblát létrehozni."
+
+#: ../src/optbox.c:34
+msgid "General"
+msgstr "Általános"
+
+#: ../src/optbox.c:40
+msgid "Display"
+msgstr "Képernyő"
+
+#: ../src/optbox.c:46
+msgid "Resources"
+msgstr "Eszközök"
+
+#: ../src/optbox.c:52
+msgid "Program"
+msgstr "Program"
+
+#: ../src/optbox.c:58
+msgid "Extended"
+msgstr "Kapcsolók"
+
+#. MKA
+#: ../src/optbox.c:65
+msgid "Redirect"
+msgstr "Átirányítás"
+
+#. create logon settings box
+#: ../src/optbox.c:116
+msgid "Logon Settings"
+msgstr "Bejelentkezés"
+
+#: ../src/optbox.c:148
+msgid ""
+"Type the name of the computer, or\n"
+"choose a computer from the list."
+msgstr ""
+"Írja be a számítógép nevét,\n"
+"vagy válasszon a listából!"
+
+#. create open/save settings box
+#: ../src/optbox.c:170
+msgid "Connection settings"
+msgstr "Tárolt kapcsolatok"
+
+#: ../src/optbox.c:202
+msgid ""
+"Save settings or load saved\n"
+"connections from file."
+msgstr ""
+"Mentse el a beállításokat, vagy\n"
+"töltsön be egy eltárolt kapcsolatot!"
+
+#. create display settings box
+#: ../src/optbox.c:235
+msgid "Remote desktop size"
+msgstr "A távoli asztal mérete"
+
+#: ../src/optbox.c:267
+msgid ""
+"Choose the size of your remote\n"
+"desktop, or select fullscreen."
+msgstr ""
+"Válassza ki a távoli asztal méretét,\n"
+"vagy a teljes képernyőt!"
+
+#. create color settings box
+#: ../src/optbox.c:279
+msgid "Colors"
+msgstr "Színek"
+
+#: ../src/optbox.c:300
+msgid ""
+"Select the available colorsize\n"
+"on remote box."
+msgstr ""
+"Válassza ki a távoli gép \n"
+"lehetséges színmélységét!"
+
+#. create keyboard settings box
+#: ../src/optbox.c:331
+msgid "Keyboard type"
+msgstr "Billentyűzet típusa"
+
+#: ../src/optbox.c:363
+msgid ""
+"Select the language code for\n"
+"the keyboard."
+msgstr ""
+"Válassza ki a billentyűzet\n"
+"nyelvi kódját!"
+
+#. create sound settings box
+#: ../src/optbox.c:375
+msgid "Sound on the remote Computer"
+msgstr "Hang a távoli gépen"
+
+#: ../src/optbox.c:407
+msgid ""
+"Please select which sound output you\n"
+"would like to use."
+msgstr ""
+"Válassza ki, hogy melyik hangkimenetet\n"
+"szeretné használni!"
+
+#. create program settings box
+#: ../src/optbox.c:438
+msgid "Launch Program"
+msgstr "Programindítás"
+
+#: ../src/optbox.c:470
+msgid ""
+"Select a program which should start\n"
+"after connection."
+msgstr ""
+"Válassza ki a programot, ami a\n"
+"kapcsolódás után elindul!"
+
+#. create program settings box
+#: ../src/optbox.c:501
+msgid "Options"
+msgstr "Opciók"
+
+#: ../src/optbox.c:533
+msgid "Tune your remote desktop connections."
+msgstr "A távoli kapcsolat optimalizálása."
+
+#. create frame Disk
+#: ../src/optbox.c:579
+msgid "Disk"
+msgstr "Diszk"
+
+#: ../src/optbox.c:600
+msgid "Select path to share on remote server."
+msgstr ""
+"Válassza ki a könyvtárat,\n"
+"amit a távoli gépen is el akar érni!"
+
+#: ../src/optbox.c:611
+msgid "Share name:"
+msgstr "Megosztás neve:"
+
+#: ../src/optbox.c:625
+msgid "Local full path of share:"
+msgstr "Teljes elérési útvonal:"
+
+#: ../src/optbox.c:643
+msgid "Browse..."
+msgstr "Keresés..."
+
+#. create entry for commandline optoins
+#: ../src/optbox.c:656
+msgid "Options to be added to the command"
+msgstr "A parancshoz adandó opciók"
+
+#: ../src/optbox.c:691 ../src/srvsel.c:31
+msgid "Computer:"
+msgstr "Számítógép:"
+
+#: ../src/optbox.c:721 ../src/sshbox.c:67
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#: ../src/optbox.c:744
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: ../src/optbox.c:768
+msgid "Domain:"
+msgstr "Domain:"
+
+#: ../src/optbox.c:782
+msgid "Save my password"
+msgstr "Jelszó mentése"
+
+#: ../src/optbox.c:841
+msgid "Less"
+msgstr "kisebb"
+
+#: ../src/optbox.c:857
+msgid "More"
+msgstr "nagyobb"
+
+#: ../src/optbox.c:863
+msgid "??? pixels"
+msgstr "Hány pixel?"
+
+#: ../src/optbox.c:936
+msgid "Keyboard"
+msgstr "Billentyűzet"
+
+#. insert checkbox
+#: ../src/optbox.c:984
+msgid "Run program"
+msgstr "Program indítása"
+
+#: ../src/optbox.c:995
+msgid "Path and filename:"
+msgstr "Elérési út és fájlnév:"
+
+#: ../src/optbox.c:1014
+msgid "Working directory:"
+msgstr "Munkakönyvtár:"
+
+#. insert checkboxes
+#: ../src/optbox.c:1038 ../src/grdesktop.schemas.in.h:8
+msgid "Force bitmap updates"
+msgstr "Képfrissítés bitmap-ként"
+
+#: ../src/optbox.c:1046
+msgid "Don't send motion events"
+msgstr "Egérmozgást ne továbbítsa"
+
+#: ../src/optbox.c:1054
+msgid "Hide window manager decorations"
+msgstr "Ablakdekorációk elrejtése"
+
+#: ../src/optbox.c:1062
+msgid "Disable encryption (French TS)"
+msgstr "Titkosítás tiltása (francia NT szerverhez)"
+
+#: ../src/optbox.c:1070
+msgid "Window manager key bindings"
+msgstr ""
+"Ablakkezelő billentyűparancsainak\n"
+"engedélyezése"
+
+#: ../src/optbox.c:1078
+msgid "Attach to console (>= Windows 2003)"
+msgstr "Konzolhoz kapcsolódás (>= Windows 2003)"
+
+#: ../src/optbox.c:1102
+msgid "Fake clientname:"
+msgstr "Kliensgép neve:"
+
+#: ../src/optbox.c:1132 ../src/sshbox.c:51
+msgid "Enable SSH tunneling"
+msgstr "SSH-alagút engedélyezése"
+
+#. Craete file selection dialog
+#: ../src/optbox.c:1224
+msgid "Save rdp-File"
+msgstr "RDP fájl mentése"
+
+#: ../src/optbox.c:1241
+msgid "Open rdp-File"
+msgstr "RDP fájl megnyitása"
+
+#: ../src/optbox.c:1269
+msgid "by"
+msgstr "x"
+
+#: ../src/optbox.c:1269
+msgid "pixels"
+msgstr "pixel"
+
+#: ../src/optbox.c:1510
+msgid "Choose folder to share"
+msgstr "Könyvtár választása a megosztáshoz"
+
+#: ../src/optbox.c:1539
+msgid "Share must be defined!"
+msgstr "Nem adott meg megosztási nevet!"
+
+#: ../src/optbox.c:1546
+msgid "Path must be defined!"
+msgstr "Nem adott meg elérési útvonalat!"
+
+#: ../src/optbox.c:1550
+msgid "It is not an absolute path!"
+msgstr "Nem abszolút útvonalat választott!"
+
+#: ../src/options.c:24
+msgid "Windows NT/2000"
+msgstr "Windows NT/2000"
+
+#: ../src/options.c:25
+msgid "Windows XP/2003"
+msgstr "Windows XP/2003"
+
+#: ../src/options.c:56 ../src/options.c:405 ../src/rdpparse.c:96
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
+
+#: ../src/options.c:102
+msgid "256 Colors"
+msgstr "256 szín"
+
+#: ../src/options.c:103
+msgid "High Color (15bit)"
+msgstr "Nagy felbontás (15 bit)"
+
+#: ../src/options.c:104
+msgid "High Color (16bit)"
+msgstr "Nagy felbontás (16 bit)"
+
+#: ../src/options.c:105
+msgid "True Color (24bit)"
+msgstr "Valós színek (24 bit)"
+
+#: ../src/options.c:138 ../src/options.c:170
+#, c-format
+msgid "Unable to find keyboad definitions: %s"
+msgstr "Nem található a billentyűzet definició: %s"
+
+#: ../src/options.c:197
+msgid "No sound output"
+msgstr "Nincs hangkimenet"
+
+#: ../src/options.c:198
+msgid "Play on this host"
+msgstr "Ezen a gépen"
+
+#: ../src/rdpparse.c:36 ../src/rdpparse.c:57
+msgid "Please select a valid rdp file!"
+msgstr "Válasszon egy érvényes RDP fájlt!"
+
+#: ../src/rdpparse.c:71
+msgid "Really override the already existing file?"
+msgstr "Valóban felülírjuk a létező fájlt?"
+
+#: ../src/rdpparse.c:86
+#, c-format
+msgid "Unable to save rdp-file: %s"
+msgstr "Nem sikerült az RDP fájlt menteni: %s"
+
+#: ../src/rdpparse.c:155 ../src/rdpparse.c:163
+#, c-format
+msgid "Unable to open rdp-file: %s"
+msgstr "Nem sikerült az RDP fájlt megnyitni: %s"
+
+#: ../src/rdpparse.c:171
+#, c-format
+msgid "File %s is empty!"
+msgstr "A %s fájl üres!"
+
+#: ../src/run.c:104
+msgid "No hostname for ssh tunneling available"
+msgstr "Nincs megadva gépnév az SSH-alagúthoz!"
+
+#: ../src/sshbox.c:28
+msgid "SSH-Tunnel settings"
+msgstr "Az SSH-alagút beállításai"
+
+#: ../src/sshbox.c:84
+msgid "Hostname:"
+msgstr "Távoli gép neve:"
+
+# See also
+# #define PROGRAMNAME "..."
+# at src/global.h:56
+#: ../src/grdesktop.desktop.in.h:2
+msgid "Remote Desktop Client"
+msgstr "Távoliasztal-kliens"
+
+#: ../src/grdesktop.schemas.in.h:1
+msgid "Color size for remote server."
+msgstr "Színmélység a távoli gépen."
+
+#: ../src/grdesktop.schemas.in.h:2
+msgid "Define the Windows-Domain on which rdesktop should default login."
+msgstr ""
+"Adja megi az alapértelmezett Windows Domain-t, amire az rdesktop "
+"bejelentkezzen!"
+
+#: ../src/grdesktop.schemas.in.h:3
+msgid ""
+"Define the available colors on the remote server. This value is based on the "
+"selection box in grdesktop."
+msgstr ""
+"Adja meg a távoli gépen rendelkezésre álló színeket! Ez a gRDeesktop "
+"választási mezőjében kiválasztott érték."
+
+#: ../src/grdesktop.schemas.in.h:4
+msgid "Domain name to use."
+msgstr "Használandó domain."
+
+#: ../src/grdesktop.schemas.in.h:5
+msgid ""
+"Don't display the decoration (borders, icons, ...) from the current window "
+"manager."
+msgstr ""
+"Az aktív ablakkezelő dekorációi (szegélyek, iconok, ...) ne jelenjenek meg."
+
+#: ../src/grdesktop.schemas.in.h:6
+msgid "Fake clientname"
+msgstr "Hamisított kliensnév"
+
+#: ../src/grdesktop.schemas.in.h:7
+msgid ""
+"Fake the local clientname. Used, if the terminal server runs in user-mode."
+msgstr ""
+"A lokális gép nevének megváltoztatása. Akkor kerül alkalmazásra, ha a "
+"terminálszerver felhasználó módban fut."
+
+#: ../src/grdesktop.schemas.in.h:9
+msgid "Force rdesktop to repaint bitmap updates."
+msgstr "A bitmap-frissítések kikényszerítése."
+
+#: ../src/grdesktop.schemas.in.h:10
+msgid "Hide the window manager decoration"
+msgstr "Az ablakdekorációk elrejtése"
+
+#: ../src/grdesktop.schemas.in.h:11
+msgid "Last used hostnames"
+msgstr "Utoljára használt szerverek"
+
+#: ../src/grdesktop.schemas.in.h:12
+msgid "Rdesktop uses this window size for connection to the remote host."
+msgstr "Az rdesktop ezt az ablakméretet használja a távoli gépen."
+
+#: ../src/grdesktop.schemas.in.h:13
+msgid "Store the last ten hostnames for hostnames combobox."
+msgstr "Az utolsó 10 távoli gép nevének megjegyzése a váalsztási mezőhöz."
+
+#: ../src/grdesktop.schemas.in.h:14
+msgid "Window size of rdesktop"
+msgstr "rdesktop ablakmérete"
+
+#~ msgid ""
+#~ "(C) 2002-2004 Thorsten Sauter\n"
+#~ "2012 Attila K. Mergl"
+#~ msgstr ""
+#~ "(C) 2002-2004 Thorsten Sauter\n"
+#~ "2012 Attila K. Mergl"

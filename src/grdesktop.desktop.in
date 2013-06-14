@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+_Name=Remote Desktop Client
+_Comment=Gnome frontend for rdesktop
+TryExec=grdesktop
+Exec=grdesktop
+Terminal=false
+Icon=grdesktop/icon.png
+Type=Application
+StartupNotify=true
+Categories=GNOME;Application;Network;

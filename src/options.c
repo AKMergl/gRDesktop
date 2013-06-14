@@ -1,7 +1,7 @@
 /* grdesktop - gtk rdesktop frontend
  * Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
  *
- * $Id: options.c,v 1.90 2005/03/08 10:06:37 tsauter Exp $
+ * $Id: options.c,v 1.89 2004/03/30 12:31:45 tsauter Exp $
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,9 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #include "options.h"
 
@@ -79,7 +77,6 @@ void loadScreens(GtkAdjustment *widget) {
 	gint i, count;
 	gboolean found;
 	gchar *item = NULL;
-	gchar *geometry = SHASH("geometry");
 
 	found = FALSE;
 	i = 0;
@@ -93,17 +90,12 @@ void loadScreens(GtkAdjustment *widget) {
 				break;
 			}
 		}
-		
 	}
 
 	if(found == TRUE)
 		gtk_adjustment_set_value(GTK_ADJUSTMENT(widget), i);
 	else
 		gtk_adjustment_set_value(GTK_ADJUSTMENT(widget), 0);
-
-	if(geometry != NULL) {
-		gtk_entry_set_text(GTK_ENTRY(input_geometry), geometry);
-	}
 }
 
 void fillColors() {
@@ -362,10 +354,6 @@ gint saveOptions() {
 		iSHASH("savepw"), NULL);
 	gconf_client_set_int(gcfg, GCONF_BASE"/rdp_protocol",
 		iSHASH("rdp_protocol"), NULL);
-#ifdef _DEBUG_
-	if(SHASH("geometry") != NULL)
-		g_warning("Option: %s->%s", path[y-1], value);
-#endif
 	if(SHASH("geometry") != NULL)
 		gconf_client_set_string(gcfg, GCONF_BASE"/geometry",
 			SHASH("geometry"), NULL);
@@ -448,15 +436,17 @@ gchar *keymapCommand() {
 	return(g_strdup_printf("-k %s ", SHASH("keymap")));
 }
 
+/* - Fill / update dialog with known information (from HASH table) ---------- */
 void fill_dialog() {
 	gchar *licence_path = NULL;
 	DIR *licence_dir = NULL;
 
+    /* -- Fill in values for 'General' tab ---------------------------------- */
 	if(SHASH("hostname") != NULL) {
-		gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(combo_host)->entry),
+		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_host)->child),
 			SHASH("hostname"));
-		gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(combo_host2)->entry),
-			SHASH("hostname"));
+		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_host2)->child),
+            SHASH("hostname"));
 	}
 
 	if(SHASH("username") != NULL)
@@ -470,15 +460,18 @@ void fill_dialog() {
 
 	loadRdpProtocols(menu_rdp_proto);
 
+    /* -- Fill in values for 'Display' tab ---------------------------------- */
 	loadScreens(GTK_ADJUSTMENT(adj_screensize));
-	sig_geometry(GTK_WIDGET(input_geometry), NULL);
+	sig_scroll(GTK_WIDGET(scroll_screensize), NULL);
 
 	loadColors(menu_colorsize);
 	sig_colchange(NULL, NULL);
 
+    /* -- Fill in values for 'Resources' tab -------------------------------- */
 	loadSoundOptions(menu_sound);
 	sig_sound(NULL, NULL);
 
+    /* -- Fill in values for 'Program' tab ---------------------------------- */
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_prog),
 		iSHASH("runprog"));
 	if(SHASH("program") != NULL)
@@ -488,6 +481,7 @@ void fill_dialog() {
 	gtk_widget_set_sensitive(input_program, iSHASH("runprog"));
 	gtk_widget_set_sensitive(input_ppath, iSHASH("runprog"));
 
+    /* -- Fill in values for 'Extended' tab --------------------------------- */
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_bitmapupd),
 		iSHASH("bitmapupd"));
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_motionevt),
@@ -505,6 +499,9 @@ void fill_dialog() {
 	gtk_widget_set_sensitive(btn_sshopts, iSHASH("usessh"));
 
 	licence_path = gnome_util_prepend_user_home(".rdesktop");
+#ifdef _DEBUG_
+    g_warning("Licence path: %s", licence_path);
+#endif
 	licence_dir = opendir(licence_path);
 	if(licence_dir != NULL) {
 		struct dirent *entry = NULL;
@@ -516,8 +513,7 @@ void fill_dialog() {
 			gchar *hostname = &entry->d_name[strlen(prefix)];
 			struct stat sts;
 
-			fullname = g_strdup_printf("%s/%s", licence_path,
-				entry->d_name);
+			fullname = g_strdup_printf("%s/%s", licence_path, entry->d_name);
 
 			if(stat(fullname, &sts) == -1)
 				continue;
@@ -531,14 +527,21 @@ void fill_dialog() {
 		}
 		closedir(licence_dir);
 		if(licence_list != NULL) {
-			gtk_combo_set_popdown_strings(GTK_COMBO(combo_clientname),
-				licence_list);
+/*			gtk_combo_set_popdown_strings(GTK_COMBO(combo_clientname),
+				licence_list); */
+            fill_combo_with_list(combo_clientname, licence_list);
+
 		}
 	}
 
 	if(SHASH("clientname") != NULL) {
-		gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(combo_clientname)->entry),
+		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_clientname)->child),
 			SHASH("clientname"));
+	}
+
+    /* MKA -- Fill in values for 'Redirect' tab ----------------------------- */
+	if(SHASH("redirect") != NULL) {
+        gtk_entry_set_text(GTK_ENTRY(entryOutput), SHASH("redirect"));
 	}
 
 	/* finally, we deactivate all rdp unsupported widgets */

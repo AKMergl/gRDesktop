@@ -16,9 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
  */
-
 
 #include "btnbox.h"
 
@@ -93,18 +91,32 @@ void sig_cancel(GtkWidget *widget, gpointer data) {
 	gtk_main_quit();
 }
 
+/* - Show the About Dialog -------------------------------------------------- */
 void sig_about(GtkWidget *widget, gpointer data) {
 	GtkWidget *about = NULL;
-	gchar *authors[] = { "Thorsten Sauter <tsauter@gmx.net>", NULL };
+	GdkPixbuf *logo = gdk_pixbuf_new_from_file(PIXDIR"/icon.xpm", NULL);
+    gchar *authors[] = { "Thorsten Sauter <tsauter@gmx.net>", NULL };
+//    gchar *artists[] = { NULL };
+//    gchar *documenters[] = { NULL };
 
-	about = gnome_about_new(_("Remotedesktop Client"), VERSION,
-		_("(C) 2002-2004 Thorsten Sauter"),
-		_("Gnome frontend for rdesktop"),
-		(const char**)authors, NULL, NULL, NULL);
-	gtk_signal_connect(GTK_OBJECT(about), "destroy",
-		GTK_SIGNAL_FUNC(gtk_widget_destroy), &about);
-	gtk_widget_show(about);
-}
+    about = gtk_about_dialog_new();
+    gtk_show_about_dialog(NULL,
+        "program-name", _(PROGRAMNAME),
+        "version", PROG_VERSION,     // from configure.ac
+        "copyright", "(C) 2002-2004 Thorsten Sauter\n2012 Attila K. Mergl",
+        "comments", _("Gnome frontend for rdesktop"),
+        "authors", authors,
+//        "artists", artists,
+//        "documenters", documenters,
+        "translator-credits", _("translator-credits"),
+        "logo", logo,
+        "license", LICENSE_TEXT,    // from file defined in configure.ac
+// _("This program is licensed under the\nGNU GENERAL PUBLIC LICENSE\nVersion 2, June 1991"),
+        "website", PACKAGE_URL, // from configure.ac
+        NULL);
+    
+    g_object_unref(logo);
+}   
 
 void sig_options(GtkWidget *widget, gpointer data) {
 	if(iSHASH("showopts") == TRUE) {	/* hide options */

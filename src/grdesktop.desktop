@@ -1,10 +1,14 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Remotedesktop Client
-Name[de]=Remotedesktop Client
+Name=Remote Desktop Client
+Name[de]=Remotedesktop-Klient
+Name[es]=Cliente de Escritorio Remoto
+Name[fr]=Client d'affichage déporté
+Name[hu]=Távoliasztal-kliens
 Comment=Gnome frontend for rdesktop
-Comment[de]=Gnome-Frontend f�r den rdesktop
+Comment[de]=Gnome-Frontend für den rdesktop
+Comment[hu]=Gnome felület az rdesktop programhoz
 TryExec=grdesktop
 Exec=grdesktop
 Terminal=false

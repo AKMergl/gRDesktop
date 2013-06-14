@@ -1,0 +1,24 @@
+#: global.h:50 global.h:53
+#, c-format
+msgid "%d"
+msgstr ""
+
+#: global.h:56
+msgid "Remote Desktop Client"
+msgstr ""
+
+#: global.h:58
+msgid "rdesktop"
+msgstr ""
+
+#: global.h:70
+msgid "/pixmaps/grdesktop"
+msgstr ""
+
+#: global.h:72
+msgid "/usr/local/share/rdesktop/keymaps/"
+msgstr ""
+
+#: global.h:75
+msgid "/apps/grdesktop/options"
+msgstr ""

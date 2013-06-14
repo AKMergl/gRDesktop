@@ -1,7 +1,7 @@
 /* grdesktop - gtk rdesktop frontend
  * Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
  *
- * $Id: global.h,v 1.23 2005/03/08 10:06:37 tsauter Exp $
+ * $Id: global.h,v 1.22 2004/03/02 16:47:24 tsauter Exp $
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,11 +53,20 @@
 			g_strdup_printf("%d", value)); \
 	}
 
-#define COMMANDLINE "rdesktop"
+/* This value is not translated by itself. So keep it eqaul to the _Name in
+   *.desktop.in file! */
+#define PROGRAMNAME "Remote Desktop Client"
+
+#define COMMANDLINE "rdesktop"  /* command for connection establishment */
 
 #ifndef MAXHOSTNAMELEN
 #define MAXHOSTNAMELEN 64		/* max length of hostname */
 #endif
+
+/* MKA */
+#define MAXSHARENAMELEN 8		/* max length of share name */
+#define _DEBUG_
+
 
 #define MAXHOSTS 10			/* maximum hosts to store */
 #define PIXDIR DATADIR"/pixmaps/grdesktop"
@@ -93,7 +102,7 @@ GtkWidget *check_savepw;
 GtkWidget *menu_rdp_proto;
 GtkObject *adj_screensize;
 GtkWidget *scroll_screensize;
-GtkWidget *input_geometry;
+GtkWidget *geometry_label;
 GtkWidget *menu_colorsize;
 GtkWidget *image_colorsize;
 GtkWidget *tree_keymap;
@@ -110,6 +119,18 @@ GtkWidget *check_attconsole;
 GtkWidget *combo_clientname;
 GtkWidget *check_sshopts;
 GtkWidget *btn_sshopts;
+
+/* - Widgets on Redirect tab - */
+GtkWidget *entryOutput;
+
+
+/* Functions used globally */
+
+/* - Functions from srvsel.c - */
+void fill_combo_with_list(GtkWidget *combo, GList *textlist);  /* used in run.c, optbox.c */
+
+/* - Functions from sshbox.c - */
+void ssh_showbox(GtkWidget *widget, int status);    /* used in optbox.c */
 
 #endif /* __CONFIG_H__ */
 

@@ -1,0 +1,1272 @@
+#: btnbox.c:32
+msgid "gtk-execute"
+msgstr ""
+
+#: btnbox.c:33 btnbox.c:39 btnbox.c:45 btnbox.c:52 btnbox.c:58 optbox.c:630
+#: optbox.c:636 optbox.c:807 optbox.c:814 optbox.c:1116 optbox.c:1204
+#: optbox.c:1207 optbox.c:1209 optbox.c:1221 optbox.c:1225 optbox.c:1228
+msgid "clicked"
+msgstr ""
+
+#: btnbox.c:38
+msgid "gtk-quit"
+msgstr ""
+
+#: btnbox.c:44 btnbox.c:113
+msgid "gtk-go-down"
+msgstr ""
+
+#: btnbox.c:51
+msgid "gtk-dialog-info"
+msgstr ""
+
+#: btnbox.c:57
+msgid "gtk-help"
+msgstr ""
+
+#: btnbox.c:71 btnbox.c:76 main.c:129 options.c:447 options.c:449
+#: options.c:451 rdpparse.c:112 rdpparse.c:113 rdpparse.c:239 run.c:88
+#: run.c:90 run.c:91 run.c:143 srvsel.c:50 srvsel.c:51 srvsel.c:54 srvsel.c:57
+#: srvsel.c:58
+msgid "hostname"
+msgstr ""
+
+#: btnbox.c:73 btnbox.c:78
+msgid "Please select or insert a valid hostname/ip-address!"
+msgstr ""
+
+#: btnbox.c:90 main.c:30 options.c:400
+msgid "/showopts"
+msgstr ""
+
+#: btnbox.c:91 btnbox.c:110 btnbox.c:114 btnbox.c:119 main.c:31 main.c:104
+#: main.c:116 options.c:401
+msgid "showopts"
+msgstr ""
+
+#: btnbox.c:98
+msgid "Thorsten Sauter <tsauter@gmx.net>"
+msgstr ""
+
+#: btnbox.c:100 main.c:44
+msgid "Remotedesktop Client"
+msgstr ""
+
+#: btnbox.c:101
+msgid ""
+"(C) 2002-2004 Thorsten Sauter\n"
+"2012 Attila K. Mergl"
+msgstr ""
+
+#: btnbox.c:102
+msgid "Gnome frontend for rdesktop"
+msgstr ""
+
+#: btnbox.c:104 main.c:54
+msgid "destroy"
+msgstr ""
+
+#: btnbox.c:118
+msgid "gtk-go-up"
+msgstr ""
+
+#: btnbox.c:132
+#, c-format
+msgid ""
+"Could not display help for Remote Desktop.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: btnbox.c:134
+msgid "response"
+msgstr ""
+
+#: main.c:44 main.c:46 main.c:162
+msgid "grdesktop"
+msgstr ""
+
+#: main.c:50
+msgid "Remote Desktop Client"
+msgstr ""
+
+#: main.c:52
+msgid "delete_event"
+msgstr ""
+
+#: main.c:62 main.c:64
+msgid "/topimage.png"
+msgstr ""
+
+#: main.c:63 main.c:67 main.c:75
+msgid "/topimage2.png"
+msgstr ""
+
+#: main.c:72 main.c:79
+msgid "/animation.gif"
+msgstr ""
+
+#: main.c:82
+#, c-format
+msgid "Unable to load animation: %s"
+msgstr ""
+
+#: main.c:124 main.c:217
+#, c-format
+msgid "loading rdpfile: %s"
+msgstr ""
+
+#: main.c:127 main.c:214
+msgid "autostart"
+msgstr ""
+
+#: main.c:129
+#, c-format
+msgid "autostart connection to: %s"
+msgstr ""
+
+#: main.c:146 main.c:150 optbox.c:658 optbox.c:1479 optbox.c:1536
+#: optbox.c:1537
+msgid ""
+msgstr ""
+
+#: main.c:147
+msgid ""
+"locale not understood by C library, internationalization will not work\n"
+msgstr ""
+
+#: main.c:150
+#, c-format
+msgid "NLS enabled. Default locale is %s"
+msgstr ""
+
+#: main.c:151
+#, c-format
+msgid "Locle directory is: %s"
+msgstr ""
+
+#: main.c:158
+msgid "UTF-8"
+msgstr ""
+
+#: main.c:164
+msgid "/grdesktop.png"
+msgstr ""
+
+#: main.c:168
+msgid "shv"
+msgstr ""
+
+#: main.c:193
+#, c-format
+msgid "Please give me a valid rdp file to startup!\n"
+msgstr ""
+
+#: main.c:201
+msgid "Unable to create hash to store elements!"
+msgstr ""
+
+#: main.c:228
+#, c-format
+msgid ""
+"%s v%s\n"
+"\n"
+msgstr ""
+
+#: main.c:229
+#, c-format
+msgid "Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>\n"
+msgstr ""
+
+#: main.c:230
+#, c-format
+msgid ""
+"This is free software; see the source for copying conditions.  There is NO\n"
+msgstr ""
+
+#: main.c:231
+#, c-format
+msgid ""
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+
+#: main.c:236
+#, c-format
+msgid "Usage: %s [OPTION]... [FILE]\n"
+msgstr ""
+
+#: main.c:237
+#, c-format
+msgid "  -s        connect to the specified host after startup\n"
+msgstr ""
+
+#: main.c:238
+#, c-format
+msgid "  -h        display this help and exit\n"
+msgstr ""
+
+#: main.c:239
+#, c-format
+msgid "  -v        output version information exit\n"
+msgstr ""
+
+#: main.c:240 main.c:242
+#, c-format
+msgid "\n"
+msgstr ""
+
+#: main.c:241
+#, c-format
+msgid "File can be a valid remote desktop configuration file (rdp).\n"
+msgstr ""
+
+#: main.c:243
+#, c-format
+msgid "Report bugs to <grdesktop-users@nongnu.org>.\n"
+msgstr ""
+
+#: optbox.c:34
+msgid "General"
+msgstr ""
+
+#: optbox.c:40
+msgid "Display"
+msgstr ""
+
+#: optbox.c:46
+msgid "Resources"
+msgstr ""
+
+#: optbox.c:52
+msgid "Program"
+msgstr ""
+
+#: optbox.c:58
+msgid "Extended"
+msgstr ""
+
+#: optbox.c:65
+msgid "Redirect"
+msgstr ""
+
+#: optbox.c:116
+msgid "Logon Settings"
+msgstr ""
+
+#: optbox.c:132
+msgid "/host.png"
+msgstr ""
+
+#: optbox.c:148
+msgid ""
+"Type the name of the computer, or\n"
+"choose a computer from the list."
+msgstr ""
+
+#: optbox.c:170
+msgid "Connection settings"
+msgstr ""
+
+#: optbox.c:186
+msgid "/folder.png"
+msgstr ""
+
+#: optbox.c:202
+msgid ""
+"Save settings or load saved\n"
+"connections from file."
+msgstr ""
+
+#: optbox.c:235
+msgid "Remote desktop size"
+msgstr ""
+
+#: optbox.c:251
+msgid "/monitor.png"
+msgstr ""
+
+#: optbox.c:267
+msgid ""
+"Choose the size of your remote\n"
+"desktop, or select fullscreen."
+msgstr ""
+
+#: optbox.c:279
+msgid "Colors"
+msgstr ""
+
+#: optbox.c:300
+msgid ""
+"Select the available colorsize\n"
+"on remote box."
+msgstr ""
+
+#: optbox.c:331
+msgid "Keyboard type"
+msgstr ""
+
+#: optbox.c:347
+msgid "/keyboard.png"
+msgstr ""
+
+#: optbox.c:363
+msgid ""
+"Select the language code for\n"
+"the keyboard."
+msgstr ""
+
+#: optbox.c:375
+msgid "Sound on the remote Computer"
+msgstr ""
+
+#: optbox.c:391
+msgid "/sound.png"
+msgstr ""
+
+#: optbox.c:407
+msgid ""
+"Please select which sound output you\n"
+"would like to use."
+msgstr ""
+
+#: optbox.c:438
+msgid "Launch Program"
+msgstr ""
+
+#: optbox.c:454
+msgid "/program.png"
+msgstr ""
+
+#: optbox.c:470
+msgid ""
+"Select a program which should start\n"
+"after connection."
+msgstr ""
+
+#: optbox.c:501
+msgid "Options"
+msgstr ""
+
+#: optbox.c:517
+msgid "/settings.png"
+msgstr ""
+
+#: optbox.c:533
+msgid "Tune your remote desktop connections."
+msgstr ""
+
+#: optbox.c:577
+msgid "Disk"
+msgstr ""
+
+#: optbox.c:586
+msgid "Select path to share on remote server."
+msgstr ""
+
+#: optbox.c:597
+msgid "Share name:"
+msgstr ""
+
+#: optbox.c:605 optbox.c:618 optbox.c:652 optbox.c:682 optbox.c:709
+#: optbox.c:733 optbox.c:756 optbox.c:984 optbox.c:1003 optbox.c:1090
+#: srvsel.c:38 sshbox.c:73 sshbox.c:90
+msgid "changed"
+msgstr ""
+
+#: optbox.c:611
+msgid "Local full path of share:"
+msgstr ""
+
+#: optbox.c:629
+msgid "Browse..."
+msgstr ""
+
+#: optbox.c:635
+msgid "gtk-add"
+msgstr ""
+
+#: optbox.c:642
+msgid "Options to be added to the command"
+msgstr ""
+
+#: optbox.c:676 srvsel.c:31
+msgid "Computer:"
+msgstr ""
+
+#: optbox.c:703 sshbox.c:67
+msgid "Username:"
+msgstr ""
+
+#: optbox.c:726
+msgid "Password:"
+msgstr ""
+
+#: optbox.c:750
+msgid "Domain:"
+msgstr ""
+
+#: optbox.c:764
+msgid "Save my password"
+msgstr ""
+
+#: optbox.c:767 optbox.c:1010 optbox.c:1023 optbox.c:1031 optbox.c:1040
+#: optbox.c:1047 optbox.c:1055 optbox.c:1063 optbox.c:1111 sshbox.c:53
+msgid "toggled"
+msgstr ""
+
+#: optbox.c:794 optbox.c:879 optbox.c:948
+msgid "activate"
+msgstr ""
+
+#: optbox.c:804
+msgid "gtk-save-as"
+msgstr ""
+
+#: optbox.c:811
+msgid "gtk-open"
+msgstr ""
+
+#: optbox.c:823
+msgid "Less"
+msgstr ""
+
+#: optbox.c:833
+msgid "value-changed"
+msgstr ""
+
+#: optbox.c:839
+msgid "More"
+msgstr ""
+
+#: optbox.c:845
+msgid "??? pixels"
+msgstr ""
+
+#: optbox.c:884 optbox.c:953 optbox.c:1066 optbox.c:1175 optbox.c:1177
+#: optbox.c:1178 optbox.c:1181 optbox.c:1185 options.c:31 options.c:32
+#: options.c:33 options.c:36 options.c:358 run.c:36 run.c:55 run.c:61 run.c:84
+msgid "rdp_protocol"
+msgstr ""
+
+#: optbox.c:918
+msgid "Keyboard"
+msgstr ""
+
+#: optbox.c:918
+msgid "text"
+msgstr ""
+
+#: optbox.c:922
+msgid "cursor-changed"
+msgstr ""
+
+#: optbox.c:966
+msgid "Run program"
+msgstr ""
+
+#: optbox.c:977
+msgid "Path and filename:"
+msgstr ""
+
+#: optbox.c:996
+msgid "Working directory:"
+msgstr ""
+
+#: optbox.c:1020
+msgid "Force bitmap updates"
+msgstr ""
+
+#: optbox.c:1028
+msgid "Don't send motion events"
+msgstr ""
+
+#: optbox.c:1036
+msgid "Hide window manager decorations"
+msgstr ""
+
+#: optbox.c:1044
+msgid "Disable encryption (French TS)"
+msgstr ""
+
+#: optbox.c:1052
+msgid "Window manager key bindings"
+msgstr ""
+
+#: optbox.c:1060
+msgid "Attach to console (>= Windows 2003)"
+msgstr ""
+
+#: optbox.c:1084
+msgid "Fake clientname:"
+msgstr ""
+
+#: optbox.c:1109 sshbox.c:51
+msgid "Enable SSH tunneling"
+msgstr ""
+
+#: optbox.c:1115
+msgid "gtk-properties"
+msgstr ""
+
+#: optbox.c:1123 optbox.c:1124 optbox.c:1127 optbox.c:1130 optbox.c:1131
+#: options.c:337 options.c:338 options.c:346 options.c:348 options.c:454
+#: options.c:455 rdpparse.c:116 rdpparse.c:117 rdpparse.c:230 rdpparse.c:231
+#: run.c:41 run.c:43
+msgid "username"
+msgstr ""
+
+#: optbox.c:1135 optbox.c:1136 optbox.c:1139 optbox.c:1142 optbox.c:1143
+#: options.c:349 options.c:351 options.c:456 options.c:457 run.c:44 run.c:46
+msgid "password"
+msgstr ""
+
+#: optbox.c:1147 optbox.c:1148 optbox.c:1151 optbox.c:1154 optbox.c:1155
+#: options.c:352 options.c:354 options.c:458 options.c:459 rdpparse.c:120
+#: rdpparse.c:121 rdpparse.c:232 rdpparse.c:233 run.c:47 run.c:49
+msgid "domain"
+msgstr ""
+
+#: optbox.c:1159 optbox.c:1160 optbox.c:1164 options.c:349 options.c:356
+#: options.c:461
+msgid "savepw"
+msgstr ""
+
+#: optbox.c:1161 optbox.c:1165 optbox.c:1179 optbox.c:1182 optbox.c:1280
+#: optbox.c:1283 optbox.c:1317 optbox.c:1320 optbox.c:1351 optbox.c:1355
+#: optbox.c:1366 optbox.c:1370 optbox.c:1378 optbox.c:1382 optbox.c:1390
+#: optbox.c:1394 optbox.c:1402 optbox.c:1406 optbox.c:1414 optbox.c:1418
+#: optbox.c:1426 optbox.c:1430 optbox.c:1450 optbox.c:1454 optbox.c:1466
+#: optbox.c:1470 options.c:181 options.c:188 options.c:305 options.c:315
+#: global.h:50 global.h:53
+#, c-format
+msgid "%d"
+msgstr ""
+
+#: optbox.c:1201
+msgid "Save rdp-File"
+msgstr ""
+
+#: optbox.c:1218
+msgid "Open rdp-File"
+msgstr ""
+
+#: optbox.c:1242 options.c:65 rdpparse.c:306 rdpparse.c:329
+msgid "x"
+msgstr ""
+
+#: optbox.c:1245
+#, c-format
+msgid "%s %s %s %s"
+msgstr ""
+
+#: optbox.c:1246
+msgid "by"
+msgstr ""
+
+#: optbox.c:1246
+msgid "pixels"
+msgstr ""
+
+#: optbox.c:1249 options.c:300 run.c:113
+#, c-format
+msgid "%s"
+msgstr ""
+
+#: optbox.c:1251 optbox.c:1252 optbox.c:1255 options.c:86 options.c:90
+#: options.c:359 options.c:361 options.c:407 options.c:411 rdpparse.c:95
+#: rdpparse.c:96 rdpparse.c:103 rdpparse.c:105 rdpparse.c:245 rdpparse.c:246
+#: rdpparse.c:248 rdpparse.c:249 run.c:53
+msgid "geometry"
+msgstr ""
+
+#: optbox.c:1269
+#, c-format
+msgid "%s/%s_%d.png"
+msgstr ""
+
+#: optbox.c:1269
+msgid "colors"
+msgstr ""
+
+#: optbox.c:1270 optbox.c:1278 optbox.c:1279 optbox.c:1282 options.c:111
+#: options.c:112 options.c:113 options.c:116 options.c:366 options.c:417
+#: rdpparse.c:241 run.c:56
+msgid "colorsize"
+msgstr ""
+
+#: optbox.c:1297 optbox.c:1298 optbox.c:1301 options.c:159 options.c:160
+#: options.c:179 options.c:362 options.c:364 options.c:438 run.c:59
+msgid "keymap"
+msgstr ""
+
+#: optbox.c:1313 optbox.c:1315 optbox.c:1316 optbox.c:1319 options.c:120
+#: options.c:121 options.c:122 options.c:125 options.c:368 run.c:62
+msgid "sound"
+msgstr ""
+
+#: optbox.c:1325 optbox.c:1326 optbox.c:1329 optbox.c:1332 optbox.c:1333
+#: options.c:369 options.c:371 options.c:479 options.c:480 rdpparse.c:124
+#: rdpparse.c:125 rdpparse.c:235 run.c:68 run.c:70
+msgid "program"
+msgstr ""
+
+#: optbox.c:1337 optbox.c:1338 optbox.c:1341 optbox.c:1344 optbox.c:1345
+#: options.c:372 options.c:374 options.c:481 options.c:482 rdpparse.c:128
+#: rdpparse.c:129 rdpparse.c:237 run.c:71 run.c:73
+msgid "ppath"
+msgstr ""
+
+#: optbox.c:1349 optbox.c:1350 optbox.c:1354 optbox.c:1359 optbox.c:1360
+#: options.c:376 options.c:478 options.c:483 options.c:484 run.c:68 run.c:71
+msgid "runprog"
+msgstr ""
+
+#: optbox.c:1364 optbox.c:1365 optbox.c:1369 options.c:378 options.c:488
+#: rdpparse.c:132 rdpparse.c:243 run.c:74
+msgid "bitmapupd"
+msgstr ""
+
+#: optbox.c:1376 optbox.c:1377 optbox.c:1381 options.c:380 options.c:490
+#: run.c:76
+msgid "motionevt"
+msgstr ""
+
+#: optbox.c:1388 optbox.c:1389 optbox.c:1393 options.c:382 options.c:492
+#: run.c:78
+msgid "hidewmdecoration"
+msgstr ""
+
+#: optbox.c:1400 optbox.c:1401 optbox.c:1405 options.c:384 options.c:494
+#: run.c:80
+msgid "noencryption"
+msgstr ""
+
+#: optbox.c:1412 optbox.c:1413 optbox.c:1417 options.c:386 options.c:496
+#: run.c:82
+msgid "wmkeybindings"
+msgstr ""
+
+#: optbox.c:1424 optbox.c:1425 optbox.c:1429 options.c:388 options.c:498
+#: run.c:85
+msgid "attconsole"
+msgstr ""
+
+#: optbox.c:1436 optbox.c:1437 optbox.c:1440 optbox.c:1443 optbox.c:1444
+#: options.c:389 options.c:391 options.c:535 options.c:537 run.c:50 run.c:52
+msgid "clientname"
+msgstr ""
+
+#: optbox.c:1448 optbox.c:1449 optbox.c:1453 optbox.c:1458 optbox.c:1462
+#: optbox.c:1464 optbox.c:1465 optbox.c:1469 options.c:393 options.c:500
+#: options.c:501 run.c:96
+msgid "usessh"
+msgstr ""
+
+#: optbox.c:1486
+msgid "Choose folder to share"
+msgstr ""
+
+#: optbox.c:1492 options.c:288
+msgid "/"
+msgstr ""
+
+#: optbox.c:1515
+msgid "Share must be defined!"
+msgstr ""
+
+#: optbox.c:1522
+msgid "Path must be defined!"
+msgstr ""
+
+#: optbox.c:1526
+msgid "It is not an absolute path!"
+msgstr ""
+
+#: optbox.c:1530
+#, c-format
+msgid "-r disk:%s=%s "
+msgstr ""
+
+#: optbox.c:1542 optbox.c:1543 optbox.c:1546 optbox.c:1549 optbox.c:1550
+#: options.c:541 options.c:542 rdpparse.c:137 rdpparse.c:138 rdpparse.c:253
+#: rdpparse.c:254 run.c:66 run.c:67
+msgid "redirect"
+msgstr ""
+
+#: options.c:26
+msgid "Windows NT/2000"
+msgstr ""
+
+#: options.c:27
+msgid "Windows XP/2003"
+msgstr ""
+
+#: options.c:32
+#, c-format
+msgid "Unknown RDP-Protocol: %d\n"
+msgstr ""
+
+#: options.c:45 options.c:46
+msgid "640x480"
+msgstr ""
+
+#: options.c:47 options.c:48
+msgid "800x600"
+msgstr ""
+
+#: options.c:49 options.c:50
+msgid "1024x768"
+msgstr ""
+
+#: options.c:51 options.c:52
+msgid "1270x940"
+msgstr ""
+
+#: options.c:53 options.c:54
+msgid "1280x1024"
+msgstr ""
+
+#: options.c:55 options.c:56
+msgid "1600x1280"
+msgstr ""
+
+#: options.c:58 options.c:407 rdpparse.c:96
+msgid "Fullscreen"
+msgstr ""
+
+#: options.c:104
+msgid "256 Colors"
+msgstr ""
+
+#: options.c:105
+msgid "High Color (15bit)"
+msgstr ""
+
+#: options.c:106
+msgid "High Color (16bit)"
+msgstr ""
+
+#: options.c:107
+msgid "True Color (24bit)"
+msgstr ""
+
+#: options.c:112
+#, c-format
+msgid "Unknown colorsize: %d\n"
+msgstr ""
+
+#: options.c:121
+#, c-format
+msgid "Unknown Sound-Flag: %d\n"
+msgstr ""
+
+#: options.c:140 options.c:172
+#, c-format
+msgid "Unable to find keyboad definitions: %s"
+msgstr ""
+
+#: options.c:148
+msgid "common"
+msgstr ""
+
+#: options.c:150
+msgid "modifiers"
+msgstr ""
+
+#: options.c:163 options.c:176
+msgid "EN"
+msgstr ""
+
+#: options.c:199
+msgid "No sound output"
+msgstr ""
+
+#: options.c:200
+msgid "Play on this host"
+msgstr ""
+
+#: options.c:215 options.c:258
+msgid "/hostnames"
+msgstr ""
+
+#: options.c:282
+#, c-format
+msgid "Gconf item \"%s\" is unassigned!"
+msgstr ""
+
+#: options.c:292
+msgid "hostnames"
+msgstr ""
+
+#: options.c:310
+#, c-format
+msgid "%f"
+msgstr ""
+
+#: options.c:320
+#, c-format
+msgid "Unsupported gconf value type (%d)"
+msgstr ""
+
+#: options.c:326
+#, c-format
+msgid "Option: %s->%s"
+msgstr ""
+
+#: options.c:347
+msgid "/username"
+msgstr ""
+
+#: options.c:350
+msgid "/password"
+msgstr ""
+
+#: options.c:353
+msgid "/domain"
+msgstr ""
+
+#: options.c:355
+msgid "/savepw"
+msgstr ""
+
+#: options.c:357
+msgid "/rdp_protocol"
+msgstr ""
+
+#: options.c:360
+msgid "/geometry"
+msgstr ""
+
+#: options.c:363
+msgid "/keymap"
+msgstr ""
+
+#: options.c:365
+msgid "/colorsize"
+msgstr ""
+
+#: options.c:367
+msgid "/sound"
+msgstr ""
+
+#: options.c:370
+msgid "/program"
+msgstr ""
+
+#: options.c:373
+msgid "/ppath"
+msgstr ""
+
+#: options.c:375
+msgid "/runprog"
+msgstr ""
+
+#: options.c:377
+msgid "/bitmapupd"
+msgstr ""
+
+#: options.c:379
+msgid "/motionevt"
+msgstr ""
+
+#: options.c:381
+msgid "/hidewmdecoration"
+msgstr ""
+
+#: options.c:383
+msgid "/noencryption"
+msgstr ""
+
+#: options.c:385
+msgid "/wmkeybindings"
+msgstr ""
+
+#: options.c:387
+msgid "/attconsole"
+msgstr ""
+
+#: options.c:390
+msgid "/clientname"
+msgstr ""
+
+#: options.c:392
+msgid "/usessh"
+msgstr ""
+
+#: options.c:394 options.c:396 run.c:109 run.c:111 sshbox.c:105 sshbox.c:106
+#: sshbox.c:119 sshbox.c:120 sshbox.c:123 sshbox.c:126 sshbox.c:127
+msgid "sshuser"
+msgstr ""
+
+#: options.c:395
+msgid "/sshuser"
+msgstr ""
+
+#: options.c:397 options.c:399 run.c:103 run.c:114 sshbox.c:109 sshbox.c:110
+#: sshbox.c:131 sshbox.c:132 sshbox.c:135 sshbox.c:138 sshbox.c:139
+msgid "sshhost"
+msgstr ""
+
+#: options.c:398
+msgid "/sshhost"
+msgstr ""
+
+#: options.c:408
+msgid "-f "
+msgstr ""
+
+#: options.c:411
+#, c-format
+msgid "-g %s "
+msgstr ""
+
+#: options.c:434
+#, c-format
+msgid "-a %d "
+msgstr ""
+
+#: options.c:438
+#, c-format
+msgid "-k %s "
+msgstr ""
+
+#: options.c:503
+msgid ".rdesktop"
+msgstr ""
+
+#: options.c:507
+msgid "licence."
+msgstr ""
+
+#: options.c:515
+#, c-format
+msgid "%s/%s"
+msgstr ""
+
+#: rdpparse.c:36 rdpparse.c:57
+msgid "Please select a valid rdp file!"
+msgstr ""
+
+#: rdpparse.c:71
+msgid "Really override the already existing file?"
+msgstr ""
+
+#: rdpparse.c:77
+#, c-format
+msgid "Don't override existing file: %s"
+msgstr ""
+
+#: rdpparse.c:84
+msgid "w"
+msgstr ""
+
+#: rdpparse.c:86
+#, c-format
+msgid "Unable to save rdp-file: %s"
+msgstr ""
+
+#: rdpparse.c:92
+#, c-format
+msgid "Writing rdp-file: %s"
+msgstr ""
+
+#: rdpparse.c:97 rdpparse.c:101
+#, c-format
+msgid "screen mode id:i:%d\n"
+msgstr ""
+
+#: rdpparse.c:98
+#, c-format
+msgid "desktopwidth:i:%d\n"
+msgstr ""
+
+#: rdpparse.c:99
+#, c-format
+msgid "desktopheight:i:%d\n"
+msgstr ""
+
+#: rdpparse.c:102
+#, c-format
+msgid "desktopwidth:i:%s\n"
+msgstr ""
+
+#: rdpparse.c:104
+#, c-format
+msgid "desktopheight:i:%s\n"
+msgstr ""
+
+#: rdpparse.c:109
+#, c-format
+msgid "session bpp:i:%s\n"
+msgstr ""
+
+#: rdpparse.c:110
+msgid "color"
+msgstr ""
+
+#: rdpparse.c:113
+#, c-format
+msgid "full address:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:117
+#, c-format
+msgid "username:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:121
+#, c-format
+msgid "domain:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:125
+#, c-format
+msgid "alternate shell:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:129
+#, c-format
+msgid "shell working directory:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:133
+#, c-format
+msgid "bitmapcachepersistentable:i:%d\n"
+msgstr ""
+
+#: rdpparse.c:138
+#, c-format
+msgid "redirect:s:%s\n"
+msgstr ""
+
+#: rdpparse.c:155 rdpparse.c:163
+#, c-format
+msgid "Unable to open rdp-file: %s"
+msgstr ""
+
+#: rdpparse.c:161
+msgid "r"
+msgstr ""
+
+#: rdpparse.c:171
+#, c-format
+msgid "File %s is empty!"
+msgstr ""
+
+#: rdpparse.c:183
+msgid "Unable to allocate memory!"
+msgstr ""
+
+#: rdpparse.c:222
+msgid ":"
+msgstr ""
+
+#: rdpparse.c:227
+#, c-format
+msgid "RDP: line: %s [%s -> %s]"
+msgstr ""
+
+#: rdpparse.c:234
+msgid "alternate shell"
+msgstr ""
+
+#: rdpparse.c:236
+msgid "shell working directory"
+msgstr ""
+
+#: rdpparse.c:238
+msgid "full address"
+msgstr ""
+
+#: rdpparse.c:240
+msgid "session bpp"
+msgstr ""
+
+#: rdpparse.c:242
+msgid "bitmapcachepersistenable"
+msgstr ""
+
+#: rdpparse.c:244
+msgid "desktopwidth"
+msgstr ""
+
+#: rdpparse.c:247
+msgid "desktopheight"
+msgstr ""
+
+#: rdpparse.c:250
+msgid "screen mode id"
+msgstr ""
+
+#: rdpparse.c:251
+msgid "fullscreen"
+msgstr ""
+
+#: rdpparse.c:265
+#, c-format
+msgid "RDP: old value: %s -> %s"
+msgstr ""
+
+#: rdpparse.c:275
+#, c-format
+msgid "RDP: new value: %s -> %s"
+msgstr ""
+
+#: rdpparse.c:282 rdpparse.c:290 rdpparse.c:294 rdpparse.c:300 rdpparse.c:323
+msgid "0"
+msgstr ""
+
+#: rdpparse.c:284 rdpparse.c:299 rdpparse.c:321
+msgid "1"
+msgstr ""
+
+#: rdpparse.c:286
+msgid "2"
+msgstr ""
+
+#: rdpparse.c:288
+msgid "3"
+msgstr ""
+
+#: rdpparse.c:309 rdpparse.c:311
+#, c-format
+msgid "%sx%s"
+msgstr ""
+
+#: rdpparse.c:345 rdpparse.c:353 rdpparse.c:356
+msgid "8"
+msgstr ""
+
+#: rdpparse.c:347
+msgid "15"
+msgstr ""
+
+#: rdpparse.c:349
+msgid "16"
+msgstr ""
+
+#: rdpparse.c:351
+msgid "24"
+msgstr ""
+
+#: run.c:35
+#, c-format
+msgid "%s "
+msgstr ""
+
+#: run.c:37
+msgid "-4 "
+msgstr ""
+
+#: run.c:39
+msgid "-5 "
+msgstr ""
+
+#: run.c:42
+#, c-format
+msgid "-u '%s' "
+msgstr ""
+
+#: run.c:45
+#, c-format
+msgid "-p '%s' "
+msgstr ""
+
+#: run.c:48
+#, c-format
+msgid "-d '%s' "
+msgstr ""
+
+#: run.c:51
+#, c-format
+msgid "-n '%s' "
+msgstr ""
+
+#: run.c:63
+msgid "-r sound "
+msgstr ""
+
+#: run.c:69
+#, c-format
+msgid "-s '%s' "
+msgstr ""
+
+#: run.c:72
+#, c-format
+msgid "-c '%s' "
+msgstr ""
+
+#: run.c:75
+msgid "-b "
+msgstr ""
+
+#: run.c:77
+msgid "-m "
+msgstr ""
+
+#: run.c:79
+msgid "-D "
+msgstr ""
+
+#: run.c:81
+msgid "-e "
+msgstr ""
+
+#: run.c:83
+msgid "-K "
+msgstr ""
+
+#: run.c:86
+msgid "-0 "
+msgstr ""
+
+#: run.c:89
+#, c-format
+msgid "-T 'Remotedesktop-Client: %s' "
+msgstr ""
+
+#: run.c:100
+msgid "use ssh tunnel"
+msgstr ""
+
+#: run.c:104
+msgid "No hostname for ssh tunneling available"
+msgstr ""
+
+#: run.c:108
+msgid "ssh -T -o BatchMode=yes "
+msgstr ""
+
+#: run.c:111
+#, c-format
+msgid " %s@"
+msgstr ""
+
+#: run.c:115
+#, c-format
+msgid " \"%s\""
+msgstr ""
+
+#: sshbox.c:28
+msgid "SSH-Tunnel settings"
+msgstr ""
+
+#: sshbox.c:84
+msgid "Hostname:"
+msgstr ""
+
+#: global.h:56
+msgid "rdesktop"
+msgstr ""
+
+#: global.h:68
+msgid "/pixmaps/grdesktop"
+msgstr ""
+
+#: global.h:70
+msgid "/usr/local/share/rdesktop/keymaps/"
+msgstr ""
+
+#: global.h:73
+msgid "/apps/grdesktop/options"
+msgstr ""

@@ -1,4 +1,4 @@
-grdesktop is currently written by:
+grdesktop is written by:
 	Thorsten Sauter <tsauter@gmx.net>
 
 RedHat rpms are made by:
@@ -13,15 +13,12 @@ Thanks for some minor patches to:
 Thanks for the spanish translation of grdesktop:
 	Daniel Tonda Castillo <danton67@mailandnews.com>
 
-Thanks for the "custom screen size" path:
-	Lutz Fischer <lfisch@gmx.net>
-
 
 -----
 grdesktop - gtk rdesktop frontend
 Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
 
-$Id: AUTHORS,v 1.9 2005/03/08 10:06:37 tsauter Exp $
+$Id: AUTHORS,v 1.8 2004/02/03 10:42:29 tsauter Exp $
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

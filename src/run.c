@@ -62,6 +62,9 @@ void run_rdesktop() {
 		if(iSHASH("sound") > 0)
 			cmd = g_strconcat(cmd, g_strdup("-r sound "), NULL);
 	}
+    /* Redirect a part of the file system (-r disk:<SHARE>=<PATH>) */
+    if(SHASH("redirect"))
+        cmd = g_strconcat(cmd, g_strdup(SHASH("redirect")), NULL);
 	if((iSHASH("runprog")) && (SHASH("program")))
 		cmd = g_strconcat(cmd, g_strdup_printf("-s '%s' ",
 			SHASH("program")), NULL);
@@ -83,7 +86,7 @@ void run_rdesktop() {
 			cmd = g_strconcat(cmd, g_strdup("-0 "), NULL);
 	}
 	if(SHASH("hostname"))
-		cmd = g_strconcat(cmd, g_strdup_printf("-T 'Remotedesktop-Client: %s' ",
+		cmd = g_strconcat(cmd, g_strdup_printf("-T 'Remotedesktop Client: %s' ",
 			SHASH("hostname")), NULL);
 	cmd = g_strconcat(cmd, g_strdup(SHASH("hostname")), NULL);
 
@@ -94,7 +97,7 @@ void run_rdesktop() {
 		gchar *sshcmd = NULL;
 
 #ifdef _DEBUG_
-		g_warning("use ssh tunnel");
+		g_warning("using ssh tunnel");
 #endif
 
 		if(!SHASH("sshhost") || strlen(SHASH("sshhost")) <= 0) {
@@ -118,6 +121,7 @@ void run_rdesktop() {
 
 #ifdef _DEBUG_
 	g_warning(cmdline);
+/*	return; */
 #endif
 
 	/* first flush the gtk queue */
@@ -138,8 +142,9 @@ void run_rdesktop() {
 	/* only if the connection was successful */
 	if(saveServers(SHASH("hostname")) == 0) {
 		loadServers();
-		gtk_combo_set_popdown_strings(GTK_COMBO(combo_host), hostnames);
-		gtk_combo_set_popdown_strings(GTK_COMBO(combo_host2), hostnames);
+/*		gtk_combo_set_popdown_strings(GTK_COMBO(combo_host), hostnames); */
+        fill_combo_with_list(combo_host, hostnames);
+		fill_combo_with_list(combo_host2, hostnames);
 	}
 	saveOptions();
 

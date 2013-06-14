@@ -6,3 +6,5 @@ src/rdpparse.c
 src/run.c
 src/srvsel.c
 src/sshbox.c
+src/grdesktop.desktop.in
+src/grdesktop.schemas.in

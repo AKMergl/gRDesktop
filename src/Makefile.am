@@ -18,15 +18,19 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
+LICENSE_TEXT = @LICENSE_TEXT@
 
 bin_PROGRAMS = grdesktop
 
 INCLUDES = -I$(top_srcdir) -I$(top_builddir) \
 	-I$(top_srcdir)/intl \
-	$(GTK2_CFLAGS) $(GNOME2_CFLAGS) \
-	-DDATADIR=\""$(datadir)"\" \
-	-DLOCALEDIR=\""$(datadir)/locale"\" \
-	-DKBPATH=\""$(kbpath)"\"
+	$(GTK2_CFLAGS) $(GNOME2_CFLAGS)
+
+CPPFLAGS =	-DDATADIR=\""$(datadir)"\" \
+	-DLOCALEDIR=\""$(LOCALEDIR)"\" \
+	-DKBPATH=\""$(kbpath)"\" \
+    -DPROG_VERSION=\""$(PROG_VERSION)"\" \
+    -DLICENSE_TEXT=\""$(LICENSE_TEXT)"\"
 
 grdesktop_LDFLAGS = -export-dynamic
 grdesktop_SOURCES = main.c main.h \
@@ -42,10 +46,15 @@ grdesktop_SOURCES = main.c main.h \
 grdesktop_LDADD = $(GTK2_LIBS) $(GNOME2_LIBS)
 
 grdesktopdir = $(datadir)/applications
-grdesktop_DATA = grdesktop.desktop
+desktop_in_files = grdesktop.desktop.in
+grdesktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 schemadir = $(sysconfdir)/gconf/schemas
-schema_DATA = grdesktop.schemas
+schema_in_files = grdesktop.schemas.in
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+@INTLTOOL_SCHEMAS_RULE@
+
 schema_source_data = $(schema_DATA)
 
 install-data-local:

@@ -1,7 +1,7 @@
 /* grdesktop - gtk rdesktop frontend
  * Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
  *
- * $Id: optbox.c,v 1.78 2005/03/08 10:06:37 tsauter Exp $
+ * $Id: optbox.c,v 1.77 2004/03/30 12:31:44 tsauter Exp $
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,9 @@
 
 GtkWidget *option_box() {
 	GtkWidget *note;
-	GtkWidget *page1, *page2, *page3, *page4, *page5;
-	GtkWidget *cpage1, *cpage2, *cpage3, *cpage4, *cpage5;
-	GtkWidget *page1Box, *page2Box, *page3Box, *page4Box, *page5Box;
+	GtkWidget *page1, *page2, *page3, *page4, *page5, *page6;
+	GtkWidget *cpage1, *cpage2, *cpage3, *cpage4, *cpage5, *cpage6;
+	GtkWidget *page1Box, *page2Box, *page3Box, *page4Box, *page5Box, *page6Box;
 
 	note = gtk_notebook_new();
 	gtk_widget_show(note);
@@ -61,6 +61,13 @@ GtkWidget *option_box() {
 	gtk_notebook_insert_page(GTK_NOTEBOOK(note), page5, cpage5, -1);
 	gtk_widget_show(page5);
 	
+/* MKA */
+	cpage6 = gtk_label_new(_("Redirect"));
+	page6 = gtk_table_new(1, 1, FALSE);
+	gtk_container_border_width(GTK_CONTAINER(page6), 5);
+	gtk_notebook_insert_page(GTK_NOTEBOOK(note), page6, cpage6, -1);
+	gtk_widget_show(page6);
+	
 	page1Box = options_page1_box();
 	gtk_container_add(GTK_CONTAINER(page1), page1Box);
 	gtk_widget_show(page1Box);
@@ -80,6 +87,11 @@ GtkWidget *option_box() {
 	page5Box = options_page5_box();
 	gtk_container_add(GTK_CONTAINER(page5), page5Box);
 	gtk_widget_show(page5Box);
+
+/* MKA */
+	page6Box = options_page6_box();
+	gtk_container_add(GTK_CONTAINER(page6), page6Box);
+	gtk_widget_show(page6Box);
 
 	return(note);
 }
@@ -257,7 +269,7 @@ GtkWidget *options_page2_box() {
 	gtk_widget_show(topLabel);
 
 	/* create a table for the main components and fill it */
-	tbl1 = gtk_table_new(1, 4, TRUE);
+	tbl1 = gtk_table_new(1, 2, TRUE);
 	gtk_container_border_width(GTK_CONTAINER(tbl1), 10);
 	gtk_box_pack_start(GTK_BOX(vboxRight), tbl1, FALSE, FALSE, FALSE);
 	gtk_widget_show(tbl1);
@@ -532,9 +544,143 @@ GtkWidget *options_page5_box() {
 	return(box);
 }
 
+/* MKA */
+GtkWidget *options_page6_box() {
+	GtkWidget *box;
+	GtkWidget *tbox;        /* used to control heigth of the frames */
+	GtkWidget *frameDisk;
+	GtkWidget *vboxDisk;
+	GtkWidget *hboxDisk;
+	GtkWidget *iconDisk;
+	GtkWidget *labelDisk;
+	GtkWidget *tableDisk;
+	GtkWidget *labelShare;
+	GtkWidget *labelPath;
+	GtkWidget *hboxButton;
+	GtkWidget *buttonAdd;
+	GtkWidget *buttonBrowse;
+	GtkWidget *frameOutput;
+	GtkWidget *vboxOutput;
+/* Widgets from optbox.h
+	GtkWidget *inputShare;
+	GtkWidget *inputPath;
+	GtkWidget *labelWarning;
+*/
+/* Widgets from global.h
+	GtkWidget *entryOutput;
+*/
+	
+	box = gtk_vbox_new(FALSE, 0);
+	tbox = gtk_vbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), tbox, FALSE, FALSE, FALSE);
+	gtk_widget_show(tbox);
+	
+	/* create frame Disk */
+	frameDisk = gtk_frame_new(_("Disk"));
+	gtk_container_add(GTK_CONTAINER(tbox), frameDisk);
+	gtk_widget_show(frameDisk);
+
+	vboxDisk = gtk_vbox_new(FALSE, 0);
+	gtk_container_set_border_width(GTK_CONTAINER(vboxDisk), 5);
+	gtk_container_add(GTK_CONTAINER(frameDisk), vboxDisk);
+	gtk_widget_show(vboxDisk);
+	
+	/** create a horizontal box for icon and explanation in frame Disk */
+	hboxDisk = gtk_hbox_new(FALSE, 0);
+	gtk_container_set_border_width(GTK_CONTAINER(hboxDisk), 0);
+    gtk_box_set_spacing(GTK_BOX(hboxDisk), 15);
+	gtk_container_add(GTK_CONTAINER(vboxDisk), hboxDisk);
+	gtk_widget_show(hboxDisk);
+
+	iconDisk = gtk_image_new_from_stock(GTK_STOCK_NETWORK, GTK_ICON_SIZE_DIALOG);
+	/* iconDisk = gtk_image_new_from_file(PIXDIR"/share.png"); */
+	gtk_box_pack_start(GTK_BOX(hboxDisk), iconDisk, FALSE, FALSE, FALSE);
+	gtk_widget_show(iconDisk);
+	
+	labelDisk = gtk_label_new(_("Select path to share on remote server."));
+	gtk_misc_set_alignment(GTK_MISC(labelDisk), 0.0, 0.5);
+	gtk_box_pack_start(GTK_BOX(hboxDisk), labelDisk, FALSE, FALSE, FALSE);
+	gtk_widget_show(labelDisk);
+	
+    /** create table for entry lines in frame Disk */
+    tableDisk = gtk_table_new(3, 2, FALSE);
+	gtk_container_border_width(GTK_CONTAINER(tableDisk), 5);   
+	gtk_box_pack_start(GTK_BOX(vboxDisk), tableDisk, FALSE, FALSE, FALSE);
+	gtk_widget_show(tableDisk);
+	
+	labelShare = gtk_label_new(_("Share name:"));
+	gtk_misc_set_alignment(GTK_MISC(labelShare), 1.0, 0.5);
+	gtk_table_attach(GTK_TABLE(tableDisk), labelShare, 0, 1, 0, 1,
+		GTK_FILL, GTK_EXPAND|GTK_FILL, 2, 2);
+	gtk_widget_show(labelShare);
+
+	inputShare = gtk_entry_new();
+	gtk_entry_set_max_length(GTK_ENTRY(inputShare), MAXSHARENAMELEN);
+	g_signal_connect(G_OBJECT(GTK_ENTRY(inputShare)), "changed",
+		G_CALLBACK(sig_inputDisk), NULL);
+	gtk_table_attach(GTK_TABLE(tableDisk), inputShare, 1, 2, 0, 1,
+		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 2, 2);
+	gtk_widget_show(inputShare);
+	
+	labelPath = gtk_label_new(_("Local full path of share:"));
+	gtk_misc_set_alignment(GTK_MISC(labelPath), 1.0, 0.5);
+	gtk_table_attach(GTK_TABLE(tableDisk), labelPath, 0, 1, 1, 2,
+		GTK_FILL, GTK_EXPAND|GTK_FILL, 2, 2);
+	gtk_widget_show(labelPath);
+
+	inputPath = gtk_entry_new();
+	g_signal_connect(G_OBJECT(GTK_ENTRY(inputPath)), "changed",
+		G_CALLBACK(sig_inputDisk), NULL);
+	gtk_table_attach(GTK_TABLE(tableDisk), inputPath, 1, 2, 1, 2,
+		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 2, 2);
+	gtk_widget_show(inputPath);
+
+	hboxButton = gtk_hbox_new(FALSE, 0);
+	gtk_table_attach(GTK_TABLE(tableDisk), hboxButton, 1, 2, 2, 3,
+		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 2, 2);
+	gtk_widget_show(hboxButton);
+
+    buttonBrowse = gtk_button_new_with_label(_("Browse..."));
+	gtk_signal_connect(GTK_OBJECT(buttonBrowse), "clicked",
+		GTK_SIGNAL_FUNC(sig_btn_browsePath), NULL);
+	gtk_box_pack_start(GTK_BOX(hboxButton), buttonBrowse, FALSE, FALSE, 0);
+	gtk_widget_show(buttonBrowse);
+
+	buttonAdd = gtk_button_new_from_stock("gtk-add");
+	gtk_signal_connect(GTK_OBJECT(buttonAdd), "clicked",
+		GTK_SIGNAL_FUNC(sig_btn_addDisk), NULL);
+	gtk_box_pack_end(GTK_BOX(hboxButton), buttonAdd, FALSE, FALSE, 0);
+	gtk_widget_show(buttonAdd);
+	
+	/* create entry for commandline optoins */
+	frameOutput = gtk_frame_new(_("Options to be added to the command"));
+	gtk_container_add(GTK_CONTAINER(tbox), frameOutput);
+	gtk_widget_show(frameOutput);
+
+	vboxOutput = gtk_vbox_new(FALSE, 0);
+	gtk_container_set_border_width(GTK_CONTAINER(vboxOutput), 10);
+	gtk_container_add(GTK_CONTAINER(frameOutput), vboxOutput);
+	gtk_widget_show(vboxOutput);
+
+	entryOutput = gtk_entry_new();
+	g_signal_connect(G_OBJECT(GTK_ENTRY(entryOutput)), "changed",
+		G_CALLBACK(sig_redirect), NULL);
+	gtk_container_add(GTK_CONTAINER(vboxOutput), entryOutput);
+	gtk_widget_show(entryOutput);
+	
+	/* create user information line */
+	labelWarning = gtk_label_new("");
+	gtk_misc_set_alignment(GTK_MISC(labelWarning), 0, 0);
+	gtk_box_pack_end(GTK_BOX(box), labelWarning, FALSE, FALSE, 0);
+	gtk_widget_show(labelWarning);
+	
+	return(box);
+}
+
 void insert_server(const GtkWidget *widget) {
 	GtkWidget *lBox;
 	GtkWidget *caption;
+	gint  ii;
 
 	lBox = gtk_hbox_new(FALSE, 0);
 	gtk_container_set_border_width(GTK_CONTAINER(lBox), 0);
@@ -546,18 +692,21 @@ void insert_server(const GtkWidget *widget) {
 	gtk_box_pack_start(GTK_BOX(lBox), caption, FALSE, FALSE, FALSE);
 	gtk_widget_show(caption);
 
-	combo_host2 = gtk_combo_new();
-	gtk_combo_disable_activate(GTK_COMBO(combo_host2));
-	g_signal_connect(G_OBJECT(GTK_COMBO(combo_host2)->entry), "changed",
+/*   TODO MKA
+ *   For GTK+ >=2.24 this is the new widget. Unfortunately I have 2.20 only.
+ *   combo_host2 = gtk_combo_box_text_new_with_entry(); 
+ */
+	combo_host2 = gtk_combo_box_entry_new_text();
+	g_signal_connect(G_OBJECT(GTK_BIN(combo_host2)->child), "changed",
 			G_CALLBACK(sig_selchange), NULL);
 	gtk_table_attach(GTK_TABLE(widget), combo_host2, 1, 2, 0, 1,
 		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 5);
 	gtk_widget_show(combo_host2);
 
-	if(hostnames != NULL)
-		gtk_combo_set_popdown_strings(GTK_COMBO(combo_host2), hostnames);
+	if (hostnames != NULL) {
+	    fill_combo_with_list(combo_host2, hostnames);
+    }
 }
-
 
 void insert_username(const GtkWidget *widget) {
 	GtkWidget *lBox;
@@ -666,6 +815,7 @@ void insert_rdp_protocol(const GtkWidget *widget) {
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(menu_rdp_proto), menu);
 }
 
+/* - Add buttons [Save as] and [Open] to manage configuration files --------- */
 void insert_buttons(const GtkWidget *widget) {
 	GtkWidget *save, *load;
 
@@ -710,15 +860,12 @@ void insert_screenscroll(const GtkWidget *widget) {
 		GTK_SHRINK, GTK_SHRINK, 10, 0);
 	gtk_widget_show(rtext);
 
-	input_geometry = gtk_entry_new();
-	gtk_entry_set_max_length(GTK_ENTRY(input_geometry), 10);
-	g_signal_connect(G_OBJECT(GTK_ENTRY(input_geometry)), "changed",
-		G_CALLBACK(sig_geometry), NULL);
-	gtk_table_attach(GTK_TABLE(widget), input_geometry, 0, 4, 1, 2,
-		GTK_EXPAND|GTK_FILL|GTK_SHRINK, GTK_EXPAND|GTK_FILL|GTK_SHRINK, 10, 0);
-	gtk_widget_show(input_geometry);
+	geometry_label = gtk_label_new(_("??? pixels"));
+	gtk_label_set_justify(GTK_LABEL(geometry_label), GTK_JUSTIFY_CENTER);
+	gtk_table_attach(GTK_TABLE(widget), geometry_label, 0, 4, 1, 2,
+		GTK_SHRINK, GTK_SHRINK, 10, 0);
+	gtk_widget_show(geometry_label);
 }
-
 
 void insert_colorsel(const GtkWidget *widget) {
 	GtkWidget *menu;
@@ -956,10 +1103,15 @@ void insert_settings(const GtkWidget *widget) {
 	gtk_box_pack_start(GTK_BOX(cBox1), clientnameLabel, FALSE, FALSE, FALSE);
 	gtk_widget_show(clientnameLabel);
 
-	combo_clientname = gtk_combo_new();
-	gtk_entry_set_max_length(GTK_ENTRY(GTK_COMBO(combo_clientname)->entry), 255);
-	g_signal_connect(G_OBJECT(GTK_ENTRY(GTK_COMBO(combo_clientname)->entry)), "changed",
-		G_CALLBACK(sig_clientname), NULL);
+/*   TODO MKA
+ *   For GTK+ >=2.24 this is the new widget. Unfortunately I have 2.20 only.
+ *   combo_host2 = gtk_combo_box_text_new_with_entry(); 
+ */
+    combo_clientname = gtk_combo_box_entry_new_text();
+	gtk_entry_set_max_length(GTK_ENTRY(GTK_BIN(combo_clientname)->child),	
+        MAXHOSTNAMELEN);
+	g_signal_connect(G_OBJECT(GTK_BIN(combo_clientname)->child), "changed",
+        G_CALLBACK(sig_clientname), NULL);
 	gtk_table_attach(GTK_TABLE(widget), combo_clientname, 0, 1, 8, 9,
 		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 5);
 	gtk_widget_show(combo_clientname);
@@ -1064,28 +1216,29 @@ void sig_rdp_protocol(GtkWidget *widget, gpointer data) {
 	}
 }
 
+/* - Callback function for saving connection configuration ------------------ */
 void sig_savebtn(GtkWidget *widget, gpointer data) {
 	GtkWidget *sel;
 
-	sel = gtk_file_selection_new("Save rdp-File");
+    /* Craete file selection dialog */
+	sel = gtk_file_selection_new(_("Save rdp-File"));
 
 	gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(sel)->ok_button),
 		"clicked", G_CALLBACK(sig_file_save), sel);
 
-	g_signal_connect_swapped(GTK_OBJECT(
-		GTK_FILE_SELECTION(sel)->ok_button),
+	g_signal_connect_swapped(GTK_OBJECT(GTK_FILE_SELECTION(sel)->ok_button),
 		"clicked", G_CALLBACK(gtk_widget_destroy), sel);
-	g_signal_connect_swapped(GTK_OBJECT(
-		GTK_FILE_SELECTION(sel)->cancel_button),
+	g_signal_connect_swapped(GTK_OBJECT(GTK_FILE_SELECTION(sel)->cancel_button),
 		"clicked", G_CALLBACK(gtk_widget_destroy), sel);
 
 	gtk_widget_show(sel);
 }
 
+/* - Callback function for loading saved connection configuration ----------- */
 void sig_loadbtn(GtkWidget *widget, gpointer data) {
 	GtkWidget *sel;
 
-	sel = gtk_file_selection_new("Open rdp-File");
+	sel = gtk_file_selection_new(_("Open rdp-File"));
 
 	gtk_signal_connect(GTK_OBJECT(GTK_FILE_SELECTION(sel)->ok_button),
 		"clicked", G_CALLBACK(sig_file_open), sel);
@@ -1111,11 +1264,11 @@ void sig_scroll(GtkWidget *widget, gpointer data) {
 	if(item != NULL) {
 		split = g_strsplit(item, "x", 2);
 		if(split[1] != NULL)
-			gtk_entry_set_text(GTK_ENTRY(input_geometry),
-				g_strdup_printf("%s%s%s",
-					split[0], g_strdup(_("x")), split[1]));
+			gtk_label_set_text(GTK_LABEL(geometry_label),
+				g_strdup_printf("%s %s %s %s",
+					split[0], g_strdup(_("by")), split[1], g_strdup(_("pixels"))));
 		else
-			gtk_entry_set_text(GTK_ENTRY(input_geometry),
+			gtk_label_set_text(GTK_LABEL(geometry_label),
 				g_strdup_printf("%s", split[0]));
 
 		if(SHASH("geometry") != NULL)
@@ -1128,35 +1281,6 @@ void sig_scroll(GtkWidget *widget, gpointer data) {
 
 	if(split != NULL)
 		g_strfreev(split);
-}
-
-void sig_geometry(GtkWidget *widget, gpointer data) {
-	gint i, count;
-	gchar *item = NULL;
-
-	if(SHASH("geometry") != NULL)
-		g_hash_table_replace(config, "geometry",
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
-	else
-		g_hash_table_insert(config, "geometry",
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
-	/* if it is a predefined screensize set it */	
-	count = g_list_length(screensize);
-	for(i=0; i<count; i++) {
-		item = g_list_nth_data(screensize, i);
-		if(!g_strcasecmp(SHASH("geometry"), item)) {
-			gtk_adjustment_set_value(GTK_ADJUSTMENT(adj_screensize), i);
-		}
-	}
-
-
-	if(SHASH("geometry") != NULL)
-		g_hash_table_replace(config, "geometry",
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
-	else
-		g_hash_table_insert(config, "geometry",
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
-
 }
 
 void sig_colchange(GtkWidget *widget, gpointer data) {
@@ -1331,6 +1455,7 @@ void sig_attconsole(GtkWidget *widget, gpointer data) {
 	}
 }
 
+/* - Callback function for changed fake computer name ----------------------- */
 void sig_clientname(GtkWidget *widget, gpointer data) {
 	if(SHASH("clientname") != NULL)
 		g_hash_table_replace(config, "clientname",
@@ -1369,5 +1494,89 @@ void sig_btn_sshopts(GtkWidget *widget, gpointer data) {
 			g_strdup_printf("%d",
 			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(check_sshopts))));
 	}
+}
+
+/* - User entered new text into entry fields of Disk frame ------------------ */
+void sig_inputDisk(GtkEntry *widget, gpointer data) {
+
+    /* Clear former warnings */
+    show_warning_redirect("");
+}
+
+/* - Show selection dialog for share path ----------------------------------- */
+void sig_btn_browsePath(GtkWidget *widget, gpointer data) {
+    GtkWidget *dialog;
+    
+    dialog = gtk_file_chooser_dialog_new(_("Choose folder to share"),
+                                         GTK_WINDOW(window_main),
+                                         GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
+                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                         GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+                                         NULL);
+    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog), "/");
+    gtk_file_chooser_set_create_folders(GTK_FILE_CHOOSER(dialog), FALSE);
+    
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        char *foldername;
+        
+        foldername = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+        gtk_entry_set_text(GTK_ENTRY(inputPath), foldername);
+        g_free (foldername);
+    }
+    gtk_widget_destroy(dialog);
+}
+
+/* - Copying disk information for redirected disks -------------------------- */
+void sig_btn_addDisk(GtkWidget *widget, gpointer data) {
+    const gchar *share;
+    const gchar *path;
+    gchar command[MAX_LINE_BUF];  /* TODO MKA malloc() */
+    gint  pos;
+
+    /* Get the Share input and check it */
+    share = gtk_entry_get_text(GTK_ENTRY(inputShare));
+    if (strlen(share) == 0) {
+        show_warning_redirect(_("Share must be defined!"));
+        return;
+    }
+    
+    /* Get the Path input and check it */
+    path = gtk_entry_get_text(GTK_ENTRY(inputPath));
+    if (strlen(path) == 0) {
+        show_warning_redirect(_("Path must be defined!"));
+        return;
+    }
+    if (path[0] != '/') {
+        show_warning_redirect(_("It is not an absolute path!"));
+        return;
+    }
+    
+    sprintf(command, "-r disk:%s=%s ", share, path);
+    pos = -1;  /* Append to former content */
+    gtk_editable_insert_text(GTK_EDITABLE(entryOutput), command, strlen(command),
+       &pos);
+       
+    /* Clear input fields */
+    gtk_entry_set_text(GTK_ENTRY(inputShare), "");
+    gtk_entry_set_text(GTK_ENTRY(inputPath), "");
+}
+
+/* - Save text entered into the redirection line (entryOutput) -------------- */
+void sig_redirect(GtkWidget *widget, gpointer data) {
+	if(SHASH("redirect") != NULL)
+		g_hash_table_replace(config, "redirect",
+			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+	else
+		g_hash_table_insert(config, "redirect",
+			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+
+	if(SHASH("redirect") == NULL)
+		g_hash_table_remove(config, "redirect");
+}
+
+/* - Show warning to user --------------------------------------------------- */
+void show_warning_redirect(const gchar *warning) {
+
+    gtk_label_set_text(GTK_LABEL(labelWarning), warning);
 }
 

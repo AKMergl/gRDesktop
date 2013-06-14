@@ -1,7 +1,7 @@
 /* grdesktop - gtk rdesktop frontend
  * Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
  *
- * $Id: optbox.h,v 1.31 2005/03/08 10:06:37 tsauter Exp $
+ * $Id: optbox.h,v 1.29 2004/03/02 16:47:24 tsauter Exp $
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +23,11 @@
 #ifndef __OPTBOX_H__
 #define __OPTBOX_H__
 
+/*
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <stdio.h>
+*/
 #include <sys/types.h>
 #include <dirent.h>
 #include "config.h"
@@ -33,7 +35,6 @@
 #include "options.h"
 #include "srvsel.h"
 #include "rdpparse.h"
-#include "sshbox.h"
 
 GtkWidget *option_box();
 GtkWidget *options_page1_box();
@@ -41,6 +42,12 @@ GtkWidget *options_page2_box();
 GtkWidget *options_page3_box();
 GtkWidget *options_page4_box();
 GtkWidget *options_page5_box();
+GtkWidget *options_page6_box(); /* MKA */
+
+GtkWidget *inputShare;
+GtkWidget *inputPath;
+GtkWidget *labelWarning;
+
 void insert_server(const GtkWidget *widget);
 void insert_username(const GtkWidget *widget);
 void insert_password(const GtkWidget *widget);
@@ -62,7 +69,6 @@ void sig_savebtn(GtkWidget *widget, gpointer data);
 void sig_rdp_protocol(GtkWidget *widget, gpointer data);
 void sig_loadbtn(GtkWidget *widget, gpointer data);
 void sig_scroll(GtkWidget *widget, gpointer data);
-void sig_geometry(GtkWidget *widget, gpointer data);
 void sig_colchange(GtkWidget *widget, gpointer data);
 void sig_keychange(GtkWidget *widget, gpointer data);
 void sig_sound(GtkWidget *widget, gpointer data);
@@ -78,6 +84,13 @@ void sig_attconsole(GtkWidget *widget, gpointer data);
 void sig_clientname(GtkWidget *widget, gpointer data);
 void sig_sshopts(GtkWidget *widget, gpointer data);
 void sig_btn_sshopts(GtkWidget *widget, gpointer data);
+
+/* Functions for Redirect tab */
+void sig_inputDisk(GtkEntry *widget, gpointer data);
+void sig_btn_browsePath(GtkWidget *widget, gpointer data);
+void sig_btn_addDisk(GtkWidget *widget, gpointer data);
+void sig_redirect(GtkWidget *widget, gpointer data);
+void show_warning_redirect(const gchar *warning);
 
 #endif /* __OPTBOX_H__ */
 
