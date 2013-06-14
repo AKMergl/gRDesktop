@@ -1,0 +1,311 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: grdesktop 0.23\n"
+"Report-Msgid-Bugs-To: grdesktop-devel@nongnu.org\n"
+"POT-Creation-Date: 2003-05-14 14:30+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: btnbox.c:73 btnbox.c:78
+msgid "Please select or insert a valid hostname/ip-address!"
+msgstr ""
+
+#: btnbox.c:100 main.c:44
+msgid "Remotedesktop Client"
+msgstr ""
+
+#: btnbox.c:101
+msgid "(C) 2002-2004 Thorsten Sauter"
+msgstr ""
+
+#: btnbox.c:102
+msgid "Gnome frontend for rdesktop"
+msgstr ""
+
+#: btnbox.c:132
+#, c-format
+msgid ""
+"Could not display help for Remote Desktop.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: main.c:50
+msgid "Remote Desktop Client"
+msgstr ""
+
+#: main.c:192
+msgid "Unable to create hash to store elements!"
+msgstr ""
+
+#: optbox.c:34
+msgid "General"
+msgstr ""
+
+#: optbox.c:40
+msgid "Display"
+msgstr ""
+
+#: optbox.c:46
+msgid "Resources"
+msgstr ""
+
+#: optbox.c:52
+msgid "Program"
+msgstr ""
+
+#: optbox.c:58
+msgid "Extended"
+msgstr ""
+
+#: optbox.c:104
+msgid "Logon Settings"
+msgstr ""
+
+#: optbox.c:136
+msgid ""
+"Type the name of the computer, or\n"
+"choose a computer from the list."
+msgstr ""
+
+#: optbox.c:158
+msgid "Connection settings"
+msgstr ""
+
+#: optbox.c:190
+msgid ""
+"Save settings or load saved\n"
+"connections from file."
+msgstr ""
+
+#: optbox.c:223
+msgid "Remote desktop size"
+msgstr ""
+
+#: optbox.c:255
+msgid ""
+"Choose the size of your remote\n"
+"desktop, or select fullscreen."
+msgstr ""
+
+#: optbox.c:267
+msgid "Colors"
+msgstr ""
+
+#: optbox.c:288
+msgid ""
+"Select the available colorsize\n"
+"on remote box."
+msgstr ""
+
+#: optbox.c:319
+msgid "Keyboard type"
+msgstr ""
+
+#: optbox.c:351
+msgid ""
+"Select the language code for\n"
+"the keyboard."
+msgstr ""
+
+#: optbox.c:363
+msgid "Sound on the remote Computer"
+msgstr ""
+
+#: optbox.c:395
+msgid ""
+"Please select which sound output you\n"
+"would like to use."
+msgstr ""
+
+#: optbox.c:426
+msgid "Launch Program"
+msgstr ""
+
+#: optbox.c:458
+msgid ""
+"Select a program which should start\n"
+"after connection."
+msgstr ""
+
+#: optbox.c:489
+msgid "Options"
+msgstr ""
+
+#: optbox.c:521
+msgid "Tune your remote desktop connections."
+msgstr ""
+
+#: optbox.c:545 srvsel.c:31
+msgid "Computer:"
+msgstr ""
+
+#: optbox.c:572 sshbox.c:67
+msgid "Username:"
+msgstr ""
+
+#: optbox.c:595
+msgid "Password:"
+msgstr ""
+
+#: optbox.c:619
+msgid "Domain:"
+msgstr ""
+
+#: optbox.c:633
+msgid "Save my password"
+msgstr ""
+
+#: optbox.c:691
+msgid "Less"
+msgstr ""
+
+#: optbox.c:707
+msgid "More"
+msgstr ""
+
+#: optbox.c:713
+msgid "??? pixels"
+msgstr ""
+
+#: optbox.c:786
+msgid "Keyboard"
+msgstr ""
+
+#: optbox.c:834
+msgid "Run program"
+msgstr ""
+
+#: optbox.c:845
+msgid "Path and filename:"
+msgstr ""
+
+#: optbox.c:864
+msgid "Working directory:"
+msgstr ""
+
+#: optbox.c:888
+msgid "Force bitmap updates"
+msgstr ""
+
+#: optbox.c:896
+msgid "Don't send motion events"
+msgstr ""
+
+#: optbox.c:904
+msgid "Hide window manager decorations"
+msgstr ""
+
+#: optbox.c:912
+msgid "Disable encryption (French TS)"
+msgstr ""
+
+#: optbox.c:920
+msgid "Window manager key bindings"
+msgstr ""
+
+#: optbox.c:928
+msgid "Attach to console (>= Windows 2003)"
+msgstr ""
+
+#: optbox.c:952
+msgid "Fake clientname:"
+msgstr ""
+
+#: optbox.c:977 sshbox.c:51
+msgid "Enable SSH tunneling"
+msgstr ""
+
+#: optbox.c:1113
+msgid "by"
+msgstr ""
+
+#: optbox.c:1113
+msgid "pixels"
+msgstr ""
+
+#: options.c:26
+msgid "Windows NT/2000"
+msgstr ""
+
+#: options.c:27
+msgid "Windows XP/2003"
+msgstr ""
+
+#: options.c:58 options.c:407 rdpparse.c:87
+msgid "Fullscreen"
+msgstr ""
+
+#: options.c:104
+msgid "256 Colors"
+msgstr ""
+
+#: options.c:105
+msgid "High Color (15bit)"
+msgstr ""
+
+#: options.c:106
+msgid "High Color (16bit)"
+msgstr ""
+
+#: options.c:107
+msgid "True Color (24bit)"
+msgstr ""
+
+#: options.c:140 options.c:172
+#, c-format
+msgid "Unable to find keyboad definitions: %s"
+msgstr ""
+
+#: options.c:199
+msgid "No sound output"
+msgstr ""
+
+#: options.c:200
+msgid "Play on this host"
+msgstr ""
+
+#: rdpparse.c:33 rdpparse.c:50
+msgid "Please select a valid rdp file!"
+msgstr ""
+
+#: rdpparse.c:63
+msgid "Really override the already existing file?"
+msgstr ""
+
+#: rdpparse.c:77
+#, c-format
+msgid "Unable to save rdp-file: %s"
+msgstr ""
+
+#: rdpparse.c:138 rdpparse.c:145
+#, c-format
+msgid "Unable to open rdp-file: %s"
+msgstr ""
+
+#: rdpparse.c:153
+#, c-format
+msgid "File %s is empty!"
+msgstr ""
+
+#: run.c:101
+msgid "No hostname for ssh tunneling available"
+msgstr ""
+
+#: sshbox.c:28
+msgid "SSH-Tunnel settings"
+msgstr ""
+
+#: sshbox.c:84
+msgid "Hostname:"
+msgstr ""

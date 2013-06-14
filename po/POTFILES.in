@@ -1,0 +1,8 @@
+src/btnbox.c
+src/main.c
+src/optbox.c
+src/options.c
+src/rdpparse.c
+src/run.c
+src/srvsel.c
+src/sshbox.c

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+"/usr/share/sgml/docbook/dtd/xml/4.1.2/docbookx.dtd" [
+	<!ENTITY legal SYSTEM "legal.xml">
+	<!ENTITY appversion "0.20">
+	<!ENTITY manrevision "0.1">
+	<!ENTITY date "March 2003">
+	<!ENTITY app "Remotedesktop Client">
+	<!ENTITY homepage "http://savannah.nongnu.org/projects/grdesktop">
+]>
+
+<!-- =============Document Header ============================= -->
+<article id="index" lang="en">
+	<articleinfo> 
+		<title>&app; Manual V&manrevision;</title>       
+		<copyright> 
+			<year>2003</year> 
+			<holder>Thorsten Sauter</holder> 
+		</copyright> 
+
+		<publisher> 
+			<publishername>Thorsten Sauter</publishername> 
+		</publisher> 
+
+		&legal;
+		<authorgroup> 
+			<author> 
+				<firstname>Thorsten</firstname> 
+				<surname>Sauter</surname> 
+				<affiliation> 
+					<orgname>Thorsten Sauter</orgname> 
+					<address>
+						<email>tsauter@gmx.net</email>
+					</address> 
+				</affiliation> 
+			</author> 
+		</authorgroup>
+
+		<revhistory>
+			<revision> 
+				<revnumber>Remotedesktop Client User's Guide</revnumber> 
+				<date>2003</date> 
+				<revdescription> 
+					<para role="author">
+						Thorsten Sauter
+						<email>tsauter@gmx.net</email>
+					</para>
+					<para role="publisher">Thorsten Sauter</para>
+				</revdescription> 
+			</revision> 
+		</revhistory> 
+
+		<releaseinfo>This manual describes version &appversion; of &app;.</releaseinfo> 
+		<legalnotice> 
+			<title>Feedback</title> 
+			<para>
+				To report a bug or make a suggestion regarding the &app; application or
+				this manual, follow the directions in the <ulink url="&homepage;"
+				type="help">Remotedesktop Client Homepage</ulink>. 
+			</para>
+		</legalnotice> 
+	</articleinfo> 
+
+	<indexterm>
+		<primary>Remotedesktop Client</primary> 
+	</indexterm> 
+
+<!-- ============= Document Body ============================= -->
+
+<!-- ============= Introduction ============================== -->
+
+<sect1 id="grdesktop-introduction">
+	<title>Introduction</title>
+	<para>
+		With the <application>&app;</application> you can easily connect
+		to a remote Microsoft terminal server or Windows XP running Remote
+		Desktop. All you need is network access and permissions to connect
+		to the other computer (Username and Password).
+	</para>
+	<para>
+		Optionally, you can specify settings for you connection and then save
+		the setting for the next time you connect.
+	</para>
+</sect1>
+
+<sect1 id="grdesktop-newconnection">
+	<title>Create a new connection</title>
+	<para>
+		<itemizedlist>
+			<listitem>
+				<para>
+					Open <application>&app;</application>
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					In <menuitem>Computer</menuitem> 
+				</para>
+			</listitem>
+		</itemizedlist>
+	</para>
+</sect1>
+
+</article>
+

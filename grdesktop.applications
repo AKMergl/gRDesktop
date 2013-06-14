@@ -1,0 +1,8 @@
+grdesktop
+	command=grdesktop -s
+	name=Remotedesktop Client
+	can_open_multiple_files=false
+	expects_uris=false
+	requires_terminal=false
+	mime_types=application/x-rdp
+

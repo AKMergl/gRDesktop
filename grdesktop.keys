@@ -1,0 +1,10 @@
+application/x-rdp
+	icon_filename=grdesktop-cfg
+	description=Remotdesktop Configuration File
+	[de]description=Remotedesktop Konfigurationsdatei
+	default_action_type=application
+	short_list_application_ids_for_novice_user_level=grdesktop
+	short_list_application_ids_for_intermediate_user_level=grdesktop
+	short_list_application_ids_for_advanced_user_level=grdesktop
+	category=System
+

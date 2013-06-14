@@ -1,0 +1,79 @@
+.\" $Header: /sources/grdesktop/grdesktop/doc/grdesktop.1,v 1.2 2004/03/30 14:04:41 tsauter Exp $
+.\"
+.\"	transcript compatibility for postscript use.
+.\"
+.\"	synopsis:  .P! <file.ps>
+.\"
+.de P!
+.fl
+\!!1 setgray
+.fl
+\\&.\"
+.fl
+\!!0 setgray
+.fl			\" force out current output buffer
+\!!save /psv exch def currentpoint translate 0 0 moveto
+\!!/showpage{}def
+.fl			\" prolog
+.sy sed -e 's/^/!/' \\$1\" bring in postscript file
+\!!psv restore
+.
+.de pF
+.ie     \\*(f1 .ds f1 \\n(.f
+.el .ie \\*(f2 .ds f2 \\n(.f
+.el .ie \\*(f3 .ds f3 \\n(.f
+.el .ie \\*(f4 .ds f4 \\n(.f
+.el .tm ? font overflow
+.ft \\$1
+..
+.de fP
+.ie     !\\*(f4 \{\
+.	ft \\*(f4
+.	ds f4\"
+'	br \}
+.el .ie !\\*(f3 \{\
+.	ft \\*(f3
+.	ds f3\"
+'	br \}
+.el .ie !\\*(f2 \{\
+.	ft \\*(f2
+.	ds f2\"
+'	br \}
+.el .ie !\\*(f1 \{\
+.	ft \\*(f1
+.	ds f1\"
+'	br \}
+.el .tm ? font underflow
+..
+.ds f1\"
+.ds f2\"
+.ds f3\"
+.ds f4\"
+'\" t 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n  
+.TH "GRDESKTOP" "1" 
+.SH "NAME" 
+grdesktop \(em GNOME frontend for the rdesktop client
+.SH "SYNOPSIS" 
+.PP 
+\fBgrdesktop\fR 
+.SH "DESCRIPTION" 
+.PP 
+grdesktop is a GNOME frontend for the remote desktop client (rdesktop). 
+.PP 
+It can save several connections (including there options), 
+and browse the network for available terminal servers. 
+.SH "OPTIONS" 
+.PP 
+grdesktop support the default GNOME and XFree86 command 
+line options. 
+.SH "SEE ALSO" 
+.PP 
+rdesktop (1) 
+.SH "AUTHOR" 
+.PP 
+grdesktop is written by Thorsten Sauter <tsauter@gmx.net> 
+.SH "THANKS" 
+.PP 
+Thanks to all the mailinglist members, or bug reporters. 
+.\" created by instant / docbook-to-man, Tue 30 Mar 2004, 12:22 

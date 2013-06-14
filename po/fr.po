@@ -1,0 +1,398 @@
+# french translation file for grdesktop
+# Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
+# This file is distributed under the same license as the PACKAGE package.
+# Thorsten Sauter <tsauter@gmx.net>, 2002.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: grdesktop 0.16\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-03-04 11:52+0100\n"
+"PO-Revision-Date: 2002-11-13 16:30+0200\n"
+"Last-Translator: Jean-Francois Kubitowicz <jean-francois.kubitowicz@laposte."
+"net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/btnbox.c:73 src/btnbox.c:78
+msgid "Please select or insert a valid hostname/ip-address!"
+msgstr "Sélectionnez ou insérez un nom ou une adresse IP valide!"
+
+#: src/btnbox.c:100 src/main.c:44
+#, fuzzy
+msgid "Remotedesktop Client"
+msgstr "Client d'affichage déporté"
+
+#: src/btnbox.c:101
+msgid "(C) 2002-2004 Thorsten Sauter"
+msgstr ""
+
+#: src/btnbox.c:102
+msgid "Gnome frontend for rdesktop"
+msgstr ""
+
+#: src/btnbox.c:132
+#, c-format
+msgid ""
+"Could not display help for Remote Desktop.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: src/main.c:50
+msgid "Remote Desktop Client"
+msgstr "Client d'affichage déporté"
+
+#: src/main.c:192
+msgid "Unable to create hash to store elements!"
+msgstr "Création de la liste impossible: %s"
+
+#: src/optbox.c:34
+msgid "General"
+msgstr "Général"
+
+#: src/optbox.c:40
+msgid "Display"
+msgstr "Affichage"
+
+#: src/optbox.c:46
+msgid "Resources"
+msgstr ""
+
+#: src/optbox.c:52
+msgid "Program"
+msgstr "Programm"
+
+#: src/optbox.c:58
+msgid "Extended"
+msgstr "Etendu"
+
+#. create logon settings box
+#: src/optbox.c:104
+msgid "Logon Settings"
+msgstr "Paramêtres d'identification"
+
+#: src/optbox.c:136
+msgid ""
+"Type the name of the computer, or\n"
+"choose a computer from the list."
+msgstr ""
+"Entrez le nom de l'ordinateur, ou\n"
+"choisissez-le dans la liste."
+
+#. create open/save settings box
+#: src/optbox.c:158
+msgid "Connection settings"
+msgstr "Paramêtres de connexion"
+
+#: src/optbox.c:190
+msgid ""
+"Save settings or load saved\n"
+"connections from file."
+msgstr ""
+"Enregistrer ou charger\n"
+"les paramêtres de connexion."
+
+#. create display settings box
+#: src/optbox.c:223
+msgid "Remote desktop size"
+msgstr "Taille du bureau distant"
+
+#: src/optbox.c:255
+msgid ""
+"Choose the size of your remote\n"
+"desktop, or select fullscreen."
+msgstr ""
+"Choisissez la taille du bureau\n"
+"distant ou le mode plein écran."
+
+#. create color settings box
+#: src/optbox.c:267
+msgid "Colors"
+msgstr "Couleurs"
+
+#: src/optbox.c:288
+msgid ""
+"Select the available colorsize\n"
+"on remote box."
+msgstr ""
+"Définissez la profondeur de couleur\n"
+"sur le bureau distant."
+
+#. create keyboard settings box
+#: src/optbox.c:319
+msgid "Keyboard type"
+msgstr "Type de clavier"
+
+#: src/optbox.c:351
+msgid ""
+"Select the language code for\n"
+"the keyboard."
+msgstr "Choisissez la langue du clavier."
+
+#. create sound settings box
+#: src/optbox.c:363
+msgid "Sound on the remote Computer"
+msgstr ""
+
+#: src/optbox.c:395
+msgid ""
+"Please select which sound output you\n"
+"would like to use."
+msgstr ""
+
+#. create program settings box
+#: src/optbox.c:426
+msgid "Launch Program"
+msgstr "Lancement de programme"
+
+#: src/optbox.c:458
+msgid ""
+"Select a program which should start\n"
+"after connection."
+msgstr ""
+"Entrez un programme à démarrer\n"
+"dès la connexion."
+
+#. create program settings box
+#: src/optbox.c:489
+msgid "Options"
+msgstr ""
+
+#: src/optbox.c:521
+msgid "Tune your remote desktop connections."
+msgstr "Paramétrez les connexions."
+
+#: src/optbox.c:545 src/srvsel.c:31
+msgid "Computer:"
+msgstr "Ordinateur:"
+
+#: src/optbox.c:572 src/sshbox.c:66
+msgid "Username:"
+msgstr "Identifiant:"
+
+#: src/optbox.c:595 src/sshbox.c:80
+msgid "Password:"
+msgstr "Mot de passe:"
+
+#: src/optbox.c:619
+msgid "Domain:"
+msgstr "Domaine:"
+
+#: src/optbox.c:633
+msgid "Save my password"
+msgstr "Sauver le mot de passe"
+
+#: src/optbox.c:691
+msgid "Less"
+msgstr "Moins"
+
+#: src/optbox.c:707
+msgid "More"
+msgstr "Plus"
+
+#: src/optbox.c:713
+msgid "??? pixels"
+msgstr "??? pixels"
+
+#: src/optbox.c:786
+msgid "Keyboard"
+msgstr "Clavier"
+
+#. insert checkbox
+#: src/optbox.c:834
+msgid "Run program"
+msgstr "Lancer un programme"
+
+#: src/optbox.c:845
+msgid "Path and filename:"
+msgstr "Chemin et nom:"
+
+#: src/optbox.c:864
+msgid "Working directory:"
+msgstr "Répertoire de travail:"
+
+#. insert checkboxes
+#: src/optbox.c:888
+msgid "Force bitmap updates"
+msgstr "Forcer la mise à jour des images"
+
+#: src/optbox.c:896
+msgid "Don't send motion events"
+msgstr "Ignorer les évènements clavier et souris"
+
+#: src/optbox.c:904
+msgid "Hide window manager decorations"
+msgstr ""
+
+#: src/optbox.c:912
+msgid "Disable encryption (French TS)"
+msgstr ""
+
+#: src/optbox.c:920
+msgid "Window manager key bindings"
+msgstr ""
+
+#: src/optbox.c:928
+msgid "Attach to console (>= Windows 2003)"
+msgstr ""
+
+#: src/optbox.c:952
+msgid "Fake clientname:"
+msgstr ""
+
+#: src/optbox.c:977 src/sshbox.c:52
+msgid "Enable SSH tunneling"
+msgstr ""
+
+#: src/optbox.c:1113
+msgid "by"
+msgstr "auf"
+
+#: src/optbox.c:1113
+msgid "pixels"
+msgstr "pixels"
+
+#: src/options.c:26
+msgid "Windows NT/2000"
+msgstr ""
+
+#: src/options.c:27
+msgid "Windows XP/2003"
+msgstr ""
+
+#: src/options.c:58 src/options.c:402 src/rdpparse.c:87
+msgid "Fullscreen"
+msgstr "Plein écran"
+
+#: src/options.c:104
+msgid "256 Colors"
+msgstr "256 couleurs"
+
+#: src/options.c:105
+msgid "High Color (15bit)"
+msgstr "Couleurs (15bit)"
+
+#: src/options.c:106
+msgid "High Color (16bit)"
+msgstr "Couleurs (16bit)"
+
+#: src/options.c:107
+msgid "True Color (24bit)"
+msgstr "Couleurs vraies (24bit)"
+
+#: src/options.c:140 src/options.c:172
+#, c-format
+msgid "Unable to find keyboad definitions: %s"
+msgstr "Définition de clavier non trouvée: %s"
+
+#: src/options.c:199
+msgid "No sound output"
+msgstr ""
+
+#: src/options.c:200
+msgid "Play on this host"
+msgstr ""
+
+#: src/rdpparse.c:33 src/rdpparse.c:50
+msgid "Please select a valid rdp file!"
+msgstr "Sélectionnez un fichier RDP valide!"
+
+#: src/rdpparse.c:63
+msgid "Really override the already existing file?"
+msgstr "Ecraser le fichier existant?"
+
+#: src/rdpparse.c:77
+#, c-format
+msgid "Unable to save rdp-file: %s"
+msgstr "Sauvegarde du fichier RDP impossible: %s"
+
+#: src/rdpparse.c:138 src/rdpparse.c:145
+#, c-format
+msgid "Unable to open rdp-file: %s"
+msgstr "Ouverture du fichier RDP impossible: %s"
+
+#: src/rdpparse.c:153
+#, c-format
+msgid "File %s is empty!"
+msgstr "Le fichier %s est vide!"
+
+#: src/sshbox.c:28
+#, fuzzy
+msgid "SSH-Tunnel settings"
+msgstr "Paramêtres de connexion"
+
+#~ msgid "Unable to delete logfile: %s"
+#~ msgstr "Suppression du fichier de log impossible: %s"
+
+#, fuzzy
+#~ msgid "Remote Desktop Browser"
+#~ msgstr "Taille du bureau distant"
+
+#~ msgid "Unable to setup signal handler for SIGCHLD"
+#~ msgstr "Création d'un signal handler impossible pour SIGCHLD!"
+
+#~ msgid "Unable to setup signal handler for SIGALRM"
+#~ msgstr "Création d'un signal handler impossible pour SIGALRM!"
+
+#~ msgid "About"
+#~ msgstr "A propos"
+
+#~ msgid "Error"
+#~ msgstr "Erreur"
+
+#, fuzzy
+#~ msgid "Unable to create hash for oldworld keymaps!"
+#~ msgstr "Création de la liste impossible: %s"
+
+#, fuzzy
+#~ msgid "Unable to find keyboad definitions for oldworld"
+#~ msgstr "Définition de clavier non trouvée: %s"
+
+#~ msgid "Unable to open configration file: %s"
+#~ msgstr "Ouverture du fichier de configuration impossible: %s"
+
+#~ msgid "Unable to acquire readlock in file: %s"
+#~ msgstr "Verrouillage du fichier en lecture impossible: %s"
+
+#~ msgid "Skip comment line: %s"
+#~ msgstr "Ignorer les commentaires: %s"
+
+#~ msgid "Unable to store host records!"
+#~ msgstr "Erreur de stockage des paramêtres de l'hôte!"
+
+#~ msgid "Unable to remove readlock on filename: %s"
+#~ msgstr "Déverrouillage du fichier en lecture impossible: %s"
+
+#~ msgid "%s should be a regular file, not a directory!"
+#~ msgstr "%s doit être un fichier normal, pas un répertoire!"
+
+#~ msgid "Unable to write configration file: %s"
+#~ msgstr "Impossible de sauver le fichier de configuration: %s"
+
+#~ msgid "Unable to acquire writelock in file: %s"
+#~ msgstr "Verrouillage du fichier en écriture impossible: %s"
+
+#~ msgid "Unable to remove writelock on filename: %s"
+#~ msgstr "Déverrouillage du fichier en écriture impossible: %s"
+
+#~ msgid "Unable to create directory: %s"
+#~ msgstr "Création du répertoire impossible: %s"
+
+#~ msgid "No configuration file found, using default options!"
+#~ msgstr ""
+#~ "Aucun fichier de configuration trouvé, utilisation des paramêtres par "
+#~ "défaut!"
+
+#, fuzzy
+#~ msgid "Warning!!! this file will be overwritten each time!"
+#~ msgstr "Attention!!! ce fichier sera écrasé à chaque fois!"
+
+#~ msgid "File locking error!"
+#~ msgstr "Erreur de verrou sur le fichier!"
+
+#~ msgid "Performance"
+#~ msgstr "Performance"
