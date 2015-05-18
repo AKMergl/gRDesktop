@@ -54,19 +54,8 @@ void run_rdesktop() {
 			SHASH("clientname")), NULL);
 	if(SHASH("geometry"))
 		cmd = g_strconcat(cmd, screenCommand(), NULL);
-	if(iSHASH("rdp_protocol") > 0) { /* disable, it's not supported by the RDP version */
-		if(iSHASH("colorsize"))
-			cmd = g_strconcat(cmd, colorCommand(), NULL);
-	}
 	if(SHASH("keymap"))
 		cmd = g_strconcat(cmd, keymapCommand(), NULL);
-	if(iSHASH("rdp_protocol") > 0) { /* disable, it's not supported by the RDP version */
-		if(iSHASH("sound") > 0)
-			cmd = g_strconcat(cmd, g_strdup("-r sound "), NULL);
-	}
-    /* Redirect a part of the file system (-r disk:<SHARE>=<PATH>) */
-    if(SHASH("redirect"))
-        cmd = g_strconcat(cmd, g_strdup(SHASH("redirect")), NULL);
 	if((iSHASH("runprog")) && (SHASH("program")))
 		cmd = g_strconcat(cmd, g_strdup_printf("-s '%s' ",
 			SHASH("program")), NULL);
@@ -83,13 +72,23 @@ void run_rdesktop() {
 		cmd = g_strconcat(cmd, g_strdup("-e "), NULL);
 	if(iSHASH("wmkeybindings") == TRUE)
 		cmd = g_strconcat(cmd, g_strdup("-K "), NULL);
-	if(iSHASH("rdp_protocol") > 0) { /* disable, it's not supported by the RDP version */
-		if(iSHASH("attconsole") == TRUE)
-			cmd = g_strconcat(cmd, g_strdup("-0 "), NULL);
-	}
 	if(SHASH("hostname"))
 		cmd = g_strconcat(cmd, g_strdup_printf("-T 'Remotedesktop Client: %s' ",
 			SHASH("hostname")), NULL);
+
+	/* Disable; these options are not supported by the RDP version 4 */
+	if(iSHASH("rdp_protocol") > 0) {
+		if(iSHASH("colorsize"))
+			cmd = g_strconcat(cmd, colorCommand(), NULL);
+		if(iSHASH("sound") > 0)
+			cmd = g_strconcat(cmd, g_strdup("-r sound "), NULL);
+		if(iSHASH("attconsole") == TRUE)
+			cmd = g_strconcat(cmd, g_strdup("-0 "), NULL);
+        /* Redirect a part of the file system (-r disk:<SHARE>=<PATH>) */
+        if(SHASH("redirect"))
+           cmd = g_strconcat(cmd, g_strdup(SHASH("redirect")), NULL);
+	}
+
 	cmd = g_strconcat(cmd, g_strdup(SHASH("hostname")), NULL);
 
 	/*

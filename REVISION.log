@@ -1,7 +1,7 @@
 To generate new version use the following commands:
 
     cd /mnt/datapart/gRDesktop
-    vi configure.ac             # edit version number in AM_INIT_AUTOMAKE()
+    vi configure.ac             # edit version number in M*_VERSION variables
     
     gnome-autogen.sh
     [   aclocal
@@ -16,7 +16,7 @@ To generate new version use the following commands:
     make install
 ________________________________________________________________________________
 
-To generate new *.po (e.g. for locale hu) file use the following commands:
+To generate new *.po file (e.g. for locale hu) use the following commands:
 
     cd /mnt/datapart/gRDesktop/po
 
@@ -49,4 +49,6 @@ Revision log
 0.24rc7     2012-10-13  Updating configure.ac
 
 0.24rc8     2012-11-08  Clearing header files
+
+0.24rc9     2013-06-19  Storing RDP version to be used with the configuration
 

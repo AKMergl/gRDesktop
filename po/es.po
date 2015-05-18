@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grdesktop 0.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-13 20:32+0200\n"
+"POT-Creation-Date: 2013-06-20 10:16+0200\n"
 "PO-Revision-Date: 2003-01-19 13:19-0600\n"
 "Last-Translator: Daniel Tonda Castillo <danton67@mailandnews.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -17,28 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 0.9.6\n"
 
-#: ../src/btnbox.c:71 ../src/btnbox.c:76
+#: ../src/btnbox.c:79 ../src/btnbox.c:84
 msgid "Please select or insert a valid hostname/ip-address!"
 msgstr "Por favor seleccione o inserte un nombre de host/dirección ip válida"
 
-#: ../src/btnbox.c:107 ../src/grdesktop.desktop.in.h:1
+#: ../src/btnbox.c:115 ../src/grdesktop.desktop.in.h:2
 msgid "Gnome frontend for rdesktop"
 msgstr ""
 
 #. "artists", artists,
 #. "documenters", documenters,
-#: ../src/btnbox.c:111
+#: ../src/btnbox.c:119
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/btnbox.c:113
-msgid ""
-"This program is licensed under the\n"
-"GNU GENERAL PUBLIC LICENSE\n"
-"Version 2, June 1991"
-msgstr ""
-
-#: ../src/btnbox.c:143
+#: ../src/btnbox.c:152
 #, c-format
 msgid ""
 "Could not display help for Remote Desktop.\n"
@@ -46,41 +39,41 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../src/main.c:202
+#: ../src/main.c:210
 msgid "Unable to create hash to store elements!"
 msgstr "No fué posible crear la lista: %s"
 
-#: ../src/optbox.c:34
+#: ../src/optbox.c:87
 msgid "General"
 msgstr "General"
 
-#: ../src/optbox.c:40
+#: ../src/optbox.c:93
 msgid "Display"
 msgstr "Monitor"
 
-#: ../src/optbox.c:46
+#: ../src/optbox.c:99
 msgid "Resources"
 msgstr ""
 
-#: ../src/optbox.c:52
+#: ../src/optbox.c:105
 msgid "Program"
 msgstr "Programa"
 
-#: ../src/optbox.c:58
+#: ../src/optbox.c:111
 msgid "Extended"
 msgstr "Extensión"
 
 #. MKA
-#: ../src/optbox.c:65
+#: ../src/optbox.c:118
 msgid "Redirect"
 msgstr ""
 
 #. create logon settings box
-#: ../src/optbox.c:116
+#: ../src/optbox.c:169
 msgid "Logon Settings"
 msgstr "Parámetros inicio de sesión"
 
-#: ../src/optbox.c:148
+#: ../src/optbox.c:201
 msgid ""
 "Type the name of the computer, or\n"
 "choose a computer from the list."
@@ -89,11 +82,11 @@ msgstr ""
 "escoja una computadora de la lista."
 
 #. create open/save settings box
-#: ../src/optbox.c:170
+#: ../src/optbox.c:223
 msgid "Connection settings"
 msgstr "Parámetros para la conexión"
 
-#: ../src/optbox.c:202
+#: ../src/optbox.c:255
 msgid ""
 "Save settings or load saved\n"
 "connections from file."
@@ -102,11 +95,11 @@ msgstr ""
 "configuración desde un archivo."
 
 #. create display settings box
-#: ../src/optbox.c:235
+#: ../src/optbox.c:288
 msgid "Remote desktop size"
 msgstr "Tamaño del escritorio remoto"
 
-#: ../src/optbox.c:267
+#: ../src/optbox.c:320
 msgid ""
 "Choose the size of your remote\n"
 "desktop, or select fullscreen."
@@ -115,11 +108,11 @@ msgstr ""
 "remoto, o seleccione pantalla completa."
 
 #. create color settings box
-#: ../src/optbox.c:279
+#: ../src/optbox.c:332
 msgid "Colors"
 msgstr "Colores"
 
-#: ../src/optbox.c:300
+#: ../src/optbox.c:353
 msgid ""
 "Select the available colorsize\n"
 "on remote box."
@@ -128,11 +121,11 @@ msgstr ""
 "del escritorio remoto."
 
 #. create keyboard settings box
-#: ../src/optbox.c:331
+#: ../src/optbox.c:384
 msgid "Keyboard type"
 msgstr "Tipo de teclado"
 
-#: ../src/optbox.c:363
+#: ../src/optbox.c:416
 msgid ""
 "Select the language code for\n"
 "the keyboard."
@@ -141,22 +134,22 @@ msgstr ""
 "el teclado."
 
 #. create sound settings box
-#: ../src/optbox.c:375
+#: ../src/optbox.c:428
 msgid "Sound on the remote Computer"
 msgstr ""
 
-#: ../src/optbox.c:407
+#: ../src/optbox.c:460
 msgid ""
 "Please select which sound output you\n"
 "would like to use."
 msgstr ""
 
 #. create program settings box
-#: ../src/optbox.c:438
+#: ../src/optbox.c:491
 msgid "Launch Program"
 msgstr "Lanzar un programa"
 
-#: ../src/optbox.c:470
+#: ../src/optbox.c:523
 msgid ""
 "Select a program which should start\n"
 "after connection."
@@ -165,294 +158,298 @@ msgstr ""
 "después de conectarse."
 
 #. create program settings box
-#: ../src/optbox.c:501
+#: ../src/optbox.c:554
 msgid "Options"
 msgstr ""
 
-#: ../src/optbox.c:533
+#: ../src/optbox.c:586
 msgid "Tune your remote desktop connections."
 msgstr "Afine sus conexiones de escritorios remotos."
 
 #. create frame Disk
-#: ../src/optbox.c:579
+#: ../src/optbox.c:632
 msgid "Disk"
 msgstr ""
 
-#: ../src/optbox.c:600
+#: ../src/optbox.c:653
 msgid "Select path to share on remote server."
 msgstr ""
 
-#: ../src/optbox.c:611
+#: ../src/optbox.c:664
 #, fuzzy
 msgid "Share name:"
 msgstr "Nombre de usuario:"
 
-#: ../src/optbox.c:625
+#: ../src/optbox.c:678
 msgid "Local full path of share:"
 msgstr ""
 
-#: ../src/optbox.c:643
+#: ../src/optbox.c:696
 msgid "Browse..."
 msgstr ""
 
 #. create entry for commandline optoins
-#: ../src/optbox.c:656
+#: ../src/optbox.c:709
 msgid "Options to be added to the command"
 msgstr ""
 
-#: ../src/optbox.c:691 ../src/srvsel.c:31
+#: ../src/optbox.c:744 ../src/srvsel.c:33
 msgid "Computer:"
 msgstr "Computadora:"
 
-#: ../src/optbox.c:721 ../src/sshbox.c:67
+#: ../src/optbox.c:774 ../src/sshbox.c:80
 msgid "Username:"
 msgstr "Nombre de usuario:"
 
-#: ../src/optbox.c:744
+#: ../src/optbox.c:797
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: ../src/optbox.c:768
+#: ../src/optbox.c:821
 msgid "Domain:"
 msgstr "Dominio:"
 
-#: ../src/optbox.c:782
+#: ../src/optbox.c:835
 msgid "Save my password"
 msgstr "Guardar mi contraseña"
 
-#: ../src/optbox.c:841
+#: ../src/optbox.c:855
+msgid "RDP version:"
+msgstr ""
+
+#: ../src/optbox.c:910
 msgid "Less"
 msgstr "Menos"
 
-#: ../src/optbox.c:857
+#: ../src/optbox.c:926
 msgid "More"
 msgstr "Más"
 
-#: ../src/optbox.c:863
+#: ../src/optbox.c:932
 msgid "??? pixels"
 msgstr "??? píxeles"
 
-#: ../src/optbox.c:936
+#: ../src/optbox.c:1005
 msgid "Keyboard"
 msgstr "Teclado"
 
 #. insert checkbox
-#: ../src/optbox.c:984
+#: ../src/optbox.c:1053
 msgid "Run program"
 msgstr "Iniciar un programa"
 
-#: ../src/optbox.c:995
+#: ../src/optbox.c:1064
 msgid "Path and filename:"
 msgstr "Ubicación y nombre de archivo:"
 
-#: ../src/optbox.c:1014
+#: ../src/optbox.c:1083
 msgid "Working directory:"
 msgstr "Directorio de trabajo:"
 
 #. insert checkboxes
-#: ../src/optbox.c:1038 ../src/grdesktop.schemas.in.h:8
+#: ../src/optbox.c:1107 ../src/grdesktop.schemas.in.h:1
 msgid "Force bitmap updates"
 msgstr "Forzar actualizaciones de bitmap"
 
-#: ../src/optbox.c:1046
+#: ../src/optbox.c:1115
 msgid "Don't send motion events"
 msgstr "No enviar eventos de movimiento"
 
-#: ../src/optbox.c:1054
+#: ../src/optbox.c:1123
 msgid "Hide window manager decorations"
 msgstr ""
 
-#: ../src/optbox.c:1062
+#: ../src/optbox.c:1131
 msgid "Disable encryption (French TS)"
 msgstr ""
 
-#: ../src/optbox.c:1070
+#: ../src/optbox.c:1139
 msgid "Window manager key bindings"
 msgstr ""
 
-#: ../src/optbox.c:1078
+#: ../src/optbox.c:1147
 msgid "Attach to console (>= Windows 2003)"
 msgstr ""
 
-#: ../src/optbox.c:1102
+#: ../src/optbox.c:1171
 msgid "Fake clientname:"
 msgstr ""
 
-#: ../src/optbox.c:1132 ../src/sshbox.c:51
+#: ../src/optbox.c:1201 ../src/sshbox.c:64
 msgid "Enable SSH tunneling"
 msgstr ""
 
 #. Craete file selection dialog
-#: ../src/optbox.c:1224
+#: ../src/optbox.c:1293
 msgid "Save rdp-File"
 msgstr ""
 
-#: ../src/optbox.c:1241
+#: ../src/optbox.c:1310
 msgid "Open rdp-File"
 msgstr ""
 
-#: ../src/optbox.c:1269
+#: ../src/optbox.c:1338
 msgid "by"
 msgstr "por"
 
-#: ../src/optbox.c:1269
+#: ../src/optbox.c:1338
 msgid "pixels"
 msgstr "píxeles"
 
-#: ../src/optbox.c:1510
+#: ../src/optbox.c:1579
 msgid "Choose folder to share"
 msgstr ""
 
-#: ../src/optbox.c:1539
+#: ../src/optbox.c:1608
 msgid "Share must be defined!"
 msgstr ""
 
-#: ../src/optbox.c:1546
+#: ../src/optbox.c:1615
 msgid "Path must be defined!"
 msgstr ""
 
-#: ../src/optbox.c:1550
+#: ../src/optbox.c:1619
 msgid "It is not an absolute path!"
 msgstr ""
 
-#: ../src/options.c:24
+#: ../src/options.c:34
 msgid "Windows NT/2000"
 msgstr ""
 
-#: ../src/options.c:25
+#: ../src/options.c:35
 msgid "Windows XP/2003"
 msgstr ""
 
-#: ../src/options.c:56 ../src/options.c:405 ../src/rdpparse.c:96
+#: ../src/options.c:67 ../src/options.c:416 ../src/rdpparse.c:107
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: ../src/options.c:102
+#: ../src/options.c:113
 msgid "256 Colors"
 msgstr "256 colores"
 
-#: ../src/options.c:103
+#: ../src/options.c:114
 msgid "High Color (15bit)"
 msgstr "Colores (15bits)"
 
-#: ../src/options.c:104
+#: ../src/options.c:115
 msgid "High Color (16bit)"
 msgstr "Color de alta densidad (16bits)"
 
-#: ../src/options.c:105
+#: ../src/options.c:116
 msgid "True Color (24bit)"
 msgstr "Color Real (24bits)"
 
-#: ../src/options.c:138 ../src/options.c:170
+#: ../src/options.c:149 ../src/options.c:181
 #, c-format
 msgid "Unable to find keyboad definitions: %s"
 msgstr "No fué posible encontrar la definición de teclado: %s"
 
-#: ../src/options.c:197
+#: ../src/options.c:208
 msgid "No sound output"
 msgstr ""
 
-#: ../src/options.c:198
+#: ../src/options.c:209
 msgid "Play on this host"
 msgstr ""
 
-#: ../src/rdpparse.c:36 ../src/rdpparse.c:57
+#: ../src/rdpparse.c:47 ../src/rdpparse.c:68
 msgid "Please select a valid rdp file!"
 msgstr "Por favor escoja un archivo rdp válido."
 
-#: ../src/rdpparse.c:71
+#: ../src/rdpparse.c:82
 msgid "Really override the already existing file?"
 msgstr "¿Realmente desea borrar el archivo existente?"
 
-#: ../src/rdpparse.c:86
+#: ../src/rdpparse.c:97
 #, c-format
 msgid "Unable to save rdp-file: %s"
 msgstr "No se pudo guardar el archivo rdp: %s"
 
-#: ../src/rdpparse.c:155 ../src/rdpparse.c:163
+#: ../src/rdpparse.c:172 ../src/rdpparse.c:180
 #, c-format
 msgid "Unable to open rdp-file: %s"
 msgstr "No fué posible abrir el archivo rdp: %s"
 
-#: ../src/rdpparse.c:171
+#: ../src/rdpparse.c:188
 #, c-format
 msgid "File %s is empty!"
 msgstr "¡El archivo %s está vacío!"
 
-#: ../src/run.c:104
+#: ../src/run.c:105
 msgid "No hostname for ssh tunneling available"
 msgstr ""
 
-#: ../src/sshbox.c:28
+#: ../src/sshbox.c:41
 #, fuzzy
 msgid "SSH-Tunnel settings"
 msgstr "Parámetros para la conexión"
 
-#: ../src/sshbox.c:84
+#: ../src/sshbox.c:97
 #, fuzzy
 msgid "Hostname:"
 msgstr "Nombre de usuario:"
 
-#: ../src/grdesktop.desktop.in.h:2
+#: ../src/grdesktop.desktop.in.h:1
 msgid "Remote Desktop Client"
 msgstr "Cliente de Escritorio Remoto"
 
-#: ../src/grdesktop.schemas.in.h:1
+#: ../src/grdesktop.schemas.in.h:2
+#, fuzzy
+msgid "Force rdesktop to repaint bitmap updates."
+msgstr "Forzar actualizaciones de bitmap"
+
+#: ../src/grdesktop.schemas.in.h:3
+msgid "Fake clientname"
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:4
+msgid ""
+"Fake the local clientname. Used, if the terminal server runs in user-mode."
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:5
 msgid "Color size for remote server."
 msgstr ""
 
-#: ../src/grdesktop.schemas.in.h:2
-msgid "Define the Windows-Domain on which rdesktop should default login."
-msgstr ""
-
-#: ../src/grdesktop.schemas.in.h:3
+#: ../src/grdesktop.schemas.in.h:6
 msgid ""
 "Define the available colors on the remote server. This value is based on the "
 "selection box in grdesktop."
 msgstr ""
 
-#: ../src/grdesktop.schemas.in.h:4
+#: ../src/grdesktop.schemas.in.h:7
 msgid "Domain name to use."
 msgstr ""
 
-#: ../src/grdesktop.schemas.in.h:5
+#: ../src/grdesktop.schemas.in.h:8
+msgid "Define the Windows-Domain on which rdesktop should default login."
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:9
+msgid "Window size of rdesktop"
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:10
+msgid "Rdesktop uses this window size for connection to the remote host."
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:11
+msgid "Hide the window manager decoration"
+msgstr ""
+
+#: ../src/grdesktop.schemas.in.h:12
 msgid ""
 "Don't display the decoration (borders, icons, ...) from the current window "
 "manager."
 msgstr ""
 
-#: ../src/grdesktop.schemas.in.h:6
-msgid "Fake clientname"
-msgstr ""
-
-#: ../src/grdesktop.schemas.in.h:7
-msgid ""
-"Fake the local clientname. Used, if the terminal server runs in user-mode."
-msgstr ""
-
-#: ../src/grdesktop.schemas.in.h:9
-#, fuzzy
-msgid "Force rdesktop to repaint bitmap updates."
-msgstr "Forzar actualizaciones de bitmap"
-
-#: ../src/grdesktop.schemas.in.h:10
-msgid "Hide the window manager decoration"
-msgstr ""
-
-#: ../src/grdesktop.schemas.in.h:11
+#: ../src/grdesktop.schemas.in.h:13
 msgid "Last used hostnames"
 msgstr ""
 
-#: ../src/grdesktop.schemas.in.h:12
-msgid "Rdesktop uses this window size for connection to the remote host."
-msgstr ""
-
-#: ../src/grdesktop.schemas.in.h:13
-msgid "Store the last ten hostnames for hostnames combobox."
-msgstr ""
-
 #: ../src/grdesktop.schemas.in.h:14
-msgid "Window size of rdesktop"
+msgid "Store the last ten hostnames for hostnames combobox."
 msgstr ""
 
 #, fuzzy

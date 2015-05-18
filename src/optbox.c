@@ -841,15 +841,31 @@ void insert_savebox(const GtkWidget *widget) {
 }
 
 void insert_rdp_protocol(const GtkWidget *widget) {
+	GtkWidget *lBox;
+	GtkWidget *lCaption;
 	GtkWidget *menu;
 	gint i, count;
 
+	lBox = gtk_hbox_new(FALSE, 0);
+	gtk_container_set_border_width(GTK_CONTAINER(lBox), 0);
+	gtk_table_attach(GTK_TABLE(widget), lBox, 0, 1, 5, 6,
+		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 0);
+	gtk_widget_show(lBox);
+
+	lCaption = gtk_label_new(_("RDP version:"));
+	gtk_box_pack_start(GTK_BOX(lBox), lCaption, FALSE, FALSE, FALSE);
+	gtk_widget_show(lCaption);
+
+/*   TODO MKA
+ *   For GTK+ >=2.4 GtkComboBox should be used:
+ *   menu_rdp_proto = gtk_combo_box_text_new(); 
+ */
 	menu_rdp_proto = gtk_option_menu_new();
 	gtk_table_attach(GTK_TABLE(widget), menu_rdp_proto, 1, 2, 5, 6,
 		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 0, 2);
 	gtk_widget_show(menu_rdp_proto);
+	
 	menu = gtk_menu_new();
-
 	count = g_list_length(rdp_protocols);
 	for(i=0; i<count; i++) {
 		GtkWidget *menuitem;

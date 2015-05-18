@@ -68,6 +68,7 @@
 #endif
 
 /* MKA */
+#define RDP_VERSION_OFFSET 4    /* defined RDP versions start wiht 4 */
 #define MAXSHARENAMELEN 8		/* max length of share name */
 #define _DEBUG_
 

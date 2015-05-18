@@ -29,6 +29,7 @@ gchar *mod_color(const gchar *colorstr);
 gchar *mod_bitmapupd(const gchar *bitmapstr);
 gchar *mod_geometry(const gchar *value, const gchar *old, const char typ);
 gchar *mod_fullscreen(const gchar *value);
+gchar *mod_RDPversion(const gchar *value);
 
 
 /***** Function definitions ***************************************************/
@@ -143,11 +144,17 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 		fprintf(file, "bitmapcachepersistentable:i:%d\n", 0);
 	}
 	
-	/* MKA Add redirect optins */
-	if(SHASH("redirect") != NULL) {
+	/* MKA Save redirect options */
+	if (SHASH("redirect") != NULL) {
 		fprintf(file, "redirect:s:%s\n", SHASH("redirect"));
 	}
-
+	
+	/* MKA Save RDP version info */
+	if (SHASH("rdp_protocol") != NULL) {
+		fprintf(file, "version:i:%d\n", (iSHASH("rdp_protocol")
+		                                 + RDP_VERSION_OFFSET));
+	}
+	
 	fclose(file);
 	return;
 }
@@ -259,9 +266,15 @@ void parse_line(const gchar *line) {
 			mod_geometry(items[2], SHASH("geometry"), 'H'));
 	else if(!g_strcasecmp(items[0], "screen mode id"))
 		insert_option("fullscreen", mod_fullscreen(items[2]));
-	/* MKA Add redirect optins */
-	else if(!g_strcasecmp(items[0], "redirect"))
+	/* MKA Apply stored redirect options */
+	else if (!g_strcasecmp(items[0], "redirect"))
 	    insert_option("redirect", items[2]);
+    /* MKA Apply stored RDP version info */
+	else if (!g_strcasecmp(items[0], "version"))
+	    insert_option("rdp_protocol", mod_RDPversion(items[2]));
+	    
+    else
+        g_warning("rdpparse.c/parse_line(): Unknown parameter [%s]", items[0]);
 
 	if(items != NULL)
 		g_strfreev(items);
@@ -331,6 +344,11 @@ gchar *mod_fullscreen(const gchar *value) {
 		return("1");
 
 	return("0");
+}
+
+/* - Modify the read value for RDP version ---------------------------------- */
+gchar *mod_RDPversion(const gchar *value) {
+    return (g_strdup_printf("%d", atoi(value) - RDP_VERSION_OFFSET));
 }
 
 gchar *ext_geometry(const gchar *value, const char typ) {

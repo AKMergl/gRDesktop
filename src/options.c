@@ -29,11 +29,13 @@ void loadSoundOptions(GtkWidget *widget);
 
 
 /***** Function definitions ***************************************************/
+/* - Include available RDP versions in the list of choices ------------------ */
 void fillRdpProtocols() {
 	rdp_protocols = g_list_append(rdp_protocols, g_strdup(_("Windows NT/2000")));
 	rdp_protocols = g_list_append(rdp_protocols, g_strdup(_("Windows XP/2003")));
 }
 
+/* - Set RDP version to be used (from HASH table) --------------------------- */
 void loadRdpProtocols(GtkWidget *widget) {
 	if((g_list_length(rdp_protocols)-1) < iSHASH("rdp_protocol")) {
 		g_warning("Unknown RDP-Protocol: %d\n", iSHASH("rdp_protocol")+4);
@@ -467,7 +469,8 @@ void fill_dialog() {
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_savepw),
 		iSHASH("savepw"));
 
-	loadRdpProtocols(menu_rdp_proto);
+	loadRdpProtocols(menu_rdp_proto);  /* Set RDP version */
+    
 
     /* -- Fill in values for 'Display' tab ---------------------------------- */
 	loadScreens(GTK_ADJUSTMENT(adj_screensize));

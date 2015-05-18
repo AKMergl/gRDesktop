@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # Thorsten Sauter <tsauter@gmx.net>, 2003
-# Attila K. Mergl <mergl@astron.hu>, 2012.
+# Attila K. Mergl <mergl@astron.hu>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: grdesktop 0.24rc6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-13 20:32+0200\n"
-"PO-Revision-Date: 2012-10-13 15:18+0200\n"
+"POT-Creation-Date: 2013-06-20 10:16+0200\n"
+"PO-Revision-Date: 2013-06-20 10:21+0200\n"
 "Last-Translator: Attila K. Mergl <mergl@astron.hu>\n"
 "Language-Team: Hungarian <->\n"
 "Language: de\n"
@@ -18,31 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: k\n"
 
-#: ../src/btnbox.c:71 ../src/btnbox.c:76
+#: ../src/btnbox.c:79 ../src/btnbox.c:84
 msgid "Please select or insert a valid hostname/ip-address!"
 msgstr "Bitte geben Sie einen gültigen Rechnernamen oder IP-Adresse an!"
 
-#: ../src/btnbox.c:107 ../src/grdesktop.desktop.in.h:1
+#: ../src/btnbox.c:115 ../src/grdesktop.desktop.in.h:2
 msgid "Gnome frontend for rdesktop"
 msgstr "Gnome-Frontend für den rdesktop"
 
 #. "artists", artists,
 #. "documenters", documenters,
-#: ../src/btnbox.c:111
+#: ../src/btnbox.c:119
 msgid "translator-credits"
 msgstr "Thorsten Sauter <tsauter@gmx.net>"
 
-#: ../src/btnbox.c:113
-msgid ""
-"This program is licensed under the\n"
-"GNU GENERAL PUBLIC LICENSE\n"
-"Version 2, June 1991"
-msgstr ""
-"Das Program ist unter den Bedingungen der\n"
-"GNU General Public License\n"
-"(Version 2, Juni 1991) herausgegeben."
-
-#: ../src/btnbox.c:143
+#: ../src/btnbox.c:152
 #, c-format
 msgid ""
 "Could not display help for Remote Desktop.\n"
@@ -53,41 +43,41 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/main.c:202
+#: ../src/main.c:210
 msgid "Unable to create hash to store elements!"
 msgstr "Tabelle zum Speichern der Elemente konnte nicht erstellt werden!"
 
-#: ../src/optbox.c:34
+#: ../src/optbox.c:87
 msgid "General"
 msgstr "Allgemein"
 
-#: ../src/optbox.c:40
+#: ../src/optbox.c:93
 msgid "Display"
 msgstr "Anzeige"
 
-#: ../src/optbox.c:46
+#: ../src/optbox.c:99
 msgid "Resources"
 msgstr "Ressourcen"
 
-#: ../src/optbox.c:52
+#: ../src/optbox.c:105
 msgid "Program"
 msgstr "Programm"
 
-#: ../src/optbox.c:58
+#: ../src/optbox.c:111
 msgid "Extended"
 msgstr "Erweitert"
 
 #. MKA
-#: ../src/optbox.c:65
+#: ../src/optbox.c:118
 msgid "Redirect"
 msgstr "Weitergabe"
 
 #. create logon settings box
-#: ../src/optbox.c:116
+#: ../src/optbox.c:169
 msgid "Logon Settings"
 msgstr "Anmeldeoptionen"
 
-#: ../src/optbox.c:148
+#: ../src/optbox.c:201
 msgid ""
 "Type the name of the computer, or\n"
 "choose a computer from the list."
@@ -96,11 +86,11 @@ msgstr ""
 "oder wählen Sie einen Eintrag aus der Liste."
 
 #. create open/save settings box
-#: ../src/optbox.c:170
+#: ../src/optbox.c:223
 msgid "Connection settings"
 msgstr "Gespeicherte Verbindungen"
 
-#: ../src/optbox.c:202
+#: ../src/optbox.c:255
 msgid ""
 "Save settings or load saved\n"
 "connections from file."
@@ -109,11 +99,11 @@ msgstr ""
 "Einstellungen aus Datei Laden."
 
 #. create display settings box
-#: ../src/optbox.c:235
+#: ../src/optbox.c:288
 msgid "Remote desktop size"
 msgstr "Entfernte Desktopgrösse"
 
-#: ../src/optbox.c:267
+#: ../src/optbox.c:320
 msgid ""
 "Choose the size of your remote\n"
 "desktop, or select fullscreen."
@@ -122,11 +112,11 @@ msgstr ""
 "oder wählen Sie Vollbild."
 
 #. create color settings box
-#: ../src/optbox.c:279
+#: ../src/optbox.c:332
 msgid "Colors"
 msgstr "Farben"
 
-#: ../src/optbox.c:300
+#: ../src/optbox.c:353
 msgid ""
 "Select the available colorsize\n"
 "on remote box."
@@ -135,11 +125,11 @@ msgstr ""
 "der Remotebox aus."
 
 #. create keyboard settings box
-#: ../src/optbox.c:331
+#: ../src/optbox.c:384
 msgid "Keyboard type"
 msgstr "Tastaturtyp"
 
-#: ../src/optbox.c:363
+#: ../src/optbox.c:416
 msgid ""
 "Select the language code for\n"
 "the keyboard."
@@ -148,22 +138,22 @@ msgstr ""
 "die Tastatur aus."
 
 #. create sound settings box
-#: ../src/optbox.c:375
+#: ../src/optbox.c:428
 msgid "Sound on the remote Computer"
 msgstr "Sound auf dem entfernten Rechner"
 
-#: ../src/optbox.c:407
+#: ../src/optbox.c:460
 msgid ""
 "Please select which sound output you\n"
 "would like to use."
 msgstr "Wählen Sie die Sound Ausgabeoption aus."
 
 #. create program settings box
-#: ../src/optbox.c:438
+#: ../src/optbox.c:491
 msgid "Launch Program"
 msgstr "Programm starten"
 
-#: ../src/optbox.c:470
+#: ../src/optbox.c:523
 msgid ""
 "Select a program which should start\n"
 "after connection."
@@ -172,251 +162,266 @@ msgstr ""
 "Verbindungsaufbau starten soll."
 
 #. create program settings box
-#: ../src/optbox.c:501
+#: ../src/optbox.c:554
 msgid "Options"
 msgstr "Optionen"
 
-#: ../src/optbox.c:533
+#: ../src/optbox.c:586
 msgid "Tune your remote desktop connections."
 msgstr ""
 "Optimieren Sie die Remotedesktop \n"
 "Verbindung."
 
 #. create frame Disk
-#: ../src/optbox.c:579
+#: ../src/optbox.c:632
 msgid "Disk"
 msgstr "Festplatte"
 
-#: ../src/optbox.c:600
+#: ../src/optbox.c:653
 msgid "Select path to share on remote server."
 msgstr ""
 "Wählen Sie ein Verzeichnis,\n"
 "um es am entfernten Rechner auch erreichen zu können."
 
-#: ../src/optbox.c:611
+#: ../src/optbox.c:664
 msgid "Share name:"
 msgstr "Share-Name:"
 
-#: ../src/optbox.c:625
+#: ../src/optbox.c:678
 msgid "Local full path of share:"
 msgstr "Lokaler Pfad der Weitergabe:"
 
-#: ../src/optbox.c:643
+#: ../src/optbox.c:696
 msgid "Browse..."
 msgstr "Suchen..."
 
 #. create entry for commandline optoins
-#: ../src/optbox.c:656
+#: ../src/optbox.c:709
 msgid "Options to be added to the command"
 msgstr "Kommandooptionen"
 
-#: ../src/optbox.c:691 ../src/srvsel.c:31
+#: ../src/optbox.c:744 ../src/srvsel.c:33
 msgid "Computer:"
 msgstr "Computer:"
 
-#: ../src/optbox.c:721 ../src/sshbox.c:67
+#: ../src/optbox.c:774 ../src/sshbox.c:80
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: ../src/optbox.c:744
+#: ../src/optbox.c:797
 msgid "Password:"
 msgstr "Passwort:"
 
-#: ../src/optbox.c:768
+#: ../src/optbox.c:821
 msgid "Domain:"
 msgstr "Domäne:"
 
-#: ../src/optbox.c:782
+#: ../src/optbox.c:835
 msgid "Save my password"
 msgstr "Passwort speichern"
 
-#: ../src/optbox.c:841
+#: ../src/optbox.c:855
+msgid "RDP version:"
+msgstr "RDP Version:"
+
+#: ../src/optbox.c:910
 msgid "Less"
 msgstr "kleiner"
 
-#: ../src/optbox.c:857
+#: ../src/optbox.c:926
 msgid "More"
 msgstr "grösser"
 
-#: ../src/optbox.c:863
+#: ../src/optbox.c:932
 msgid "??? pixels"
 msgstr "??? Pixel"
 
-#: ../src/optbox.c:936
+#: ../src/optbox.c:1005
 msgid "Keyboard"
 msgstr "Tastatur"
 
 #. insert checkbox
-#: ../src/optbox.c:984
+#: ../src/optbox.c:1053
 msgid "Run program"
 msgstr "Programm starten"
 
-#: ../src/optbox.c:995
+#: ../src/optbox.c:1064
 msgid "Path and filename:"
 msgstr "Pfad und Dateiname:"
 
-#: ../src/optbox.c:1014
+#: ../src/optbox.c:1083
 msgid "Working directory:"
 msgstr "Arbeitsverzeichnis:"
 
 #. insert checkboxes
-#: ../src/optbox.c:1038 ../src/grdesktop.schemas.in.h:8
+#: ../src/optbox.c:1107 ../src/grdesktop.schemas.in.h:1
 msgid "Force bitmap updates"
 msgstr "Bitmap-Updates erzwingen"
 
-#: ../src/optbox.c:1046
+#: ../src/optbox.c:1115
 msgid "Don't send motion events"
 msgstr "Motionevents nicht senden"
 
-#: ../src/optbox.c:1054
+#: ../src/optbox.c:1123
 msgid "Hide window manager decorations"
 msgstr "Fenstermanager-Dekoration verbergen"
 
-#: ../src/optbox.c:1062
+#: ../src/optbox.c:1131
 msgid "Disable encryption (French TS)"
 msgstr "Verschlüsselung deaktivieren (Französischer TS)"
 
-#: ../src/optbox.c:1070
+#: ../src/optbox.c:1139
 msgid "Window manager key bindings"
 msgstr "Fenstermanager-Tasten erlauben"
 
-#: ../src/optbox.c:1078
+#: ../src/optbox.c:1147
 msgid "Attach to console (>= Windows 2003)"
 msgstr "Zur Konsole verbinden (>= Windows 2003)"
 
-#: ../src/optbox.c:1102
+#: ../src/optbox.c:1171
 msgid "Fake clientname:"
 msgstr "Clientname fälschen"
 
-#: ../src/optbox.c:1132 ../src/sshbox.c:51
+#: ../src/optbox.c:1201 ../src/sshbox.c:64
 msgid "Enable SSH tunneling"
 msgstr "SSH-Tunnel aktivieren"
 
 #. Craete file selection dialog
-#: ../src/optbox.c:1224
+#: ../src/optbox.c:1293
 msgid "Save rdp-File"
 msgstr "RDP-Datei speichern"
 
-#: ../src/optbox.c:1241
+#: ../src/optbox.c:1310
 msgid "Open rdp-File"
 msgstr "RDP-Datei öffnen"
 
-#: ../src/optbox.c:1269
+#: ../src/optbox.c:1338
 msgid "by"
 msgstr "von"
 
-#: ../src/optbox.c:1269
+#: ../src/optbox.c:1338
 msgid "pixels"
 msgstr "Pixels"
 
-#: ../src/optbox.c:1510
+#: ../src/optbox.c:1579
 msgid "Choose folder to share"
 msgstr "Verzeichnis für Weitergabe wählen"
 
-#: ../src/optbox.c:1539
+#: ../src/optbox.c:1608
 msgid "Share must be defined!"
 msgstr "Share soll definiert werden!"
 
-#: ../src/optbox.c:1546
+#: ../src/optbox.c:1615
 msgid "Path must be defined!"
 msgstr "Pfad soll definiert werden!"
 
-#: ../src/optbox.c:1550
+#: ../src/optbox.c:1619
 msgid "It is not an absolute path!"
 msgstr "Ein Absolutpfad soll angegeben werden!"
 
-#: ../src/options.c:24
+#: ../src/options.c:34
 msgid "Windows NT/2000"
 msgstr "Windows NT/2000"
 
-#: ../src/options.c:25
+#: ../src/options.c:35
 msgid "Windows XP/2003"
 msgstr "Windows XP/2003"
 
-#: ../src/options.c:56 ../src/options.c:405 ../src/rdpparse.c:96
+#: ../src/options.c:67 ../src/options.c:416 ../src/rdpparse.c:107
 msgid "Fullscreen"
 msgstr "Vollbild"
 
-#: ../src/options.c:102
+#: ../src/options.c:113
 msgid "256 Colors"
 msgstr "256 Farben"
 
-#: ../src/options.c:103
+#: ../src/options.c:114
 msgid "High Color (15bit)"
 msgstr "High Color (15bit)"
 
-#: ../src/options.c:104
+#: ../src/options.c:115
 msgid "High Color (16bit)"
 msgstr "High Color (16bit)"
 
-#: ../src/options.c:105
+#: ../src/options.c:116
 msgid "True Color (24bit)"
 msgstr "True Color (24bit)"
 
-#: ../src/options.c:138 ../src/options.c:170
+#: ../src/options.c:149 ../src/options.c:181
 #, c-format
 msgid "Unable to find keyboad definitions: %s"
 msgstr "Tastaturdefinition wurde nicht gefunden: %s"
 
-#: ../src/options.c:197
+#: ../src/options.c:208
 msgid "No sound output"
 msgstr "Keine Sound Ausgabe"
 
-#: ../src/options.c:198
+#: ../src/options.c:209
 msgid "Play on this host"
 msgstr "Diesen Computer verwenden"
 
-#: ../src/rdpparse.c:36 ../src/rdpparse.c:57
+#: ../src/rdpparse.c:47 ../src/rdpparse.c:68
 msgid "Please select a valid rdp file!"
 msgstr "Bitte wählen Sie eine gültige RDP-Datei aus!"
 
-#: ../src/rdpparse.c:71
+#: ../src/rdpparse.c:82
 msgid "Really override the already existing file?"
 msgstr "Solle die existierende Datei wirklich überschrieben werden?"
 
-#: ../src/rdpparse.c:86
+#: ../src/rdpparse.c:97
 #, c-format
 msgid "Unable to save rdp-file: %s"
 msgstr "RDP-Datei konnte nicht gespeichert werden: %s"
 
-#: ../src/rdpparse.c:155 ../src/rdpparse.c:163
+#: ../src/rdpparse.c:172 ../src/rdpparse.c:180
 #, c-format
 msgid "Unable to open rdp-file: %s"
 msgstr "RDP-Datei konnte nicht geöffnet werden: %s"
 
-#: ../src/rdpparse.c:171
+#: ../src/rdpparse.c:188
 #, c-format
 msgid "File %s is empty!"
 msgstr "Datei %s ist leer!"
 
-#: ../src/run.c:104
+#: ../src/run.c:105
 msgid "No hostname for ssh tunneling available"
 msgstr "Kein Rechnername für den SSH-Tunnel angegeben."
 
-#: ../src/sshbox.c:28
+#: ../src/sshbox.c:41
 msgid "SSH-Tunnel settings"
 msgstr "Verbindungseinstellungen"
 
-#: ../src/sshbox.c:84
+#: ../src/sshbox.c:97
 msgid "Hostname:"
 msgstr "Rechnername:"
 
 # See also
 # #define PROGRAMNAME "..."
 # at src/global.h:56
-#: ../src/grdesktop.desktop.in.h:2
+#: ../src/grdesktop.desktop.in.h:1
 msgid "Remote Desktop Client"
 msgstr "Remotedesktop-Klient"
 
-#: ../src/grdesktop.schemas.in.h:1
+#: ../src/grdesktop.schemas.in.h:2
+msgid "Force rdesktop to repaint bitmap updates."
+msgstr "Bitmap-Updates erzwingen."
+
+#: ../src/grdesktop.schemas.in.h:3
+msgid "Fake clientname"
+msgstr "Klientenname fälschen"
+
+#: ../src/grdesktop.schemas.in.h:4
+msgid ""
+"Fake the local clientname. Used, if the terminal server runs in user-mode."
+msgstr ""
+"Lokaler Klientenname fälschen. Es wird verwendet, wenn der Terminlaserver "
+"läuft in User Mode."
+
+#: ../src/grdesktop.schemas.in.h:5
 msgid "Color size for remote server."
 msgstr "Farbtiefe am entfernten Rechner."
 
-#: ../src/grdesktop.schemas.in.h:2
-msgid "Define the Windows-Domain on which rdesktop should default login."
-msgstr "Definieren Sie ein Windows-Domain, an dem rdesktop sich anmelden soll."
-
-#: ../src/grdesktop.schemas.in.h:3
+#: ../src/grdesktop.schemas.in.h:6
 msgid ""
 "Define the available colors on the remote server. This value is based on the "
 "selection box in grdesktop."
@@ -424,11 +429,28 @@ msgstr ""
 "Definieren Sie die erreichbare Farben am entfernten Rechner. Dieser Wert "
 "kommt aus dem Selection-Box in grdesktop."
 
-#: ../src/grdesktop.schemas.in.h:4
+#: ../src/grdesktop.schemas.in.h:7
 msgid "Domain name to use."
 msgstr "Zu verwendender Domain-Name."
 
-#: ../src/grdesktop.schemas.in.h:5
+#: ../src/grdesktop.schemas.in.h:8
+msgid "Define the Windows-Domain on which rdesktop should default login."
+msgstr "Definieren Sie ein Windows-Domain, an dem rdesktop sich anmelden soll."
+
+#: ../src/grdesktop.schemas.in.h:9
+msgid "Window size of rdesktop"
+msgstr "Fenstergröße für den rdesktop"
+
+#: ../src/grdesktop.schemas.in.h:10
+msgid "Rdesktop uses this window size for connection to the remote host."
+msgstr ""
+"rdesktop verwendet diese Fenstergröße beim Anschluß am entfernten Rechner."
+
+#: ../src/grdesktop.schemas.in.h:11
+msgid "Hide the window manager decoration"
+msgstr "Fenstermanager-Dekoration verbergen"
+
+#: ../src/grdesktop.schemas.in.h:12
 msgid ""
 "Don't display the decoration (borders, icons, ...) from the current window "
 "manager."
@@ -436,41 +458,22 @@ msgstr ""
 "Dekorationen (Rahmen, Ikone ...) des aktiven Fenstermanagers sollen nicht "
 "angezeigt werden."
 
-#: ../src/grdesktop.schemas.in.h:6
-msgid "Fake clientname"
-msgstr "Klientenname fälschen"
-
-#: ../src/grdesktop.schemas.in.h:7
-msgid ""
-"Fake the local clientname. Used, if the terminal server runs in user-mode."
-msgstr ""
-"Lokaler Klientenname fälschen. Es wird verwendet, wenn der Terminlaserver "
-"läuft in User Mode."
-
-#: ../src/grdesktop.schemas.in.h:9
-msgid "Force rdesktop to repaint bitmap updates."
-msgstr "Bitmap-Updates erzwingen."
-
-#: ../src/grdesktop.schemas.in.h:10
-msgid "Hide the window manager decoration"
-msgstr "Fenstermanager-Dekoration verbergen"
-
-#: ../src/grdesktop.schemas.in.h:11
+#: ../src/grdesktop.schemas.in.h:13
 msgid "Last used hostnames"
 msgstr "Letzt verwendete Rechnernamen"
 
-#: ../src/grdesktop.schemas.in.h:12
-msgid "Rdesktop uses this window size for connection to the remote host."
-msgstr ""
-"rdesktop verwendet diese Fenstergröße beim Anschluß am entfernten Rechner."
-
-#: ../src/grdesktop.schemas.in.h:13
+#: ../src/grdesktop.schemas.in.h:14
 msgid "Store the last ten hostnames for hostnames combobox."
 msgstr "Die letzten 10 Rechnernamen für das Combobox speichern."
 
-#: ../src/grdesktop.schemas.in.h:14
-msgid "Window size of rdesktop"
-msgstr "Fenstergröße für den rdesktop"
+#~ msgid ""
+#~ "This program is licensed under the\n"
+#~ "GNU GENERAL PUBLIC LICENSE\n"
+#~ "Version 2, June 1991"
+#~ msgstr ""
+#~ "Das Program ist unter den Bedingungen der\n"
+#~ "GNU General Public License\n"
+#~ "(Version 2, Juni 1991) herausgegeben."
 
 #~ msgid ""
 #~ "(C) 2002-2004 Thorsten Sauter\n"

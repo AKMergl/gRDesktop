@@ -111,7 +111,7 @@ void sig_about(GtkWidget *widget, gpointer data) {
     gtk_show_about_dialog(NULL,
         "program-name", _(PROGRAMNAME),
         "version", PROG_VERSION,     // from configure.ac
-        "copyright", "(C) 2002-2004 Thorsten Sauter\n2012 Attila K. Mergl",
+        "copyright", "(C) 2002-2004 Thorsten Sauter\n2012-2013 Attila K. Mergl",
         "comments", _("Gnome frontend for rdesktop"),
         "authors", authors,
 //        "artists", artists,
