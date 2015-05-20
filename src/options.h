@@ -27,6 +27,7 @@
 #include <dirent.h>         // DIR, opendir(), readdir(), closedir()
 #include "optbox.h"         /* sig_scroll(), sig_colchange(), sig_sound(),
                                sig_rdp_protocol() */
+#include "util.h"           // l_strcasecmp(), l_strncasecmp()
 
 void fillRdpProtocols();
 void fillScreens();

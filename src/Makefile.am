@@ -26,11 +26,10 @@ INCLUDES = -I$(top_srcdir) -I$(top_builddir) \
 	-I$(top_srcdir)/intl \
 	$(GTK2_CFLAGS) $(GNOME2_CFLAGS)
 
-CPPFLAGS =	-DDATADIR=\""$(datadir)"\" \
+AM_CPPFLAGS =	-DDATADIR=\""$(datadir)"\" \
 	-DLOCALEDIR=\""$(LOCALEDIR)"\" \
 	-DKBPATH=\""$(kbpath)"\" \
-    -DPROG_VERSION=\""$(PROG_VERSION)"\" \
-    -DLICENSE_TEXT=\""$(LICENSE_TEXT)"\"
+	-DLICENSE_TEXT=\""$(LICENSE_TEXT)"\"
 
 grdesktop_LDFLAGS = -export-dynamic
 grdesktop_SOURCES = main.c main.h \
@@ -41,6 +40,7 @@ grdesktop_SOURCES = main.c main.h \
 	options.c options.h \
 	rdpparse.c rdpparse.h \
 	sshbox.c sshbox.h \
+	util.c util.h \
 	config.h
 
 grdesktop_LDADD = $(GTK2_LIBS) $(GNOME2_LIBS)
@@ -65,4 +65,3 @@ install-data-local:
 EXTRA_DIST = \
 	$(grdesktop_DATA) \
 	$(schema_DATA)
-

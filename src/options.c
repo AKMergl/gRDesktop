@@ -96,7 +96,7 @@ void loadScreens(GtkAdjustment *widget) {
 		count = g_list_length(screensize);
 		for(i=0; i<count; i++) {
 			item = g_list_nth_data(screensize, i);
-			if(!g_strcasecmp(SHASH("geometry"), item)) {
+			if(!l_strcasecmp(SHASH("geometry"), item)) {
 				found = TRUE;
 				break;
 			}
@@ -154,9 +154,9 @@ void loadKeymap(GtkListStore *model) {
 		while((entry = readdir(kbdir)) != NULL) {
 			if(entry->d_name[0] == '.')
 				continue;
-			if(!g_strcasecmp(entry->d_name, "common"))
+			if(!l_strcasecmp(entry->d_name, "common"))
 				continue;
-			if(!g_strcasecmp(entry->d_name, "modifiers"))
+			if(!l_strcasecmp(entry->d_name, "modifiers"))
 				continue;
 
 			gtk_list_store_append(GTK_LIST_STORE(model), &iter);
@@ -166,10 +166,10 @@ void loadKeymap(GtkListStore *model) {
 			count++;
 
 			if(SHASH("keymap") != NULL) {
-				if(!g_strcasecmp(SHASH("keymap"), entry->d_name))
+				if(!l_strcasecmp(SHASH("keymap"), entry->d_name))
 					ipath = count;
 			}
-			if(!g_strcasecmp("EN", entry->d_name))
+			if(!l_strcasecmp("EN", entry->d_name))
 				ipath_en = count;
 		}
 	}
@@ -254,7 +254,7 @@ gint saveServers(gchar *newitem) {
 		gchar *item;
 		item = g_list_nth_data(hostnames, i);
 
-		if(!g_strncasecmp(item, newitem, MAXHOSTNAMELEN))
+		if(!l_strncasecmp(item, newitem, MAXHOSTNAMELEN))
 			continue;
 
 		if(max >= MAXHOSTS)	/* store only max hosts */
@@ -345,7 +345,7 @@ gint loadOptions() {
 	/* get the current username */
 	if(SHASH("username") == NULL) {
 		g_hash_table_insert(config, "username",
-			g_strup((gchar*)g_get_user_name()));
+			g_utf8_strup((gchar*)g_get_user_name(), -1));
 	}
 
 	return(0);
@@ -413,7 +413,7 @@ gint saveOptions() {
 }
 
 gchar *screenCommand() {
-	if(!g_strcasecmp(SHASH("geometry"), _("Fullscreen"))) {
+	if(!l_strcasecmp(SHASH("geometry"), _("Fullscreen"))) {
 		return("-f ");
 	}
 

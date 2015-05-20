@@ -1,7 +1,7 @@
 /* grdesktop - gtk rdesktop frontend
- * Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>
+ * util.h - local functions to replace deprecated GLib functions
  *
- * $Id: rdpparse.h,v 1.10 2004/02/03 10:46:50 tsauter Exp $
+ * Copyright (C) 2015 - Attila K. Mergl <mergl@astron.hu>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,27 +14,18 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __RDPPARSE_H__
-#define __RDPPARSE_H__
+#ifndef __UTIL_H__
+#define __UTIL_H__
 
 
 #include "config.h"
 #include "global.h"
-#include "optbox.h"         // sig_loadbtn(), sig_savebtn()
-#include "util.h"           // l_strcasecmp()
+
+gint l_strcasecmp(gchar *str1, gchar *str2);
+gint l_strncasecmp(gchar *str1, gchar *str2, gint length);
 
 
-#define MAX_LINE_BUF 4096
-
-
-void sig_file_open(GtkWidget *widget, gpointer data);
-void sig_file_save(GtkWidget *widget, gpointer data);
-gint parse_file(gchar *filename);
-
-
-#endif /* __RDPPARSE_H__ */
-
+#endif /* __UTIL_H__ */

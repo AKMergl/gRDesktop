@@ -52,3 +52,7 @@ Revision log
 
 0.24rc9     2013-06-19  Storing RDP version to be used with the configuration
 
+0.24rc10    2015-05-20  Importing project into Anjuta
+                        Correcting commandline parameters
+                        Replacing deprecated g_str*() functions
+

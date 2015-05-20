@@ -104,7 +104,7 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 #endif
 
 	if(SHASH("geometry") != NULL) {
-		if(!g_strcasecmp(SHASH("geometry"), _("Fullscreen"))) {
+		if(!l_strcasecmp(SHASH("geometry"), _("Fullscreen"))) {
 			fprintf(file, "screen mode id:i:%d\n", 2);
 			fprintf(file, "desktopwidth:i:%d\n", 640);
 			fprintf(file, "desktopheight:i:%d\n", 480);
@@ -244,33 +244,33 @@ void parse_line(const gchar *line) {
 	g_warning("RDP: line: %s [%s -> %s]", line, items[0], items[2]);
 #endif
 
-	if(!g_strcasecmp(items[0], "username"))
+	if(!l_strcasecmp(items[0], "username"))
 		insert_option("username", items[2]);
-	else if(!g_strcasecmp(items[0], "domain"))
+	else if(!l_strcasecmp(items[0], "domain"))
 		insert_option("domain", items[2]);
-	else if(!g_strcasecmp(items[0], "alternate shell"))
+	else if(!l_strcasecmp(items[0], "alternate shell"))
 		insert_option("program", items[2]);
-	else if(!g_strcasecmp(items[0], "shell working directory"))
+	else if(!l_strcasecmp(items[0], "shell working directory"))
 		insert_option("ppath", items[2]);
-	else if(!g_strcasecmp(items[0], "full address"))
+	else if(!l_strcasecmp(items[0], "full address"))
 		insert_option("hostname", items[2]);
-	else if(!g_strcasecmp(items[0], "session bpp"))
+	else if(!l_strcasecmp(items[0], "session bpp"))
 		insert_option("colorsize", mod_color(items[2]));
-	else if(!g_strcasecmp(items[0], "bitmapcachepersistenable"))
+	else if(!l_strcasecmp(items[0], "bitmapcachepersistenable"))
 		insert_option("bitmapupd", mod_bitmapupd(items[2]));
-	else if(!g_strcasecmp(items[0], "desktopwidth"))
+	else if(!l_strcasecmp(items[0], "desktopwidth"))
 		insert_option("geometry",
 			mod_geometry(items[2], SHASH("geometry"), 'W'));
-	else if(!g_strcasecmp(items[0], "desktopheight"))
+	else if(!l_strcasecmp(items[0], "desktopheight"))
 		insert_option("geometry",
 			mod_geometry(items[2], SHASH("geometry"), 'H'));
-	else if(!g_strcasecmp(items[0], "screen mode id"))
+	else if(!l_strcasecmp(items[0], "screen mode id"))
 		insert_option("fullscreen", mod_fullscreen(items[2]));
 	/* MKA Apply stored redirect options */
-	else if (!g_strcasecmp(items[0], "redirect"))
+	else if (!l_strcasecmp(items[0], "redirect"))
 	    insert_option("redirect", items[2]);
     /* MKA Apply stored RDP version info */
-	else if (!g_strcasecmp(items[0], "version"))
+	else if (!l_strcasecmp(items[0], "version"))
 	    insert_option("rdp_protocol", mod_RDPversion(items[2]));
 	    
     else

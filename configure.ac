@@ -12,7 +12,7 @@ AC_PREREQ([2.67])
 #
 
 # AC_INIT([PackageName], [Version], [BugReportAddress], [TarName], [URL])
-AC_INIT([gRDesktop], [0.24], [-], [], [http://www.nongnu.org/grdesktop/])
+AC_INIT([gRDesktop], [0.24], [-], [], [https://github.com/AKMergl/gRDesktop])
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
@@ -20,11 +20,12 @@ MAJOR_VERSION=0
 AC_SUBST(MAJOR_VERSION)
 MINOR_VERSION=24
 AC_SUBST(MINOR_VERSION)
-MICRO_VERSION=rc9
+MICRO_VERSION=rc10
 AC_SUBST(MICRO_VERSION)
-# Overwrite the version definition from AC_INIT()
 PROG_VERSION=$MAJOR_VERSION.$MINOR_VERSION.$MICRO_VERSION
 AC_SUBST(PROG_VERSION)
+# Overwrite the version definition from AC_INIT()
+AC_DEFINE_UNQUOTED(VERSION, ["$PROG_VERSION"], [Version number of the program])
 
 AC_CONFIG_SRCDIR([src/main.c])
 AC_CONFIG_MACRO_DIR([m4/])

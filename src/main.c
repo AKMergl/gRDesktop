@@ -234,10 +234,12 @@ int main(int argc, char *argv[]) {
 }
 
 void version() {
-	printf("%s v%s\n\n", PACKAGE, VERSION);
+	printf("%s v%s\n\n", PACKAGE_NAME, VERSION);
 	printf("Copyright (C) 2002 Thorsten Sauter <tsauter@gmx.net>\n");
-	printf("This is free software; see the source for copying conditions.  There is NO\n");
-	printf("warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n");
+	printf("              2012 Attila K. Mergl <mergl@astron.hu>\n");
+	printf("This is free software; see the source for copying conditions.\n");
+	printf("There is NO warranty; not even for MERCHANTABILITY or FITNESS\n");
+	printf("FOR A PARTICULAR PURPOSE.\n");
 	exit(0);
 }
 
@@ -245,11 +247,11 @@ void usage() {
 	printf("Usage: %s [OPTION]... [FILE]\n", PACKAGE);
 	printf("  -s        connect to the specified host after startup\n");
 	printf("  -h        display this help and exit\n");
-	printf("  -v        output version information exit\n");
+	printf("  -v        output version information and exit\n");
 	printf("\n");
 	printf("File can be a valid remote desktop configuration file (rdp).\n");
-	printf("\n");
-	printf("Report bugs to <grdesktop-users@nongnu.org>.\n");
+//	printf("\n");
+//	printf("Report bugs to <grdesktop-users@nongnu.org>.\n");
 	exit(0);
 }
 

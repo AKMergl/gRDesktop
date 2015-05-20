@@ -18,8 +18,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef __CONFIG_H__
-#define __CONFIG_H__
+#ifndef __GLOBAL_H__
+#define __GLOBAL_H__
 
 
 #include <gtk/gtk.h>
@@ -133,5 +133,5 @@ GtkWidget *btn_sshopts;
 GtkWidget *entryOutput;
 
 
-#endif /* __CONFIG_H__ */
+#endif /* __GLOBAL_H__ */
 
