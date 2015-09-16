@@ -101,8 +101,10 @@ void run_rdesktop() {
 		g_warning("using ssh tunnel");
 #endif
 
-		if(!SHASH("sshhost") || strlen(SHASH("sshhost")) <= 0) {
-			gnome_error_dialog(_("No hostname for ssh tunneling available"));
+		if (!SHASH("sshhost") ||
+		    strlen(SHASH("sshhost")) <= 0) {
+			l_message_dialog(GTK_MESSAGE_ERROR,
+			                 _("No hostname for ssh tunneling available") );
 			return;
 		}
 
@@ -136,14 +138,13 @@ void run_rdesktop() {
 	loadServers();		/* make sure, we reload the available servers */
 
 	if((ret != TRUE) || (estatus != 0)) {
-		gnome_error_dialog(std_err);
+		l_message_dialog(GTK_MESSAGE_ERROR, std_err);
 		return;
 	}
 
 	/* only if the connection was successful */
 	if(saveServers(SHASH("hostname")) == 0) {
 		loadServers();
-/*		gtk_combo_set_popdown_strings(GTK_COMBO(combo_host), hostnames); */
         fill_combo_with_list(combo_host, hostnames);
 		fill_combo_with_list(combo_host2, hostnames);
 	}

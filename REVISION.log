@@ -3,13 +3,17 @@ To generate new version use the following commands:
     cd /mnt/datapart/gRDesktop
     vi configure.ac             # edit version number in M*_VERSION variables
     
-    gnome-autogen.sh
+    gnome-autogen.sh            # package gnome-common contains it
     [   aclocal
         autoconf
         autoheader
         automake
 
         ./configure ]
+
+    [intltoolize --force        # if ./configure break with the following error:
+     autoreconf                 # po/Makefile.in.in was not created by intltoolize.
+     ./configure ]
 
     make
     su
@@ -55,4 +59,9 @@ Revision log
 0.24rc10    2015-05-20  Importing project into Anjuta
                         Correcting commandline parameters
                         Replacing deprecated g_str*() functions
+
+0.24rc11    2015-09-15  Migrating software to GTK+ 3 (v3.14.5)
+                        https://developer.gnome.org/Gnome3PortingGuide/
+                        https://developer.gnome.org/gtk3/stable/gtk-migrating-2-to-3.html
+                        
 

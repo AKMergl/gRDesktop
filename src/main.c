@@ -21,12 +21,17 @@
 #include "main.h"
 
 /***** Local function prototypes **********************************************/
-int make_gui(gchar *rdpfile);
 gint delete_event(GtkWidget *widget, GdkEvent *event, gpointer data);
 void destroy(GtkWidget *widget, gpointer data);
+void make_gui(GtkApplication *app, gchar *rdpfile);
+void set_localization();
+gchar *parse_arguments(int argc, char *argv[]);
+void init_structures();
 int main(int argc, char *argv[]);
 void version();
 void usage();
+
+int OLDmain(int argc, char *argv[]);
 
 
 /***** Function definitions ***************************************************/
@@ -37,32 +42,41 @@ gint delete_event(GtkWidget *widget, GdkEvent *event, gpointer data) {
 void destroy(GtkWidget *widget, gpointer data) {
 	gconf_client_set_bool(gcfg, GCONF_BASE"/showopts",
 		iSHASH("showopts"), NULL);
-
-	gtk_main_quit();
 }
 
-int make_gui(gchar *rdpfile) {
+/* - Creating main window --------------------------------------------------- */
+void make_gui(GtkApplication *app, gchar *rdpfile) {
 	GtkWidget *winBox;
 	GtkWidget *tblBox;
 	GtkWidget *mainBox;
 	GtkWidget *imgTop;
 	GtkWidget *btnBox;
 	GdkPixbufAnimation *animation;
+	
+#ifdef _DEBUG_
+	g_warning("Entering make_gui()");
+#endif
 
-	window_main = gnome_app_new("grdesktop", _(PROGRAMNAME));
-	gtk_window_set_wmclass(GTK_WINDOW(window_main),
-		"grdesktop", "grdesktop");
+	/* Moved here from init_structures(), because it needs already initialized GDK */
+	fillScreens();
+
+	window_main = gtk_application_window_new(app);
+	
+	gtk_window_set_wmclass(GTK_WINDOW(window_main), PACKAGE, PACKAGE);
 	gtk_container_set_border_width(GTK_CONTAINER(window_main), 0);
 	gtk_window_set_resizable(GTK_WINDOW(window_main), FALSE);
 	gtk_window_set_title(GTK_WINDOW(window_main), _(PROGRAMNAME));
+	gtk_window_set_icon_from_file(GTK_WINDOW(window_main), PIXDIR"/icon.png",
+	                              NULL);
 
 	g_signal_connect(G_OBJECT(window_main), "delete_event",
 			G_CALLBACK(delete_event), NULL);
 	g_signal_connect(G_OBJECT(window_main), "destroy",
 			G_CALLBACK(destroy), NULL);
 
-	winBox = gtk_vbox_new(FALSE, 0);
-	gnome_app_set_contents(GNOME_APP(window_main), winBox);
+	winBox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+//*	gnome_app_set_contents(GNOME_APP(window_main), winBox);
+	gtk_container_add(GTK_CONTAINER(window_main), winBox);
 	gtk_widget_show(winBox);
 
 	/* display the topic image */
@@ -91,13 +105,13 @@ int make_gui(gchar *rdpfile) {
 		}
 	}
 
-	tblBox = gtk_table_new(1, 1, TRUE);
-	gtk_container_border_width(GTK_CONTAINER(tblBox), 10);
+	tblBox = gtk_grid_new();
+	gtk_container_set_border_width(GTK_CONTAINER(tblBox), 10);
 	gtk_box_pack_start(GTK_BOX(winBox), tblBox, FALSE, FALSE, FALSE);
 	gtk_widget_show(tblBox);
 
 	/* create the master box */
-	mainBox = gtk_vbox_new(FALSE, 15);
+	mainBox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 15);
 	gtk_container_add(GTK_CONTAINER(tblBox), mainBox);
 	gtk_widget_show(mainBox);
 
@@ -116,7 +130,7 @@ int make_gui(gchar *rdpfile) {
 	}
 
 	/* create the button box */
-	btnBox = button_box();
+	btnBox = button_box();  // Call into btnbox.c
 	gtk_box_pack_end(GTK_BOX(mainBox), btnBox, FALSE, FALSE, FALSE);
 	gtk_widget_show(btnBox);
 
@@ -124,7 +138,8 @@ int make_gui(gchar *rdpfile) {
 	setBHASH("showopts", !iSHASH("showopts"));
 	sig_options(NULL, NULL);
 
-	fill_dialog();		/* fill dialog elements from options */
+	/* fill dialog elements from options */
+	fill_dialog();		
 	gtk_widget_show(window_main);
 
 	if(rdpfile != NULL) {
@@ -139,12 +154,123 @@ int make_gui(gchar *rdpfile) {
 			run_rdesktop();
 		}
 	}
-
-	gtk_main();
-	return(0);
 }
 
+/* - Setting current locale ------------------------------------------------- */
+void set_localization() {
+#ifdef ENABLE_NLS
+    if(setlocale(LC_ALL, "") == NULL)
+		g_warning("locale not understood by C library, internationalization will not work\n");
+		
+#ifdef _DEBUG_
+    g_warning("NLS enabled. Default locale is %s", setlocale(LC_ALL, ""));
+    g_warning("Locale directory is: %s", LOCALEDIR);
+/*
+    setlocale(LC_ALL, "de_DE.UTF-8");
+    g_warning("Locale is set to %s", setlocale(LC_ALL, ""));
+*/
+#endif
+
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
+#endif
+}
+
+/* - Parsing command line arguments ----------------------------------------- */
+gchar *parse_arguments(int argc, char *argv[]) {
+	gint c;
+	gboolean opt_usage = FALSE;
+	gboolean opt_version = FALSE;
+	gboolean opt_start = FALSE;
+
+	while((c = getopt(argc, argv, "shv")) != -1) {
+		switch(c) {
+		case 's':
+			opt_start = TRUE;
+			break;
+		case 'v':
+			opt_version = TRUE;
+			break;
+		case 'h':
+		default:
+			opt_usage = TRUE;
+			break;
+		}
+	}
+
+	if(opt_version == TRUE) {
+		version();
+		exit(0);
+	}
+	if(opt_usage == TRUE) {
+		usage(argv[0]);
+		exit(0);
+	}
+
+	if((opt_start == TRUE) && (argv[optind] == NULL)) {
+		printf("Please give me a valid rdp file to startup!\n");
+		usage();
+		exit(1);
+	}
+
+	setBHASH("autostart", opt_start);
+	return(g_strdup(argv[optind]));
+}
+
+/* - Initializing application data ------------------------------------------ */
+void init_structures() {
+	hostnames = NULL;
+	screensize = NULL;
+	colors = NULL;
+
+	fillRdpProtocols();
+	fillColors();
+	fillSoundOptions();
+	loadOptions();
+}
+
+/* - Program main function -------------------------------------------------- */
+//   https://developer.gnome.org/gtk3/stable/gtk-getting-started.html
 int main(int argc, char *argv[]) {
+	gchar *lRDPfile;
+	GtkApplication *app;
+	gint status;
+
+	set_localization();
+
+	/* create GConf instance */
+	gconf_init(argc, argv, NULL);
+	gcfg = gconf_client_get_default();
+
+	/* create an hash, to store the config values in */
+	config = g_hash_table_new(g_str_hash, g_str_equal);
+	if(config == NULL) {
+		g_error(_("Unable to create hash to store elements!"));
+	}
+
+	lRDPfile = parse_arguments(argc, argv);
+	
+	init_structures();
+
+	app = gtk_application_new("hu.astron.gRdesktop", G_APPLICATION_FLAGS_NONE);
+	if (app == NULL) {
+		g_error("Application could not be asserted");
+	}
+	
+	g_signal_connect(app, "activate", G_CALLBACK(make_gui), lRDPfile);
+	status = g_application_run(G_APPLICATION(app), argc, argv);
+
+	g_free(lRDPfile);
+	g_object_unref(app);
+
+	return status;
+}
+
+
+int OLDmain(int argc, char *argv[]) {
+	GtkApplication *app;
+	gint status;
 	gint c;
 	gboolean opt_usage = FALSE;
 	gboolean opt_version = FALSE;
@@ -163,14 +289,20 @@ int main(int argc, char *argv[]) {
 */
 #endif
 
-	bindtextdomain(PACKAGE, LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE, "UTF-8");
-	textdomain(PACKAGE);
+	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
 #endif
 	
-	gnome_program_init("grdesktop", VERSION, LIBGNOMEUI_MODULE,
-		argc, argv, GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
-	gnome_window_icon_set_default_from_file(DATADIR"/grdesktop.png");
+//*	gnome_program_init("grdesktop", VERSION, LIBGNOMEUI_MODULE,
+//		argc, argv, GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+	app = gtk_application_new("hu.astron.gRdesktop", G_APPLICATION_FLAGS_NONE);
+//	gnome_window_icon_set_default_from_file(DATADIR"/grdesktop.png");
+
+	if (app == NULL) {
+		g_error("Application could not be asserted");
+	}
+	
 	gconf_init(argc, argv, NULL);
 	gcfg = gconf_client_get_default();
 	
@@ -225,12 +357,17 @@ int main(int argc, char *argv[]) {
 #ifdef _DEBUG_
 		g_warning("loading rdpfile: %s", argv[optind]);
 #endif
-		make_gui(argv[optind]);
+		make_gui(app, argv[optind]);
 	} else {
-		make_gui(NULL);
+		make_gui(app, NULL);
 	}
 
-	return(0);
+//3	g_signal_connect (app, "activate", G_CALLBACK(activate), NULL);
+	status = g_application_run(G_APPLICATION (app), argc, argv);
+//3	gtk_widget_destroy (window_main);
+//3	g_object_unref (app);
+
+	return(status);
 }
 
 void version() {

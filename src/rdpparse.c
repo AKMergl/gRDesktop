@@ -34,17 +34,23 @@ gchar *mod_RDPversion(const gchar *value);
 
 /***** Function definitions ***************************************************/
 
-/* - Callback function to load saved connection configuration --------------- */
+/* - Callback function to open RDP file ------------------------------------- */
+/*   (loading saved connection configuration)                                 */
 void sig_file_open(GtkWidget *widget, gpointer data) {
-	GtkFileSelection *filesel;
+	GtkFileChooser *filesel;
 	gchar *filename;
 
-	filesel = GTK_FILE_SELECTION(data);
-	filename = g_strdup(gtk_file_selection_get_filename(filesel));
+	filesel = GTK_FILE_CHOOSER(data);
+	filename = g_strdup(gtk_file_chooser_get_filename(filesel));
+	
+#ifdef _DEBUG_
+	g_warning("Chosen rdp-file: %s", filename);
+#endif
 	
 	/* Check whether selection is not a folder */
 	if(filename[strlen(filename)-1] == '/') {
-		gnome_error_dialog(_("Please select a valid rdp file!"));
+		l_message_dialog (GTK_MESSAGE_ERROR,
+		                  _("Please select a valid rdp file!"));
 		sig_loadbtn(widget, NULL);
 		return;
 	}
@@ -54,20 +60,27 @@ void sig_file_open(GtkWidget *widget, gpointer data) {
 	return;
 }
 
-/* - Callback function to save connection configuration --------------------- */
+/* - Callback function to open RDP file ------------------------------------- */
+/*   (saving connection configuration)                                        */
 void sig_file_save(GtkWidget *widget, gpointer data) {
-	GtkFileSelection *filesel;
+	GtkFileChooser *filesel;
 	FILE *file;
 	gchar *filename;
 
-	filesel = GTK_FILE_SELECTION(data);
-	filename = g_strdup(gtk_file_selection_get_filename(filesel));
+	filesel = GTK_FILE_CHOOSER(data);
+	filename = g_strdup(gtk_file_chooser_get_filename(filesel));
+	
+#ifdef _DEBUG_
+	g_warning("Chosen rdp-file: %s", filename);
+#endif
 	
 	/* Check whether selection is not a folder */
-	if(filename[strlen(filename)-1] == '/') {
-		gnome_error_dialog(_("Please select a valid rdp file!"));
-		sig_savebtn(widget, NULL);
-		return;
+	if ((filename == NULL) ||
+	    (filename[strlen(filename)-1] == '/')) {
+			l_message_dialog (GTK_MESSAGE_ERROR,
+			                  _("Please select a valid rdp file!"));
+			sig_savebtn(widget, NULL);
+			return;
 	}
 
     /* Ask user whether he wants to replace an existing configuration */
@@ -93,9 +106,10 @@ void sig_file_save(GtkWidget *widget, gpointer data) {
 
     /* Create / replace configuration file */
 	file = fopen(filename, "w");
-	if(file == NULL) {
-		gnome_error_dialog(g_strdup_printf(_("Unable to save rdp-file: %s"),
-			filename));
+	if (file == NULL) {
+		l_message_dialog(GTK_MESSAGE_ERROR, 
+		                 g_strdup_printf(_("Unable to save rdp-file: %s"),
+		                                 filename));
 		return;
 	}
 
@@ -168,24 +182,26 @@ gint parse_file(gchar *filename) {
 	gint i, ch;
 
     /* Test the file fisrt */
-	if(!g_file_test(filename, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
-		gnome_error_dialog(g_strdup_printf(_("Unable to open rdp-file: %s"),
-			filename));
+	if (!g_file_test(filename, G_FILE_TEST_EXISTS|G_FILE_TEST_IS_REGULAR)) {
+		l_message_dialog(GTK_MESSAGE_ERROR, 
+		                 g_strdup_printf(_("Unable to open rdp-file: %s"),
+		                                 filename));
 		return(1);
 	}
 
     /* Open file for read */
 	file = fopen(filename, "r");
-	if(file == NULL) {
-		gnome_error_dialog(g_strdup_printf(_("Unable to open rdp-file: %s"),
-			filename));
+	if (file == NULL) {
+		l_message_dialog(GTK_MESSAGE_ERROR, 
+		                 g_strdup_printf(_("Unable to open rdp-file: %s"),
+		                                 filename));
 		return(1);
 	}
 
-	/* determe, if we have an unicode file */
-	if(fgets(line, MAX_LINE_BUF, file) == NULL) {
+	/* determine, if we have an unicode file */
+	if (fgets(line, MAX_LINE_BUF, file) == NULL) {
 		fclose(file);
-		g_warning(_("File %s is empty!"), filename);
+		g_warning("File %s is empty!", filename);
 		return(1);
 	}
 	unicode = ((line[0] == (char)255) && (line[1] == (char)254));

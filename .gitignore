@@ -1,3 +1,8 @@
+# Backup files
+*~
+*.bak
+.*.swp
+
 # Object files
 *.o
 
@@ -16,18 +21,26 @@
 *.out
 *.app
 
+# Automatically generated files
+*.in
+intltool*
+
 *.rdp
+
+# IDE related files
+.anjuta*
+
+# Development manuals
+.DevDoc*
 
 #Imported from CVS (.cvsignore)
 .cvsignore
 ABOUT-NLS
 aclocal.m4
 autom4te.cache
-ChangeLog.bak
 config.cache
 config.guess
 config.h
-config.h.in
 config.log
 config.rpath
 config.status
@@ -37,13 +50,10 @@ configure.orig
 install-sh
 libtool
 Makefile
-Makefile.in
 missing
 mkinstalldirs
 stamp-h
-stamp-h.in
 stamp-h1
-.*.swp
 depcomp
 stamp-h1
 debian

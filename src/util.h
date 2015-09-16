@@ -26,6 +26,6 @@
 
 gint l_strcasecmp(gchar *str1, gchar *str2);
 gint l_strncasecmp(gchar *str1, gchar *str2, gint length);
-
+void l_message_dialog(GtkMessageType type, gchar *message);
 
 #endif /* __UTIL_H__ */

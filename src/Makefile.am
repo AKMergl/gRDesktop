@@ -18,18 +18,14 @@
 ## Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ##
 
-LICENSE_TEXT = @LICENSE_TEXT@
-
 bin_PROGRAMS = grdesktop
 
-INCLUDES = -I$(top_srcdir) -I$(top_builddir) \
-	-I$(top_srcdir)/intl \
-	$(GTK2_CFLAGS) $(GNOME2_CFLAGS)
-
-AM_CPPFLAGS =	-DDATADIR=\""$(datadir)"\" \
+AM_CPPFLAGS = -I$(top_srcdir) -I$(top_builddir) -I$(top_srcdir)/intl \
+	$(GTK_CFLAGS) $(GCONF_CFLAGS) \
+	 $(GNOME2_CFLAGS) \
+	-DDATADIR=\""$(datadir)"\" \
 	-DLOCALEDIR=\""$(LOCALEDIR)"\" \
-	-DKBPATH=\""$(kbpath)"\" \
-	-DLICENSE_TEXT=\""$(LICENSE_TEXT)"\"
+	-DKBPATH=\""$(kbpath)"\"
 
 grdesktop_LDFLAGS = -export-dynamic
 grdesktop_SOURCES = main.c main.h \
@@ -43,7 +39,8 @@ grdesktop_SOURCES = main.c main.h \
 	util.c util.h \
 	config.h
 
-grdesktop_LDADD = $(GTK2_LIBS) $(GNOME2_LIBS)
+grdesktop_LDADD = $(GTK_LIBS) $(GCONF_LIBS) \
+	$(GNOME2_LIBS)
 
 grdesktopdir = $(datadir)/applications
 desktop_in_files = grdesktop.desktop.in

@@ -39,11 +39,13 @@ void ssh_showbox(GtkWidget *widget, int status) {
 	GtkWidget *dlg;
 
 	dlg = gtk_dialog_new_with_buttons(_("SSH-Tunnel settings"),
-		GTK_WINDOW(window_main),
-		GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-		GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
+	                                  GTK_WINDOW(window_main),
+	                                  GTK_DIALOG_MODAL,
+	                                  _("OK"), GTK_RESPONSE_ACCEPT,
+	                                  NULL);
 
-	ssh_createdialog(GTK_DIALOG(dlg)->vbox);
+	ssh_createdialog(gtk_dialog_get_content_area(GTK_DIALOG(dlg)));
+	gtk_container_set_border_width(GTK_CONTAINER(dlg), 10);
 	ssh_updatebox(status);
 
 	gtk_dialog_run(GTK_DIALOG(dlg));
@@ -51,61 +53,50 @@ void ssh_showbox(GtkWidget *widget, int status) {
 }
 
 void ssh_createdialog(GtkWidget *widget) {
-	GtkWidget *vbox, *tbl;
-	GtkWidget *hb_user, *hb_host;
+	GtkWidget *vbox;
+	GtkWidget *tbl;
 	GtkWidget *l1, *l2;
 
-	vbox = gtk_vbox_new(FALSE, 0);
+	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 10);
 	gtk_container_add(GTK_CONTAINER(widget), vbox);
 	gtk_widget_show(vbox);
 
 	check_enablessh = gtk_check_button_new_with_label(
 		_("Enable SSH tunneling"));
-	gtk_box_pack_start(GTK_BOX(vbox), check_enablessh, FALSE, FALSE, FALSE);
+	gtk_box_pack_start(GTK_BOX(vbox), check_enablessh, FALSE, FALSE, 0);
 	g_signal_connect(G_OBJECT(GTK_CHECK_BUTTON(check_enablessh)), "toggled",
-		G_CALLBACK(sig_enablessh), NULL);
+	                 G_CALLBACK(sig_enablessh), NULL);
 	gtk_widget_show(check_enablessh);
 
-	tbl = gtk_table_new(2, 2, FALSE);
+	tbl = gtk_grid_new();
 	gtk_container_set_border_width(GTK_CONTAINER(tbl), 10);
-	gtk_box_pack_start(GTK_BOX(vbox), tbl, FALSE, TRUE, TRUE);
+	gtk_grid_set_row_spacing(GTK_GRID(tbl), 5);
+	gtk_grid_set_column_spacing(GTK_GRID(tbl), 10);
+	gtk_box_pack_start(GTK_BOX(vbox), tbl, TRUE, TRUE, 5);
 	gtk_widget_show(tbl);
 
-	hb_user = gtk_hbox_new(FALSE, 0);
-	gtk_table_attach(GTK_TABLE(tbl), hb_user, 0, 1, 0, 1,
-		GTK_FILL, GTK_SHRINK, 0, 0);
-	gtk_widget_show(hb_user);
-
 	l1 = gtk_label_new(_("Username:"));
-	gtk_box_pack_start(GTK_BOX(hb_user), l1, FALSE, FALSE, FALSE);
+	gtk_grid_attach(GTK_GRID(tbl), l1, 0, 0, 1, 1);
 	gtk_widget_show(l1);
 
 	input_user = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(input_user), 255);
-	g_signal_connect(G_OBJECT(GTK_ENTRY(input_user)), "changed",
-		G_CALLBACK(sig_sshuser), NULL);
-	gtk_table_attach(GTK_TABLE(tbl), input_user, 1, 2, 0, 1,
-		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 10, 3);
+	g_signal_connect(G_OBJECT(GTK_ENTRY(input_user)), "changed", 
+	                 G_CALLBACK(sig_sshuser), NULL);
+	gtk_grid_attach(GTK_GRID(tbl), input_user, 1, 0, 1, 1);
 	gtk_widget_show(input_user);
 
-	hb_host = gtk_hbox_new(FALSE, 0);
-	gtk_table_attach(GTK_TABLE(tbl), hb_host, 0, 1, 1, 2,
-		GTK_FILL, GTK_SHRINK, 0, 0);
-	gtk_widget_show(hb_host);
-
 	l2 = gtk_label_new(_("Hostname:"));
-	gtk_box_pack_start(GTK_BOX(hb_host), l2, FALSE, FALSE, FALSE);
+	gtk_grid_attach(GTK_GRID(tbl), l2, 0, 1, 1, 1);
 	gtk_widget_show(l2);
 
 	input_host = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(input_host), 255);
 	g_signal_connect(G_OBJECT(GTK_ENTRY(input_host)), "changed",
-		G_CALLBACK(sig_sshhost), NULL);
-	gtk_table_attach(GTK_TABLE(tbl), input_host, 1, 2, 1, 2,
-		GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL, 10, 3);
+	                 G_CALLBACK(sig_sshhost), NULL);
+	gtk_grid_attach(GTK_GRID(tbl), input_host, 1, 1, 1, 1);
 	gtk_widget_show(input_host);
-
 }
 
 void ssh_updatebox(int status) {
@@ -151,4 +142,3 @@ void sig_sshhost(GtkWidget *widget, gpointer data) {
 	if(SHASH("sshhost") == NULL)
 		g_hash_table_remove(config, "sshhost");
 }
-

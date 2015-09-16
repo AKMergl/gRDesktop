@@ -23,7 +23,7 @@
 
 
 #include <gtk/gtk.h>
-#include <gnome.h>              // _()
+#include <glib/gi18n.h>          // _()
 #include <gconf/gconf-client.h> // GConfClient
 #include <stdlib.h>
 #include <stdio.h>
@@ -70,7 +70,7 @@
 /* MKA */
 #define RDP_VERSION_OFFSET 4    /* defined RDP versions start wiht 4 */
 #define MAXSHARENAMELEN 8		/* max length of share name */
-#define _DEBUG_
+#define _DEBUG_ 1
 
 
 #define MAXHOSTS 10			/* maximum hosts to store */
@@ -93,7 +93,7 @@ GList *sound_options;
 GHashTable *config;
 GConfClient *gcfg;
 
-/* these widgets are used global */
+/* these widgets are used globally */
 GtkWidget *window_main;
 GtkWidget *image_normal;
 GtkWidget *image_process;
@@ -108,10 +108,8 @@ GtkWidget *input_username;
 GtkWidget *input_password;
 GtkWidget *input_domain;
 GtkWidget *check_savepw;
-GtkWidget *menu_rdp_proto;
-GtkObject *adj_screensize;
-GtkWidget *scroll_screensize;
-GtkWidget *geometry_label;
+GtkWidget *combo_rdp_proto;
+GtkWidget *combo_screen_size;
 GtkWidget *menu_colorsize;
 GtkWidget *image_colorsize;
 GtkWidget *tree_keymap;

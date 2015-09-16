@@ -27,10 +27,9 @@
 #include "options.h"        /* screenCommand(), colorCommand(), keymapCommand(),
                                loadServers(), saveServers(), saveOptions() */
 #include "srvsel.h"         // fill_combo_with_list()
-
+#include "util.h"           // l_message_dialog()
 
 void run_rdesktop();
-
 
 #endif /* __RUN_H__ */
 

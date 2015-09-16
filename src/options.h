@@ -25,9 +25,10 @@
 #include "config.h"
 #include "global.h"
 #include <dirent.h>         // DIR, opendir(), readdir(), closedir()
-#include "optbox.h"         /* sig_scroll(), sig_colchange(), sig_sound(),
+#include <sys/stat.h>       // stat()
+#include "optbox.h"         /* sig_screensize(), sig_colchange(), sig_sound(),
                                sig_rdp_protocol() */
-#include "util.h"           // l_strcasecmp(), l_strncasecmp()
+#include "util.h"           // l_strcasecmp(), l_strncasecmp(), l_message_dialog()
 
 void fillRdpProtocols();
 void fillScreens();

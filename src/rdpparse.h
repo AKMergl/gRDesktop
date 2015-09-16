@@ -25,7 +25,7 @@
 #include "config.h"
 #include "global.h"
 #include "optbox.h"         // sig_loadbtn(), sig_savebtn()
-#include "util.h"           // l_strcasecmp()
+#include "util.h"           // l_strcasecmp(), l_message_dialog()
 
 
 #define MAX_LINE_BUF 4096

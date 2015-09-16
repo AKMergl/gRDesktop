@@ -24,24 +24,22 @@
 
 
 /***** Function definitions ***************************************************/
+
+/* - Create server selection box (on tab) ---------------------- */
 GtkWidget *server_box() {
 	GtkWidget *box;
 	GtkWidget *caption;
 
-	box = gtk_hbox_new(FALSE, 10);
+	box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
 
 	caption = gtk_label_new(_("Computer:"));
 	gtk_label_set_justify(GTK_LABEL(caption), GTK_JUSTIFY_LEFT);
 	gtk_box_pack_start(GTK_BOX(box), caption, FALSE, TRUE, TRUE);
 	gtk_widget_show(caption);
 
-/*   TODO MKA
- *   For GTK+ >=2.24 this is the new widget. Unfortunately I have 2.20 only.
- *   combo_host2 = gtk_combo_box_text_new_with_entry(); 
- */
-    combo_host = gtk_combo_box_entry_new_text();
-	g_signal_connect(G_OBJECT(GTK_BIN(combo_host)->child), "changed",
-			G_CALLBACK(sig_selchange), NULL);
+	combo_host = gtk_combo_box_text_new_with_entry();
+	g_signal_connect(G_OBJECT(combo_host), "changed", G_CALLBACK(sig_selchange),
+	                 NULL);
 	gtk_box_pack_start(GTK_BOX(box), combo_host, TRUE, TRUE, FALSE);
 	gtk_widget_show(combo_host);
 
@@ -52,16 +50,14 @@ GtkWidget *server_box() {
 }
 
 /* - Callback function for hostname selection in a ComboBox ----------------- */
-/*   BE AWARE! The calling widget is the child Entry field -- since its
-               signal is used -- and not the parent ComboBox!                 */
 void sig_selchange(GtkWidget *widget, gpointer data) {
 	if(SHASH("hostname") != NULL) {
 		g_hash_table_replace(config, "hostname",
-            g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+            g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(widget))));
 	}
 	else {
 		g_hash_table_insert(config, "hostname",
-            g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+            g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(widget))));
     }
 
 	if(SHASH("hostname") == NULL)
@@ -81,13 +77,20 @@ void fill_combo_with_list(GtkWidget *combo, GList *textlist) {
     
     /* Add each list element to the ComboBox */
     count = g_list_length(textlist);
-    for (ii=0; ii<count; ii++) {
+#ifdef _DEBUG_
+	g_warning("Length of list to be asserted: %d", count);
+#endif
+	for (ii=0; ii<count; ii++) {
         item = g_list_nth_data(textlist, ii);
-        gtk_combo_box_append_text(GTK_COMBO_BOX(combo), item);
+        if (item != NULL) {
+#ifdef _DEBUG_
+			g_warning("List item [%d]: %s", ii, item);
+#endif
+			gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), item);
+		}
     }
     
     /* Set the first value active */
-    gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo)->child),
-        g_list_nth_data(textlist, 0));
+	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
 }
 

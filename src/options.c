@@ -23,7 +23,7 @@
 /***** Local function prototypes **********************************************/
 gint checkScreen(const gchar *geo, gint width, gint height);
 void loadRdpProtocols(GtkWidget *widget);
-void loadScreens(GtkAdjustment *widget);
+void loadScreens(GtkWidget *widget);
 void loadColors(GtkWidget *widget);
 void loadSoundOptions(GtkWidget *widget);
 
@@ -38,13 +38,16 @@ void fillRdpProtocols() {
 /* - Set RDP version to be used (from HASH table) --------------------------- */
 void loadRdpProtocols(GtkWidget *widget) {
 	if((g_list_length(rdp_protocols)-1) < iSHASH("rdp_protocol")) {
-		g_warning("Unknown RDP-Protocol: %d\n", iSHASH("rdp_protocol")+4);
+		g_warning("Unknown RDP-Protocol: %d\n", iSHASH("rdp_protocol") + RDP_VERSION_OFFSET);
 		setBHASH("rdp_protocol", 0);
 	}
 
-	gtk_option_menu_set_history(GTK_OPTION_MENU(widget), iSHASH("rdp_protocol"));
+	// Set the latest RDP version as default
+	gtk_combo_box_set_active((GtkComboBox *)combo_rdp_proto, iSHASH("rdp_protocol"));
+	
 }
 
+/* - Check for valid screen sizes ------------------------------------------- */
 void fillScreens() {
 	gint width, height;
 
@@ -84,7 +87,7 @@ gint checkScreen(const gchar *geo, gint width, gint height) {
 	return(0);
 }
 
-void loadScreens(GtkAdjustment *widget) {
+void loadScreens(GtkWidget *widget) {
 	gint i, count;
 	gboolean found;
 	gchar *item = NULL;
@@ -104,9 +107,9 @@ void loadScreens(GtkAdjustment *widget) {
 	}
 
 	if(found == TRUE)
-		gtk_adjustment_set_value(GTK_ADJUSTMENT(widget), i);
+		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), i);
 	else
-		gtk_adjustment_set_value(GTK_ADJUSTMENT(widget), 0);
+		gtk_combo_box_set_active(GTK_COMBO_BOX(widget), 0);
 }
 
 void fillColors() {
@@ -122,7 +125,7 @@ void loadColors(GtkWidget *widget) {
 		setBHASH("colorsize", 0);
 	}
 
-	gtk_option_menu_set_history(GTK_OPTION_MENU(widget), iSHASH("colorsize"));
+	gtk_combo_box_set_active(GTK_COMBO_BOX(widget), iSHASH("colorsize"));
 }
 
 void loadSoundOptions(GtkWidget *widget) {
@@ -131,7 +134,7 @@ void loadSoundOptions(GtkWidget *widget) {
 		setBHASH("sound", 0);
 	}
 
-	gtk_option_menu_set_history(GTK_OPTION_MENU(widget), iSHASH("sound"));
+	gtk_combo_box_set_active(GTK_COMBO_BOX(widget), iSHASH("sound"));
 }
 
 void loadKeymap(GtkListStore *model) {
@@ -145,9 +148,12 @@ void loadKeymap(GtkListStore *model) {
 	/* fill the list */
 	kbdir = opendir(KBPATH);
 	if(kbdir == NULL) {
-		gnome_warning_dialog(g_strdup_printf(
-			_("Unable to find keyboad definitions: %s"),
-			KBPATH));
+//		gnome_warning_dialog(g_strdup_printf(
+//			_("Unable to find keyboad definitions: %s"),
+//			KBPATH));
+		l_message_dialog(GTK_MESSAGE_WARNING, 
+		                 g_strdup_printf(_("Unable to find keyboad definitions: %s"),
+		                                 KBPATH));
 	}
 
 	if(kbdir != NULL) {
@@ -449,15 +455,19 @@ gchar *keymapCommand() {
 
 /* - Fill / update dialog with known information (from HASH table) ---------- */
 void fill_dialog() {
+	gint listID;
 	gchar *licence_path = NULL;
 	DIR *licence_dir = NULL;
+	GList *licence_list = NULL;
 
     /* -- Fill in values for 'General' tab ---------------------------------- */
 	if(SHASH("hostname") != NULL) {
-		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_host)->child),
-			SHASH("hostname"));
-		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_host2)->child),
-            SHASH("hostname"));
+#ifdef _DEBUG_
+		g_warning("Hostname to be set active: %s", SHASH("hostname"));
+#endif
+		listID = g_list_index(hostnames, SHASH("hostname"));
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_host), listID);
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_host2), listID);		                         
 	}
 
 	if(SHASH("username") != NULL)
@@ -469,12 +479,11 @@ void fill_dialog() {
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_savepw),
 		iSHASH("savepw"));
 
-	loadRdpProtocols(menu_rdp_proto);  /* Set RDP version */
-    
-
+	loadRdpProtocols(combo_rdp_proto);  /* Set RDP version */
+	
     /* -- Fill in values for 'Display' tab ---------------------------------- */
-	loadScreens(GTK_ADJUSTMENT(adj_screensize));
-	sig_scroll(GTK_WIDGET(scroll_screensize), NULL);
+	loadScreens(combo_screen_size);
+	sig_screensize(combo_screen_size, NULL);
 
 	loadColors(menu_colorsize);
 	sig_colchange(NULL, NULL);
@@ -510,7 +519,9 @@ void fill_dialog() {
 		iSHASH("usessh"));
 	gtk_widget_set_sensitive(btn_sshopts, iSHASH("usessh"));
 
-	licence_path = gnome_util_prepend_user_home(".rdesktop");
+	// TODO MKA 2015-09-02 What is this? Licenses to remote servers...
+//	licence_path = gnome_util_prepend_user_home(".rdesktop");
+	licence_path = g_strconcat(g_get_home_dir(), ".rdesktop", NULL);
 #ifdef _DEBUG_
     g_warning("Licence path: %s", licence_path);
 #endif
@@ -518,7 +529,6 @@ void fill_dialog() {
 	if(licence_dir != NULL) {
 		struct dirent *entry = NULL;
 		const gchar *prefix = "licence.";
-		GList *licence_list = NULL;
 
 		while((entry = readdir(licence_dir)) != NULL) {
 			gchar *fullname = NULL;
@@ -538,17 +548,15 @@ void fill_dialog() {
 			licence_list = g_list_append(licence_list, g_strdup(hostname));
 		}
 		closedir(licence_dir);
-		if(licence_list != NULL) {
-/*			gtk_combo_set_popdown_strings(GTK_COMBO(combo_clientname),
-				licence_list); */
+		if (licence_list != NULL) {
             fill_combo_with_list(combo_clientname, licence_list);
-
 		}
 	}
 
-	if(SHASH("clientname") != NULL) {
-		gtk_entry_set_text(GTK_ENTRY(GTK_BIN(combo_clientname)->child),
-			SHASH("clientname"));
+	if ((SHASH("clientname") != NULL) &&
+		(licence_list != NULL)) {
+			listID = g_list_index(licence_list, SHASH("clientname"));
+			gtk_combo_box_set_active(GTK_COMBO_BOX(combo_clientname), listID);
 	}
 
     /* MKA -- Fill in values for 'Redirect' tab ----------------------------- */

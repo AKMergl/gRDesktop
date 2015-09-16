@@ -1,14 +1,13 @@
 *.rdp
 *.o
+*.core
 *.orig
+*.in
+*~
 .*.swp
 .deps
 .libs
 ComboBoxMinta.c
 grdesktop
-grdesktop.core
-grdesktope
-grdesktope.core
 Makefile
-Makefile.in
 my-strings

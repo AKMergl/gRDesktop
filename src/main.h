@@ -24,6 +24,9 @@
 
 #include "config.h"
 #include "global.h"
+
+#include <locale.h>         // setlocale()
+
 #include "srvsel.h"         // server_box()
 #include "btnbox.h"         // button_box(), sig_options()
 #include "optbox.h"         // option_box()

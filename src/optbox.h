@@ -32,8 +32,7 @@
 
 GtkWidget *option_box();
 
-
-void sig_scroll(GtkWidget *widget, gpointer data);
+void sig_screensize(GtkWidget *widget, gpointer data);
 void sig_colchange(GtkWidget *widget, gpointer data);
 void sig_sound(GtkWidget *widget, gpointer data);
 void sig_rdp_protocol(GtkWidget *widget, gpointer data);
